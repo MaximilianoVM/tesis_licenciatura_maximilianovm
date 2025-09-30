@@ -64,7 +64,7 @@ especialmente cerca del centro del cúmulo. \citep{TRIFFID_observations2013}.
 Existe una variedad moderada de paquetes de 
 software (PSFMatch \citep{phil_dav_PSFMatch_95}; DANDIA \citep{Bramich_2008}; ZOGY \citep{Zackay_2016};  
 CrossConv \citep{YuanAkerlof_CrossConv_2008}.) 
-que implementan la sustracción de imágenes (optimal image subtraction?).
+que implementan técnicas de sustracción de imágenes.
 En nuestro caso, implementaremos la sustracción de imágenes directamente mediante el uso del 
 paquete ISIS \citep{Alard_1998} sobre nuestras observaciones realizadas 
 en el Observatorio Astronómico Nacional de la Sierra de San Pedro Mártir. 
@@ -88,6 +88,7 @@ Los distintos métodos difieren principalmente en su forma de modelar el kernel K
 
 \begin{itemize}
 \item En ISIS \citep{Alard_1998} el kernel $K$ es descompuesto como la suma de funciones analiticas lineales.
+        $$K(u,v) = \sum_{n}a_nK_n(u,v)$$ donde $$K_n(u,v)=e^{\frac{-(u^2+v^2)}{2\sigma_k^2}}u_iv_i$$
 \item En DANDIA \citep{Bramich_2008} el kernel $K$ es descompuesto como una malla de píxeles discretos.
 \end{itemize}
 
@@ -116,7 +117,7 @@ de flujo entre las dos imágenes.
 Definimos la Point Spread Function (PSF) como la respuesta de un sistema de cámara a 
 una fuente puntual (un impulso). 
 
-En teoría uno esperaría que la luz del círculo en la imagen estaría uniformemente 
+En teoría se espera que la luz de un círculo en la imagen estaría uniformemente 
 distribuida, pudiendo ser modelada como una función pillbox, definida como: 
 
 $$
@@ -126,17 +127,27 @@ h(x,y) = \begin{cases}
 \end{cases}
 $$
 
+Sin embargo, la energía emitida por el objeto que observamos no llega en su totalidad a nuestro detector. 
+En la práctica, intervienen una variedad de factores y la distribución de luz en el circulo difuminado no va a 
+ser constante. Debido a la difracción, aberracion del lente y 
+sensibilidad de la imagen (pixeles), la PSF aparece como una función gaussiana.
 
-Al modelar la PSF queremos saber la forma en la que un sistema óptico contribuye y 
-modifica nuestras observaciones, para después poder despreciar dichas inexactitudes 
-en la medida de lo posible para representar nuestro objeto de observación de una 
+$$
+h(x,y) = \frac{1}{2\pi\sigma^2}e^{-\frac{x^2 + y^2}{2\sigma^2}}
+$$
+
+
+Al modelar la PSF se desea saber la forma en la que un sistema óptico contribuye y 
+modifica las observaciones, permitiendo despreciar dichas inexactitudes 
+en la medida de lo posible para representar el objeto de observación de una 
 manera mas fiel. La teoría detrás de estas diferencias corresponde al comportamiento 
 de las ondas electromagnéticas y la propagación de la luz, en especifico el 
 análisis de difracción.
 
-*figura de una imagen menos la psf*
+\figura{PSF/Convolution_Illustrated_eng.png}{width=.5\textwidth}{fig:Convolution_Illustrated_eng;}%
+{ \href{https://commons.wikimedia.org/wiki/File:Convolution_Illustrated_eng.png}{Efecto de convolucion con PSF. Default007, Public domain, via Wikimedia Commons}} 
 
-Para explicarlas recurrimos al principio de Huygens-Fresnel, el cual indica que 
+Para explicarlas se recurre al principio de Huygens-Fresnel, el cual indica que 
 cada punto en un frente de onda puede ser considerado como una propia perturbación 
 secundaria, dando paso a ondas esféricas.
 
@@ -150,7 +161,7 @@ perturbaciones, donde las ondas secundarias también interfieren.
 En el caso ideal, podemos definir como imagen perfecta aquella que se ve 
 limitada únicamente por la difracción debida al sistema óptico. En este caso, 
 conocemos de forma precisa la PSF, para una apertura circular corresponde el 
-patron de Airy. Así que uno simplemente tendría que sustraer la PSF conocida 
+patron de Airy. Así que simplemente se tendría que sustraer la PSF conocida 
 de la imagen, dejando como resultado el objeto debajo.
 
 A pesar de conocer la teoría sobre el comportamiento de la luz, el problema 
@@ -161,9 +172,6 @@ Al no existir lentes perfectos, las imperfecciones y aberraciones hacen
 que el frente de onda refractado no sea esférico ideal, evitando que los 
 rayos converjan perfectamente en un punto.
 
-De esta forma, la energía emitida por el objeto que observamos no llega en su 
-totalidad a nuestro detector. La PSF aparece como una función gaussiana
-y la distribución de luz en el círculo blur no va a ser constante. 
 
 
 %-------------------------------------------------------------------
@@ -191,7 +199,7 @@ telescopio, observaciones realizadas a lo largo de más de una noche, entre otras
 
 Al procedimiento de mapear puntos de una imagen a sus correspondientes 
 puntos en otra imagen se le llama Registro de imágenes. Esta es una 
-transformación espacial (wyawahare2009image) que tiene como propósito 
+transformación espacial que tiene como propósito 
 hacer que el conjunto de observaciones coincidan en sus características 
 más generales, esto es, alinearlas al mismo sistema de referencia de 
 forma que las posiciones de cada estrella coincidan entre cada imagen. 
@@ -207,7 +215,7 @@ de los pasos subsecuentes es procurar que nuestros objetos de especial
 interés no se encuentren muy próximos a los bordes de la imagen. 
 
 Una vez elegida la imagen de referencia, se debe especificar el 
-grado del polinomio bidimensional process config/DEGREE correspondiente 
+grado del polinomio bidimensional \texttt{process\_config/DEGREE} correspondiente 
 al proceso astrométrico de remapeo. Esto implica el mapeo de cada 
 píxel de la imagen al sistema de referencia, corrigiendo desplazamientos, 
 rotaciones y otras posibles distorsiones ópticas. El polinomio se calcula 
@@ -277,6 +285,79 @@ la media ya que funciona mejor para filtrar el tipo de ruido común
 en imágenes astronómicas.
 
 Todo este proceso se realiza ejecutando \texttt{./ref.csh}
+
+%-------------------------------------------------------------------
+\section{Sustracción de imágenes}
+%-------------------------------------------------------------------
+\label{cap3:sec:sustraction}
+
+La sustracción de imágenes es un método que permite emparejar los rasgos más generales 
+de una imagen frente a otra mediante distintas técnicas. De forma que puedan ser 
+diferenciadas para detectar y medir objetos variables. 
+
+ISIS generaliza para el caso de kernels espacialmente variables sin aumentar el 
+costo computacional. Además, impone un escalado constante del flujo entre las 
+imágenes (integral del kernel constante), manteniendo una relación fija en el 
+brillo de los objetos entre las imágenes. Esto nos asegura que el brillo de los 
+objetos se mantenga proporcional en todas las imágenes y garantiza que el ajuste 
+del kernel no modifique artificialmente el flujo total.
+
+La esencia del método es encontrar un kernel de convolución K, que transforme 
+una imagen de referencia R para ajustarse a una imagen dada I.
+
+Esto se logra mediante el metodo de minimos cuadrados:
+$$ \sum_{i}([R \ast K](x_i, y_i) - I(x_i, y_i))^2 $$
+
+Donde el kernel es expresado en sus funciones base (gaussianas para ISIS)
+$$ K(u,v) = \sum_{n}a_nK_n(u,v) $$
+con 
+$$ K_n(u,v)=e^{\frac{-(u^2+v^2)}{2\sigma_k^2}}u_iv_i $$
+
+resolviendo para kernel espacialmente variable:
+$$ K(u,v) = \sum_{n}a_n(x,y)K_n(u,v) $$
+
+con los coeficientes $a_n$ siendo funciones polinomiales de $(x, y)$
+$$ a_n(x,y) = \sum_{i,j} b_{i,j} x^i y^j$$
+
+
+En el proceso de alineación del seeing entre las imágenes mediante el kernel de 
+convolución, se debe tener especial cuidado en 
+que la suma del kernel sea constante. De lo contrario, podría causar que el flujo 
+de los objetos en la imagen cambie inesperadamente. 
+
+Un escalado de flujo constante implica que, aunque las imágenes puedan tener 
+diferencias en resolución, enfoque, o ruido, se asegura que el flujo total entre 
+las imágenes sea proporcional. Esto permite una comparación más directa.
+
+Se impone entonces la restricción de que el flujo total de la imagen no cambie después 
+de la transformación. Esto se puede hacer mediante multiplicadores de Lagrange, 
+sin embargo resultaría computacionalmente costoso. Es por eso que se opta por  
+rediseñar la base de los vectores que forman el kernel (ec. *). 
+
+
+Separamos un vector base especial $K_0$ que controla el flujo total, de otros 
+vectores $K_n'$ encargados de afectar la forma de la transformación, más que 
+actuar sobre el brillo y flujo.
+
+%-------------------------------------------------------------------
+\section{Detección de variables}
+
+Sin embargo, estos residuos pueden tener su origen debido a una variedad de factores 
+no necesariamente astronómicos (pequeños fallos de alineamiento, estrellas saturadas 
+o ajuste deficiente de la PSF). Para tener mejor oportunidad de identificar las 
+variaciones de nuestro interés, generamos una imagen de medias de diferencias 
+(abs.fits o var.fits) donde cada pixel es la mediana del conjunto correspondiente 
+de píxeles en cada una de las imágenes de diferencia. De esta forma se reduce 
+la influencia de errores sistemáticos, minimizando falsos positivos causados 
+por fluctuaciones no astronómicas.
+
+for pixel in fits: mediana(dif1.fits, dif2.fits, ?, dif_n.fits)
+
+
+%-------------------------------------------------------------------
+\section{Fotometría y curvas de luz}
+%-------------------------------------------------------------------
+\label{cap3:sec:fotometria}
 
 
 %-------------------------------------------------------------------
