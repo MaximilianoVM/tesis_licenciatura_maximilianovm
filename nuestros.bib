@@ -1,0 +1,230 @@
+@phdthesis{GomezMartinMA2008PhD,
+   Author = {G\'{o}mez-Mart\'{i}n, Marco Antonio},
+   Title = {Arquitectura y metodolog�a para el desarrollo de sistemas educativos basados en videojuegos},
+   School = {Universidad Complutense de Madrid},
+   Type = {PhD},
+   Year = {2008}
+}
+
+@phdthesis{GomezMartinPP2008PhD,
+   Author = {G\'{o}mez-Mart\'{i}n, Pedro Pablo},
+   Title = {Modelo de ense�anza basado en casos: de los tutores inteligentes a los videojuegos},
+   School = {Universidad Complutense de Madrid},
+   Type = {PhD},
+   Year = {2008}
+}
+
+@Article{CCLatex,
+  author = 	 {G\'{o}mez-Mart\'{i}n, Marco Antonio and G\'{o}mez-Mart\'{i}n, Pedro Pablo},
+  title = 	 {Continuous Integration in {\LaTeX}},
+  journal = 	 {The Prac\TeX\ Journal},
+  volume = {\em In Press.},
+  year = 	 2009,
+}
+
+% ============= LIBROS - VARIABLES =============
+@Book{astroPhot,
+  author =	 {Chr. Sterken, J. Manfroid},
+  title =	 {Astronomical Photometry, A Guide},
+  publisher = 	 {Astronomical Photometry},
+  year = 	 {1992},
+  webpage = {https://link.springer.com/book/10.1007/978-94-011-2476-8#bibliographic-information},
+  lastaccess = {Agosto, 2024},
+}
+
+@inbook{pulStars,
+   author = {John Wiley and Sons, Ltd},
+   publisher = {John Wiley and Sons, Ltd},
+   isbn = {9783527655182},
+   title = {Historical Overview},
+   booktitle = {Pulsating Stars},
+   chapter = {1},
+   pages = {1-10},
+   doi = {https://doi.org/10.1002/9783527655182.ch1},
+   url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/9783527655182.ch1},
+   eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/9783527655182.ch1},
+   year = {2015},
+   keywords = {Cepheids, Mira variables, pulsating variable stars, RR Lyrae variables, stellar variability},
+   abstract = {Summary This historical overview presents insights into the discovery of the first pulsating variable stars and the recognition of pulsation as a cause of variability. Fabricius's new star was only of the third magnitude, far less brilliant than Tycho's supernova, but nonetheless easily visible to the unaided eye. First seen in August 1572, by October the star had faded below naked-eye visibility. By the early twentieth century, numerous examples of stars that we should today class as RR Lyrae variables, Mira variables, and Cepheids had been discovered. The chapter presents a list of the earliest discovered variable stars and their discovery dates. Despite the very different light curves of Algol and Cepheid stars, the radial velocity argument in favor of binarity seemed persuasive to many. Shapley argued that the Cepheids were giant stars and their radii exceeded the calculated sizes of the orbits in the supposed binary systems.}
+}
+
+
+% ============= CAP. FOTOMETRIA CCD =============
+
+@Wikipedia{ccd-luminosidad,
+   author     = {Jasem Mutlaq},
+   title      = {{Luminosidad}},
+   wpentry    = {KDE Documentation},
+   language   = {es},
+   webpage    = {https://docs.kde.org/trunk5/es/kstars/kstars/ai-luminosity.html},
+   lastaccess = {Septiembre, 2024},
+}
+
+@Wikipedia{ccd-cumbres-photo,
+   author     = {Las Cumbres, Observatory},
+   title      = {{Photometry and CCDs}},
+   wpentry    = {Introduction to Photometry},
+   language   = {en},
+   webpage    = {https://lco.global/spacebook/telescopes/what-is-photometry/},
+   lastaccess = {septiembre, 2024},
+}
+
+% ============= CAP. EDO ARTE =============
+
+@article{Albrow_2025,
+doi = {10.3847/1538-3881/adc9a1},
+url = {https://doi.org/10.3847/1538-3881/adc9a1},
+year = {2025},
+month = {may},
+publisher = {The American Astronomical Society},
+volume = {169},
+number = {6},
+pages = {297},
+author = {Albrow, Michael D.},
+title = {Dazzle: Oversampled Image Reconstruction and Difference-imaging Photometry for the Nancy Grace Roman Space Telescope},
+journal = {The Astronomical Journal},
+abstract = {We present algorithms and software for constructing high-precision difference images to detect and measure transients, such as microlensing events, in crowded stellar fields using the Nancy Grace Roman Space Telescope. Our method generates difference images by subtracting an oversampled reference image, with iterative masking to address outlier pixels. We also provide an analytic correction for small dither offset errors. Microlensing detection is achieved through a three-dimensional matched-filtering technique, optimized with Gaussian kernels to capture varying event durations, and verified through synthetic tests with high recovery rates. Transient photometry is performed via PSF fitting on difference images, using Nelder–Mead optimization for subpixel accuracy. The software, Dazzle, is available as an open-source Python package built on widely used libraries, offering accessible tools for the detection and characterization of transient phenomena in crowded fields.}
+}
+
+@article{Angulo_2025,
+doi = {10.3847/1538-4365/adf05b},
+url = {https://doi.org/10.3847/1538-4365/adf05b},
+year = {2025},
+month = {sep},
+publisher = {The American Astronomical Society},
+volume = {280},
+number = {1},
+pages = {29},
+author = {Angulo, Rodrigo and Rest, Armin and Blair, William P. and Jencson, Jacob and Coulter, David A. and Wang, Qinan and Foley, Ryan J. and Kilpatrick, Charles D. and Li, Xiaolong and Piro, Anthony L. and Rojas-Bravo, César},
+title = {Optimizing Convolution Direction and Template Selection for Difference Image Analysis},
+journal = {The Astrophysical Journal Supplement Series},
+abstract = {Difference image analysis (DIA) is a powerful tool for studying time-variable phenomena, and has been used by many time-domain surveys. Most DIA algorithms involve matching the spatially varying point-spread function shape between science and template images, and then convolving that shape in one image to match the other. The wrong choice of which image to convolve can introduce one of the largest sources of artifacts in the final difference image. We introduce a quantitative metric to determine the optimal convolution direction that depends not only on the sharpness of the images measured by their FWHM, but also on their exposure depths. With this metric, the optimal convolution direction can be determined a priori, depending only on the FWHM and depth of the images. This not only simplifies the process, but also makes it more robust and less prone to creating suboptimal difference images due to the wrong choice of the convolution direction. As an additional benefit, for a large set of images, we define a Figure-of-Merit based on this metric, which allows us to rank a list of images and determine the ones best suited to be used as templates, thus streamlining and automating the data reduction process.}
+}
+
+@article{Chambers_2016,
+doi = {10.48550/arXiv.1612.05560},
+url = {https://doi.org/10.48550/arXiv.1612.05560},
+year = {2016},
+month = {dec},
+publisher = {arXiv},
+author = {Chambers, K. C. and Magnier, E. A. and Metcalfe, N. and Flewelling, H. A. and Huber, M. E. and Waters, C. Z. and Denneau, L. and Draper, P. W. and Farrow, D. and Finkbeiner, D. P. and Holmberg, C. and Koppenhoefer, J. and Price, P. A. and Rest, A. and Saglia, R. P. and Schlafly, E. F. and Smartt, S. J. and Sweeney, W. and Wainscoat, R. J. and Burgett, W. S. and others},
+title = {The Pan-STARRS1 Surveys},
+journal = {arXiv e-prints},
+abstract = {Pan-STARRS1 has carried out a set of distinct synoptic imaging sky surveys including the 3π Steradian Survey and the Medium Deep Survey in 5 bands (grizyP1). The mean 5σ point source limiting sensitivities in the stacked 3π Steradian Survey in grizyP1 are (23.3, 23.2, 23.1, 22.3, 21.4) respectively. The upper bound on the systematic uncertainty in the photometric calibration across the sky is 7-12 millimag depending on the bandpass. The systematic uncertainty of the astrometric calibration using the Gaia frame comes from a comparison of the results with Gaia: the standard deviation of the mean and median residuals (Δra, Δdec) are (2.3, 1.7) milliarcsec, and (3.1, 4.8) milliarcsec respectively. The Pan-STARRS system and the design of the PS1 surveys are described and an overview of the resulting image and catalog data products and their basic characteristics are described together with a summary of important results. The images, reduced data products, and derived data products from the Pan-STARRS1 surveys are available to the community from the Mikulski Archive for Space Telescopes (MAST) at STScI.}
+}
+
+@article{Bellm_2019,
+doi = {10.1088/1538-3873/aaecbe},
+url = {https://doi.org/10.1088/1538-3873/aaecbe},
+year = {2018},
+month = {dec},
+publisher = {The Astronomical Society of the Pacific},
+volume = {131},
+number = {995},
+pages = {018002},
+author = {Bellm, Eric C. and Kulkarni, Shrinivas R. and Graham, Matthew J. and Dekany, Richard and Smith, Roger M. and Riddle, Reed and Masci, Frank J. and Helou, George and Prince, Thomas A. and Adams, Scott M. and Barbarino, C. and Barlow, Tom and Bauer, James and Beck, Ron and Belicki, Justin and Biswas, Rahul and Blagorodnova, Nadejda and Bodewits, Dennis and Bolin, Bryce and Brinnel, Valery and Brooke, Tim and Bue, Brian and Bulla, Mattia and Burruss, Rick and Cenko, S. Bradley and Chang, Chan-Kao and Connolly, Andrew and Coughlin, Michael and Cromer, John and Cunningham, Virginia and De, Kishalay and Delacroix, Alex and Desai, Vandana and Duev, Dmitry A. and Eadie, Gwendolyn and Farnham, Tony L. and Feeney, Michael and Feindt, Ulrich and Flynn, David and Franckowiak, Anna and Frederick, S. and Fremling, C. and Gal-Yam, Avishay and Gezari, Suvi and Giomi, Matteo and Goldstein, Daniel A. and Golkhou, V. Zach and Goobar, Ariel and Groom, Steven and Hacopians, Eugean and Hale, David and Henning, John and Ho, Anna Y. Q. and Hover, David and Howell, Justin and Hung, Tiara and Huppenkothen, Daniela and Imel, David and Ip, Wing-Huen and Ivezić, Željko and Jackson, Edward and Jones, Lynne and Juric, Mario and Kasliwal, Mansi M. and Kaspi, S. and Kaye, Stephen and Kelley, Michael S. P. and Kowalski, Marek and Kramer, Emily and Kupfer, Thomas and Landry, Walter and Laher, Russ R. and Lee, Chien-De and Lin, Hsing Wen and Lin, Zhong-Yi and Lunnan, Ragnhild and Giomi, Matteo and Mahabal, Ashish and Mao, Peter and Miller, Adam A. and Monkewitz, Serge and Murphy, Patrick and Ngeow, Chow-Choong and Nordin, Jakob and Nugent, Peter and Ofek, Eran and Patterson, Maria T. and Penprase, Bryan and Porter, Michael and Rauch, Ludwig and Rebbapragada, Umaa and Reiley, Dan and Rigault, Mickael and Rodriguez, Hector and Roestel, Jan van and Rusholme, Ben and Santen, Jakob van and Schulze, S. and Shupe, David L. and Singer, Leo P. and Soumagnac, Maayane T. and Stein, Robert and Surace, Jason and Sollerman, Jesper and Szkody, Paula and Taddia, F. and Terek, Scott and Van Sistine, Angela and van Velzen, Sjoert and Vestrand, W. Thomas and Walters, Richard and Ward, Charlotte and Ye, Quan-Zhi and Yu, Po-Chieh and Yan, Lin and Zolkower, Jeffry},
+title = {The Zwicky Transient Facility: System Overview, Performance, and First Results},
+journal = {Publications of the Astronomical Society of the Pacific},
+abstract = {The Zwicky Transient Facility (ZTF) is a new optical time-domain survey that uses the Palomar 48 inch Schmidt telescope. A custom-built wide-field camera provides a 47 deg2 field of view and 8 s readout time, yielding more than an order of magnitude improvement in survey speed relative to its predecessor survey, the Palomar Transient Factory. We describe the design and implementation of the camera and observing system. The ZTF data system at the Infrared Processing and Analysis Center provides near-real-time reduction to identify moving and varying objects. We outline the analysis pipelines, data products, and associated archive. Finally, we present on-sky performance analysis and first scientific results from commissioning and the early survey. ZTF’s public alert stream will serve as a useful precursor for that of the Large Synoptic Survey Telescope.}
+}
+
+@article{Tonry_2018,
+doi = {10.1088/1538-3873/aabadf},
+url = {https://doi.org/10.1088/1538-3873/aabadf},
+year = {2018},
+month = {may},
+publisher = {The Astronomical Society of the Pacific},
+volume = {130},
+number = {988},
+pages = {064505},
+author = {Tonry, J. L. and Denneau, L. and Heinze, A. N. and Stalder, B. and Smith, K. W. and Smartt, S. J. and Stubbs, C. W. and Weiland, H. J. and Rest, A.},
+title = {ATLAS: A High-cadence All-sky Survey System},
+journal = {Publications of the Astronomical Society of the Pacific},
+abstract = {Technology has advanced to the point that it is possible to image the entire sky every night and process the data in real time. The sky is hardly static: many interesting phenomena occur, including variable stationary objects such as stars or QSOs, transient stationary objects such as supernovae or M dwarf flares, and moving objects such as asteroids and the stars themselves. Funded by NASA, we have designed and built a sky survey system for the purpose of finding dangerous near-Earth asteroids (NEAs). This system, the “Asteroid Terrestrial-impact Last Alert System” (ATLAS), has been optimized to produce the best survey capability per unit cost, and therefore is an efficient and competitive system for finding potentially hazardous asteroids (PHAs) but also for tracking variables and finding transients. While carrying out its NASA mission, ATLAS now discovers more bright (m &lt; 19) supernovae candidates than any ground based survey, frequently detecting very young explosions due to its 2 day cadence. ATLAS discovered the afterglow of a gamma-ray burst independent of the high energy trigger and has released a variable star catalog of 5 × 106 sources. This is the first of a series of articles describing ATLAS, devoted to the design and performance of the ATLAS system. Subsequent articles will describe in more detail the software, the survey strategy, ATLAS-derived NEA population statistics, transient detections, and the first data release of variable stars and transient light curves.}
+}
+
+@inproceedings{Phillips_1995,
+year = {1995},
+publisher = {Astronomical Society of the Pacific},
+volume = {77},
+booktitle = {Astronomical Data Analysis Software and Systems IV},
+editor = {Shaw, R. A. and Payne, H. E. and Hayes, J. J. E.},
+series = {Astronomical Society of the Pacific Conference Series},
+author = {Phillips, A. C. and Davis, L. E.},
+title = {Astronomical Data Analysis Software and Systems IV},
+pages = {297}
+}
+
+@article{Tomaney_1996,
+doi = {10.1086/118228},
+url = {https://doi.org/10.1086/118228},
+year = {1996},
+month = {dec},
+publisher = {The American Astronomical Society},
+volume = {112},
+number = {6},
+pages = {2872--2895},
+author = {Tomaney, Austin B. and Crotts, Arlin P. S.},
+title = {Expanding the Realm of Microlensing Surveys with Difference Image Photometry},
+journal = {The Astronomical Journal},
+abstract = {We present a new technique for monitoring microlensing activity even in highly crowded fields, and use this technique to place limits on low-mass MACHOs in the haloes of M31 and the Galaxy. Unlike present Galactic microlensing surveys, we employ a technique in which a large fraction of the stellar sample is compressed into a single CCD field, rather than spread out in a way requiring many different telescope pointings. We implement the suggestion by Crotts (1992) that crowded fields can be monitored by searching for changes in flux of variable objects by subtracting images of the same field, taken in time sequence, positionally registered, photometrically normalized, then subtracted from one another. The measurement of changes in flux determined in this way we dub "difference image photometry".}
+}
+
+@article{Kochanski_1996,
+doi = {10.1086/117889},
+url = {https://doi.org/10.1086/117889},
+year = {1996},
+month = {apr},
+publisher = {The American Astronomical Society},
+volume = {111},
+number = {4},
+pages = {1444--1454},
+author = {Kochanski, Greg P. and Tyson, J. Anthony and Fischer, Philippe},
+title = {Flickering Faint Galaxies: Few and Far Between},
+journal = {The Astronomical Journal},
+abstract = {Optical variability in galaxies at high redshift is a tracer of evolution in AGN activity, and should provide a useful constraint on models of galaxy evolution, AGN structure, and cosmology. We studied optical variability in multiple deep CCD and photographic surveys of blank fields for galaxies with B_j = 20–25 mag. Weakly variable objects are far more common than strongly variable ones. For objects near B_j = 22, 0.74% ± 0.2% vary by 0.026 mag rms or more, over a decade. This is small compared with previous claims based on photographic surveys, and also small compared with the fraction of bright quasars (5% at B_j = 20 mag) or Seyferts (~1%–2% for B_j < 18). The fraction of objects that vary increases slowly with magnitude. Detection probabilities and error rates were checked by simulations and statistical analysis of fluctuations of sample sky spots.}
+}
+
+@misc{Becker_hotpants_2015,
+author = {Becker, Andrew},
+title = {HOTPANTS: High Order Transform of PSF ANd Template Subtraction},
+howpublished = {Astrophysics Source Code Library, record ascl:1504.004},
+year = {2015},
+month = {apr},
+url = {https://github.com/acbecker/hotpants},
+note = {ASCL ID: ascl:1504.004, Bibcode: 2015ascl.soft04004B},
+abstract = {HOTPANTS implements the Alard (1999) algorithm for image subtraction. It photometrically aligns one input image with another after they have been astrometrically aligned.}
+}
+
+# article{Zackay_2016} ya esta en sustraccion.bib
+
+
+@article{Hu_2022,
+doi = {10.3847/1538-4357/ac7394},
+url = {https://doi.org/10.3847/1538-4357/ac7394},
+year = {2022},
+month = {sep},
+publisher = {The American Astronomical Society},
+volume = {936},
+number = {2},
+pages = {157},
+author = {Hu, Lei and Wang, Lifan and Chen, Xingzhuo and Yang, Jiawen},
+title = {Image Subtraction in Fourier Space},
+journal = {The Astrophysical Journal},
+abstract = {Image subtraction is essential for transient detection in time-domain astronomy. The point-spread function (PSF), photometric scaling, and sky background generally vary with time and across the field of view for imaging data taken with ground-based optical telescopes. Image subtraction algorithms need to match these variations for the detection of flux variability. An algorithm that can be fully parallelized is highly desirable for future time-domain surveys. Here we introduce the saccadic fast Fourier transform (SFFT) algorithm we developed for image differencing. SFFT uses a δ-function basis for kernel decomposition, and the image subtraction is performed in Fourier space. This brings about a remarkable improvement in computational performance of about an order of magnitude compared to other published image subtraction codes. SFFT can accommodate the spatial variations in wide-field imaging data, including PSF, photometric scaling, and sky background. However, the flexibility of the δ-function basis may also make it more prone to overfitting. The algorithm has been tested extensively on real astronomical data taken by a variety of telescopes. Moreover, the SFFT code allows for the spatial variations of the PSF and sky background to be fitted by spline functions.}
+}
+
+@article{Gu_2025,
+doi = {10.1088/1674-4527/adc790},
+url = {https://doi.org/10.1088/1674-4527/adc790},
+year = {2025},
+month = {may},
+publisher = {National Astromonical Observatories, CAS and IOP Publishing},
+volume = {25},
+number = {4},
+pages = {044007},
+author = {Gu, Hongrui and Huang, Yang and Sun, Yongkang and Xiao, Kai and Li, Zhirui and Wang, Beichuan and Fan, Zhou and Zheng, Chuanjie and Han, Henggeng and Zou, Hu and Li, Wenxiong and Wu, Hong and Liu, Jifeng},
+title = {The Mini-SiTian Array: the Mini-SiTian Real-time Image Processing Pipeline (STRIP)},
+journal = {Research in Astronomy and Astrophysics},
+abstract = {This paper provides a comprehensive introduction to the mini-SiTian Real-time Image Processing pipeline (STRIP) and evaluates its operational performance. The STRIP pipeline is specifically designed for real-time alert triggering and light curve generation for transient sources. By applying the STRIP pipeline to both simulated and real observational data of the Mini-SiTian survey, it successfully identified various types of variable sources, including stellar flares, supernovae, variable stars, and asteroids, while meeting requirements of reduction speed within 5 minutes. For the real observational data set, the pipeline detected one flare event, 127 variable stars, and 14 asteroids from three monitored sky regions. Additionally, two data sets were generated: one, a real-bogus training data set comprising 218,818 training samples, and the other, a variable star light curve data set with 421 instances. These data sets will be used to train machine learning algorithms, which are planned for future integration into STRIP.}
+}

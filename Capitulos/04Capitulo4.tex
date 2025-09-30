@@ -1,0 +1,171 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 4
+%
+%---------------------------------------------------------------------
+
+\chapter{Desarrollos e implementaciones recientes en técnicas de sustracción de imágenes}
+\label{cap4}
+
+\begin{FraseCelebre}
+\begin{Frase}
+%  weon \\
+%  que chotas
+\end{Frase}
+\begin{Fuente}
+\end{Fuente}
+\end{FraseCelebre}
+
+%\begin{resumen}
+%...
+%\end{resumen}
+
+
+%-------------------------------------------------------------------
+\section{Sustracción de imágenes para telescopios espaciales.}
+%-------------------------------------------------------------------
+\label{cap4:sec:telescopios_espaciales}
+
+El artículo de \citet{Albrow_2025} presenta una metodología para la construcción de la imagen de 
+referencia en una aplicación de la técnica de sustracción de imágenes tomadas 
+desde telescopios espaciales. El algoritmo se presenta con el objetivo de 
+facilitar la detección y la medición fotométrica de eventos transitorios, 
+con un énfasis específico en los eventos de microlente gravitacional en campos 
+estelares densamente poblados, utilizando el Telescopio Espacial Nancy Grace Roman. 
+
+En las observaciones de objetos variables desde tierra, la PSF está dominada 
+por condiciones atmosféricas variables, de forma que el desafío se reduce a 
+calcular un kernel K que minimice los residuos en la imagen de diferencia D. 
+Las observaciones de series temporales desde tierra traen consigo un sobremuestreo 
+espacial de la PSF (cada estrella ocupa varios pixeles ~2.5 en fwhm) lo que 
+nos da suficiente información para modelar la psf. 
+
+En contraste, las observaciones de de objetos variables desde telescopios 
+espaciales presentan una PSF constante a través del tiempo. Si bien se 
+obtienen imágenes mucho más consistentes debido a la ausencia de fenómenos 
+atmosféricos, nos encontramos con un submuestreo espacial de la PSF. 
+Este sub-muestreo complica su modelado al contar con menos información. 
+Para contrarrestar esta falta de ángulos de la estrella, se toman imágenes 
+con textit{dithers}, que son desplazamientos intencionales en fracciones de pixel. 
+Con varias posiciones distintas, puedes reconstruir la distribución real 
+de la PSF con mucha más fidelidad.
+
+Para la construcción de la imagen de referencia, el método requiere 
+idealmente alrededor de 25 imágenes según la teoría. Sin embargo, 
+en la práctica se llega a la conclusión de que una imagen de 
+referencia de buena calidad se logra con alrededor de 75 imágenes.
+
+%-------------------------------------------------------------------
+\section{Optimización de la imagen de referencia y dirección de sustracción.}
+%-------------------------------------------------------------------
+\label{cap4:sec:direccion_sustraccion}
+
+Al emparejar la PSF de dos imágenes, es necesario decidir cuál imagen será 
+convolucionada para hacerla coincidir con la otra. En su artículo 
+\citet{Angulo_2025} Desarrolla una métrica para la elección óptima de 
+la dirección de sustracción. 
+
+Dicha métrica permite evaluar la calidad de las mejores imágenes y 
+una correcta elección para la imagen de referencia a priori, la cual 
+depende únicamente del FWHM y profundidad de las imágenes. Una elección 
+incorrecta de la imagen a convolucionar representa una de las mayores 
+fuentes de artefactos en la imagen final de diferencia. 
+El \textit{depth} $m_{5\sigma}$ se define como la magnitud de las fuentes 
+puntuales para las cuales las cuentas efectivas poseen un signal-to-noise (S/N) de 5. 
+De forma que una imagen de mayor profundidad es aquella con un mayor (tenue) 
+valor de $m_{5\sigma}$. Nótese que el valor de $m_{5\sigma}$ se ve 
+afectado tanto por el tiempo de exposición como por las condiciones 
+fotométricas de la noche de observación.
+
+El desarrollo de una métrica confiable para elegir correctamente la 
+dirección de sustracción da lugar a procesos de automatización más 
+confiables y a una herramienta invaluable para el proceso más tedioso 
+de la sustracción de imágenes y que más requiere de intervención humana 
+experimentada: la selección de la imagen de referencia.
+
+La implementación DIA de ISIS construye la imagen de referencia 
+apilando las imágenes de mejor calidad. Dichas imágenes fueron 
+elegidas de forma similar a lo propuesto en este artículo, aunque 
+usando como parámetro principal el FWHM y dejando en segundo plano 
+la importancia del \textit{depth}.
+
+
+%-------------------------------------------------------------------
+\section{Pipeline de procesamiento en tiempo real.}
+%-------------------------------------------------------------------
+\label{cap4:sec:pipeline_dia}
+
+\citet{Gu_2025} detallan el desarrollo de un pipeline para el procesamiento en 
+tiempo real de imágenes tomadas desde los telescopios del proyecto 
+SiTian, propuesto y guiado por National Astronomical
+ Observatories, Chinese Academy of Sciences (NAOC) que consiste 
+ en un survey a gran escala usando alrededor de 60 telescopios 
+ repartidos en distintos sitios de observación en China, permitiendo 
+ observaciones de todo el hemisferio norte nocturno. Preliminarmente 
+ se trabaja con el Mini-SiTian project, el cual consiste en tres 
+ telescopios de 30 cm, simulando un único nodo del proyecto entero 
+ sobre el cual se pone a prueba el pipeline. 
+
+El objetivo principal del pipeline es la identificación oportuna 
+de eventos transientes, de forma que este emita una alerta para 
+que otros telescopios más especializados apunten a dicho campo 
+desde las etapas más tempranas del fenómeno para capturar 
+información crucial.
+
+El proyecto SiTian surge debido a las limitaciones de detección 
+oportuna para eventos de corta duración de este tipo. Los 
+problemas con los que se encuentran la mayoría de surveys es 
+que, al contar con telescopios de campo amplio y alta cadencia, 
+tienen un límite de magnitud poco profundo debido a sus cortos 
+periodos de exposición y no alcanzan a capturar fuentes débiles.
+ A su vez, los telescopios grandes multicolor a pesar de tener 
+ buena profundidad, requieren de mayores tiempos de exposicion, 
+ lo que se traduce en una cadencia insuficiente para observar 
+ eventos de corta duración o donde cada instante de tiempo es 
+ crucial, en especial el seguimiento desde los primeros estallidos. 
+
+SiTian posee la capacidad de capturar imagenes en tres colores 
+de forma simultanea en una profundidad de hasta 21 magnitudes 
+cada media hora. Lo cual ofrece una mejor oportunidad de estudiar 
+eventos transcientes de naturaleza corta y tenue.
+
+Algo que caracteriza al pipeline y es de nuestro interés es
+ la construcción de su imagen de referencia, lo cual es 
+ también origen de su primer complicación. Al ser construida
+ sobre la marcha, las primeras versiones de la imagen de 
+ referencia no serán necesariamente las mejores ya que no
+ existe una variedad de imagenes para filtrar de las cuales elegir. 
+ Esto da como resultado una detección pobre de eventos transcientes,
+ debidos en su mayoría a errores y falsos positivos cuyo origen 
+ viene directamente del proceso de sustracción.
+
+
+%-------------------------------------------------------------------
+%\section*{\NotasBibliograficas}
+%-------------------------------------------------------------------
+%\TocNotasBibliograficas
+
+%Citamos algo para que aparezca en la bibliografía\ldots
+%\citep{ldesc2e}
+
+%\medskip
+
+%Y también ponemos el acrónimo \ac{CVS} para que no cruja.
+
+%Ten en cuenta que si no quieres acrónimos (o no quieres que te falle la compilación en ``release'' mientras no tengas ninguno) basta con que no definas la constante \verb+\acronimosEnRelease+ (en \texttt{config.tex}).
+
+
+%-------------------------------------------------------------------
+%\section*{\ProximoCapitulo}
+%-------------------------------------------------------------------
+%\TocProximoCapitulo
+
+...
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

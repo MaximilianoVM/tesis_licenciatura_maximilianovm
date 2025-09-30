@@ -1,0 +1,275 @@
+\begin{thebibliography}{32}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Alard y Lupton(1998)}]{Alard_1998}
+{\sc Alard, C.} y {\sc Lupton, R.~H.}
+\newblock A method for optimal image subtraction.
+\newblock {\em The Astrophysical Journal\/}, vol. 503(1), p\'agina 325, 1998.
+
+\bibitem[{{Alard, C.}(2000)}]{Alard_2000}
+{\sc {Alard, C.}}
+\newblock Image subtraction using a space-varying kernel.
+\newblock {\em Astron. Astrophys. Suppl. Ser.\/}, vol. 144(2), p\'aginas
+  363--370, 2000.
+
+\bibitem[{Albrow(2025)}]{Albrow_2025}
+{\sc Albrow, M.~D.}
+\newblock Dazzle: Oversampled image reconstruction and difference-imaging
+  photometry for the nancy grace roman space telescope.
+\newblock {\em The Astronomical Journal\/}, vol. 169(6), p\'agina 297, 2025.
+
+\bibitem[{Angulo et\ al.(2025)Angulo, Rest, Blair, Jencson, Coulter, Wang,
+  Foley, Kilpatrick, Li, Piro y Rojas-Bravo}]{Angulo_2025}
+{\sc Angulo, R.}, {\sc Rest, A.}, {\sc Blair, W.~P.}, {\sc Jencson, J.}, {\sc
+  Coulter, D.~A.}, {\sc Wang, Q.}, {\sc Foley, R.~J.}, {\sc Kilpatrick, C.~D.},
+  {\sc Li, X.}, {\sc Piro, A.~L.} y {\sc Rojas-Bravo, C.}
+\newblock Optimizing convolution direction and template selection for
+  difference image analysis.
+\newblock {\em The Astrophysical Journal Supplement Series\/}, vol. 280(1),
+  p\'agina\ 29, 2025.
+
+\bibitem[{Becker(2015)}]{Becker_hotpants_2015}
+{\sc Becker, A.}
+\newblock Hotpants: High order transform of psf and template subtraction.
+\newblock Astrophysics Source Code Library, record ascl:1504.004, 2015.
+\newblock ASCL ID: ascl:1504.004, Bibcode: 2015ascl.soft04004B.
+
+\bibitem[{Bellm et\ al.(2018)Bellm, Kulkarni, Graham, Dekany, Smith, Riddle,
+  Masci, Helou, Prince, Adams, Barbarino, Barlow, Bauer, Beck, Belicki, Biswas,
+  Blagorodnova, Bodewits, Bolin, Brinnel, Brooke, Bue, Bulla, Burruss, Cenko,
+  Chang, Connolly, Coughlin, Cromer, Cunningham, De, Delacroix, Desai, Duev,
+  Eadie, Farnham, Feeney, Feindt, Flynn, Franckowiak, Frederick, Fremling,
+  Gal-Yam, Gezari, Giomi, Goldstein, Golkhou, Goobar, Groom, Hacopians, Hale,
+  Henning, Ho, Hover, Howell, Hung, Huppenkothen, Imel, Ip, Iveziƒá, Jackson,
+  Jones, Juric, Kasliwal, Kaspi, Kaye, Kelley, Kowalski, Kramer, Kupfer,
+  Landry, Laher, Lee, Lin, Lin, Lunnan, Giomi, Mahabal, Mao, Miller, Monkewitz,
+  Murphy, Ngeow, Nordin, Nugent, Ofek, Patterson, Penprase, Porter, Rauch,
+  Rebbapragada, Reiley, Rigault, Rodriguez, Roestel, Rusholme, Santen, Schulze,
+  Shupe, Singer, Soumagnac, Stein, Surace, Sollerman, Szkody, Taddia, Terek,
+  Van~Sistine, van Velzen, Vestrand, Walters, Ward, Ye, Yu, Yan y
+  Zolkower}]{Bellm_2019}
+{\sc Bellm, E.~C.}, {\sc Kulkarni, S.~R.}, {\sc Graham, M.~J.}, {\sc Dekany,
+  R.}, {\sc Smith, R.~M.}, {\sc Riddle, R.}, {\sc Masci, F.~J.}, {\sc Helou,
+  G.}, {\sc Prince, T.~A.}, {\sc Adams, S.~M.}, {\sc Barbarino, C.}, {\sc
+  Barlow, T.}, {\sc Bauer, J.}, {\sc Beck, R.}, {\sc Belicki, J.}, {\sc Biswas,
+  R.}, {\sc Blagorodnova, N.}, {\sc Bodewits, D.}, {\sc Bolin, B.}, {\sc
+  Brinnel, V.}, {\sc Brooke, T.}, {\sc Bue, B.}, {\sc Bulla, M.}, {\sc Burruss,
+  R.}, {\sc Cenko, S.~B.}, {\sc Chang, C.-K.}, {\sc Connolly, A.}, {\sc
+  Coughlin, M.}, {\sc Cromer, J.}, {\sc Cunningham, V.}, {\sc De, K.}, {\sc
+  Delacroix, A.}, {\sc Desai, V.}, {\sc Duev, D.~A.}, {\sc Eadie, G.}, {\sc
+  Farnham, T.~L.}, {\sc Feeney, M.}, {\sc Feindt, U.}, {\sc Flynn, D.}, {\sc
+  Franckowiak, A.}, {\sc Frederick, S.}, {\sc Fremling, C.}, {\sc Gal-Yam, A.},
+  {\sc Gezari, S.}, {\sc Giomi, M.}, {\sc Goldstein, D.~A.}, {\sc Golkhou,
+  V.~Z.}, {\sc Goobar, A.}, {\sc Groom, S.}, {\sc Hacopians, E.}, {\sc Hale,
+  D.}, {\sc Henning, J.}, {\sc Ho, A. Y.~Q.}, {\sc Hover, D.}, {\sc Howell,
+  J.}, {\sc Hung, T.}, {\sc Huppenkothen, D.}, {\sc Imel, D.}, {\sc Ip, W.-H.},
+  {\sc Iveziƒá, ≈.}, {\sc Jackson, E.}, {\sc Jones, L.}, {\sc Juric, M.}, {\sc
+  Kasliwal, M.~M.}, {\sc Kaspi, S.}, {\sc Kaye, S.}, {\sc Kelley, M. S.~P.},
+  {\sc Kowalski, M.}, {\sc Kramer, E.}, {\sc Kupfer, T.}, {\sc Landry, W.},
+  {\sc Laher, R.~R.}, {\sc Lee, C.-D.}, {\sc Lin, H.~W.}, {\sc Lin, Z.-Y.},
+  {\sc Lunnan, R.}, {\sc Giomi, M.}, {\sc Mahabal, A.}, {\sc Mao, P.}, {\sc
+  Miller, A.~A.}, {\sc Monkewitz, S.}, {\sc Murphy, P.}, {\sc Ngeow, C.-C.},
+  {\sc Nordin, J.}, {\sc Nugent, P.}, {\sc Ofek, E.}, {\sc Patterson, M.~T.},
+  {\sc Penprase, B.}, {\sc Porter, M.}, {\sc Rauch, L.}, {\sc Rebbapragada,
+  U.}, {\sc Reiley, D.}, {\sc Rigault, M.}, {\sc Rodriguez, H.}, {\sc Roestel,
+  J.~v.}, {\sc Rusholme, B.}, {\sc Santen, J.~v.}, {\sc Schulze, S.}, {\sc
+  Shupe, D.~L.}, {\sc Singer, L.~P.}, {\sc Soumagnac, M.~T.}, {\sc Stein, R.},
+  {\sc Surace, J.}, {\sc Sollerman, J.}, {\sc Szkody, P.}, {\sc Taddia, F.},
+  {\sc Terek, S.}, {\sc Van~Sistine, A.}, {\sc van Velzen, S.}, {\sc Vestrand,
+  W.~T.}, {\sc Walters, R.}, {\sc Ward, C.}, {\sc Ye, Q.-Z.}, {\sc Yu, P.-C.},
+  {\sc Yan, L.} y {\sc Zolkower, J.}
+\newblock The zwicky transient facility: System overview, performance, and
+  first results.
+\newblock {\em Publications of the Astronomical Society of the Pacific\/}, vol.
+  131(995), p\'agina 018002, 2018.
+
+\bibitem[{Bramich(2008)}]{Bramich_2008}
+{\sc Bramich, D.~M.}
+\newblock A new algorithm for difference image analysis.
+\newblock {\em Monthly Notices of the Royal Astronomical Society: Letters\/},
+  vol. 386(1), p\'aginas L77--L81, 2008.
+\newblock ISSN 1745-3925.
+
+\bibitem[{Chambers et\ al.(2016)Chambers, Magnier, Metcalfe, Flewelling, Huber,
+  Waters, Denneau, Draper, Farrow, Finkbeiner, Holmberg, Koppenhoefer, Price,
+  Rest, Saglia, Schlafly, Smartt, Sweeney, Wainscoat, Burgett et\
+  al.}]{Chambers_2016}
+{\sc Chambers, K.~C.}, {\sc Magnier, E.~A.}, {\sc Metcalfe, N.}, {\sc
+  Flewelling, H.~A.}, {\sc Huber, M.~E.}, {\sc Waters, C.~Z.}, {\sc Denneau,
+  L.}, {\sc Draper, P.~W.}, {\sc Farrow, D.}, {\sc Finkbeiner, D.~P.}, {\sc
+  Holmberg, C.}, {\sc Koppenhoefer, J.}, {\sc Price, P.~A.}, {\sc Rest, A.},
+  {\sc Saglia, R.~P.}, {\sc Schlafly, E.~F.}, {\sc Smartt, S.~J.}, {\sc
+  Sweeney, W.}, {\sc Wainscoat, R.~J.}, {\sc Burgett, W.~S.} {\sc et\ al.}
+\newblock The pan-starrs1 surveys.
+\newblock {\em arXiv e-prints\/}, 2016.
+
+\bibitem[{Chr.~Sterken(1992)}]{astroPhot}
+{\sc Chr.~Sterken, J.~M.}
+\newblock {\em Astronomical Photometry, A Guide\/}.
+\newblock Astronomical Photometry, 1992.
+\newblock Disponible en
+  \url{https://link.springer.com/book/10.1007/978-94-011-2476-8#bibliographic-information}
+  (˙ltimo acceso,  Agosto, 2024).
+
+\bibitem[{CSIRO(astrophysics{\natexlab{a}})}]{rrLyrae1}
+{\sc CSIRO, A. T. N.~F.} (astrophysics).
+\newblock Entrada: ``{Pulsating Variable Stars}''.
+\newblock Disponible en
+  \url{https://web.archive.org/web/20240709091830/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_pulsating.html#pulsatingrrlyrae}
+  (˙ltimo acceso,  Agosto, 2024).
+
+\bibitem[{CSIRO(astrophysics{\natexlab{b}})}]{distancias}
+{\sc CSIRO, A. T. N.~F.} (astrophysics).
+\newblock Entrada: ``{The Magnitude Scale}''.
+\newblock Disponible en
+  \url{https://web.archive.org/web/20240812014405/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/photometry_magnitude.html}
+  (˙ltimo acceso,  Agosto, 2024).
+
+\bibitem[{CSIRO(astrophysics{\natexlab{c}})}]{variables3}
+{\sc CSIRO, A. T. N.~F.} (astrophysics).
+\newblock Entrada: ``{Variable Stars}''.
+\newblock Disponible en
+  \url{https://web.archive.org/web/20240208142835/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_types.html}
+  (˙ltimo acceso,  Agosto, 2024).
+
+\bibitem[{Encyclopedia~Britannica(science{\natexlab{a}})}]{novas}
+{\sc Encyclopedia~Britannica, T. E.~o.} (science).
+\newblock Entrada: ``{blue straggler star | Astronomy}''.
+\newblock Disponible en
+  \url{https://www.britannica.com/science/Cepheid-variable} (˙ltimo acceso,
+  Agosto, 2024).
+
+\bibitem[{Encyclopedia~Britannica(science{\natexlab{b}})}]{cefeidas}
+{\sc Encyclopedia~Britannica, T. E.~o.} (science).
+\newblock Entrada: ``{Cepheid Variable | Astronomy}''.
+\newblock Disponible en
+  \url{https://www.britannica.com/science/Cepheid-variable} (˙ltimo acceso,
+  Agosto, 2024).
+
+\bibitem[{ESA y Technology(GAIA)}]{variables2}
+{\sc ESA, S.} y {\sc Technology} (GAIA).
+\newblock Entrada: ``{Stars}''.
+\newblock Disponible en \url{https://sci.esa.int/web/gaia/-/40576-stars}
+  (˙ltimo acceso,  Agosto, 2024).
+
+\bibitem[{Fujiwara y Yamaoka(2004)}]{variables5}
+{\sc Fujiwara, T.} y {\sc Yamaoka, H.}
+\newblock Magnitude systems in old star catalogues.
+\newblock {\em arXiv\/}, 2004.
+
+\bibitem[{Gu et\ al.(2025)Gu, Huang, Sun, Xiao, Li, Wang, Fan, Zheng, Han, Zou,
+  Li, Wu y Liu}]{Gu_2025}
+{\sc Gu, H.}, {\sc Huang, Y.}, {\sc Sun, Y.}, {\sc Xiao, K.}, {\sc Li, Z.},
+  {\sc Wang, B.}, {\sc Fan, Z.}, {\sc Zheng, C.}, {\sc Han, H.}, {\sc Zou, H.},
+  {\sc Li, W.}, {\sc Wu, H.} y {\sc Liu, J.}
+\newblock The mini-sitian array: the mini-sitian real-time image processing
+  pipeline (strip).
+\newblock {\em Research in Astronomy and Astrophysics\/}, vol.\ 25(4), p\'agina
+  044007, 2025.
+
+\bibitem[{Hu et\ al.(2022)Hu, Wang, Chen y Yang}]{Hu_2022}
+{\sc Hu, L.}, {\sc Wang, L.}, {\sc Chen, X.} y {\sc Yang, J.}
+\newblock Image subtraction in fourier space.
+\newblock {\em The Astrophysical Journal\/}, vol. 936(2), p\'agina 157, 2022.
+
+\bibitem[{Kochanski et\ al.(1996)Kochanski, Tyson y Fischer}]{Kochanski_1996}
+{\sc Kochanski, G.~P.}, {\sc Tyson, J.~A.} y {\sc Fischer, P.}
+\newblock Flickering faint galaxies: Few and far between.
+\newblock {\em The Astronomical Journal\/}, vol. 111(4), p\'aginas 1444--1454,
+  1996.
+
+\bibitem[{Las~Cumbres(Magnitudes and Measuring Distance)}]{variables4}
+{\sc Las~Cumbres, O.} (Magnitudes and Measuring Distance).
+\newblock Entrada: ``{Apparent magnitude}''.
+\newblock Disponible en
+  \url{https://lco.global/spacebook/distance/what-apparent-magnitude/} (˙ltimo
+  acceso,  Agosto, 2024).
+
+\bibitem[{Las~Cumbres(Introduction to Photometry)}]{ccd-cumbres-photo}
+{\sc Las~Cumbres, O.} (Introduction to Photometry).
+\newblock Entrada: ``{Photometry and CCDs}''.
+\newblock Disponible en
+  \url{https://lco.global/spacebook/telescopes/what-is-photometry/} (˙ltimo
+  acceso,  septiembre, 2024).
+
+\bibitem[{Mutlaq(KDE Documentation)}]{ccd-luminosidad}
+{\sc Mutlaq, J.} (KDE Documentation).
+\newblock Entrada: ``{Luminosidad}''.
+\newblock Disponible en
+  \url{https://docs.kde.org/trunk5/es/kstars/kstars/ai-luminosity.html} (˙ltimo
+  acceso,  Septiembre, 2024).
+
+\bibitem[{Phillips y Davis(1995{\natexlab{a}})}]{Phillips_1995}
+{\sc Phillips, A.~C.} y {\sc Davis, L.~E.}
+\newblock Astronomical data analysis software and systems iv.
+\newblock En {\em Astronomical Data Analysis Software and Systems IV\/}
+  (editado por R.~A. Shaw, H.~E. Payne y J.~J.~E. Hayes), vol.\ 77 de {\em
+  Astronomical Society of the Pacific Conference Series\/}, p\'agina 297.
+  Astronomical Society of the Pacific, 1995{\natexlab{a}}.
+
+\bibitem[{Phillips y Davis(1995{\natexlab{b}})}]{phil_dav_PSFMatch_95}
+{\sc Phillips, A.~C.} y {\sc Davis, L.~E.}
+\newblock Registering, psf-matching and intensity-matching images in iraf.
+\newblock {\em Astronomical Data Analysis Software and Systems IV, ASP
+  Conference Series, Vol. 77, 1995, R.A. Shaw, H.E. Payne, and J.J.E. Hayes,
+  eds., p. 297.\/}, 1995{\natexlab{b}}.
+
+\bibitem[{Su·rez~Tejera(2024)}]{eclipses}
+{\sc Su·rez~Tejera, M.}
+\newblock {Variables de Tipo Eclipsante}.
+\newblock \url{https://www.uv.es/~regalado/eclips3.htm}, 2024.
+\newblock ⁄ltimo acceso: agosto de 2024.
+
+\bibitem[{Teach~Astronomy(The Milky Way)}]{supernovas}
+{\sc Teach~Astronomy, T. E.~o.} (The Milky Way).
+\newblock Entrada: ``{Nova and Supernova}''.
+\newblock Disponible en
+  \url{https://www.teachastronomy.com/textbook/The-Milky-Way/Nova-and-Supernova/}
+  (˙ltimo acceso,  Agosto, 2024).
+
+\bibitem[{Tomaney y Crotts(1996)}]{Tomaney_1996}
+{\sc Tomaney, A.~B.} y {\sc Crotts, A. P.~S.}
+\newblock Expanding the realm of microlensing surveys with difference image
+  photometry.
+\newblock {\em The Astronomical Journal\/}, vol. 112(6), p\'aginas 2872--2895,
+  1996.
+
+\bibitem[{Tonry et\ al.(2018)Tonry, Denneau, Heinze, Stalder, Smith, Smartt,
+  Stubbs, Weiland y Rest}]{Tonry_2018}
+{\sc Tonry, J.~L.}, {\sc Denneau, L.}, {\sc Heinze, A.~N.}, {\sc Stalder, B.},
+  {\sc Smith, K.~W.}, {\sc Smartt, S.~J.}, {\sc Stubbs, C.~W.}, {\sc Weiland,
+  H.~J.} y {\sc Rest, A.}
+\newblock Atlas: A high-cadence all-sky survey system.
+\newblock {\em Publications of the Astronomical Society of the Pacific\/}, vol.
+  130(988), p\'agina 064505, 2018.
+
+\bibitem[{Tuairisg et\ al.(2003)Tuairisg, Butler, Shearer, Redfern, Butler y
+  Penny}]{TRIFFID_observations2013}
+{\sc Tuairisg, S.~√.}, {\sc Butler, R.~F.}, {\sc Shearer, A.}, {\sc Redfern,
+  R.~M.}, {\sc Butler, D.} y {\sc Penny, A.}
+\newblock Triffid observations of the cores of the three globular clusters m15,
+  m92 and ngc 6712.
+\newblock {\em Monthly Notices of the Royal Astronomical Society\/}, vol.
+  345(3), p\'aginas 960--980, 2003.
+\newblock ISSN 0035-8711.
+
+\bibitem[{Wiley y Sons(2015)}]{pulStars}
+{\sc Wiley, J.} y {\sc Sons, L.}
+\newblock {\em Historical Overview\/}, cap\'{\i}tulo\ 1, p\'aginas 1--10.
+\newblock John Wiley and Sons, Ltd, 2015.
+\newblock ISBN 9783527655182.
+
+\bibitem[{Yuan y Akerlof(2008)}]{YuanAkerlof_CrossConv_2008}
+{\sc Yuan, F.} y {\sc Akerlof, C.~W.}
+\newblock Astronomical image subtraction by cross‚Äêconvolution.
+\newblock {\em The Astrophysical Journal\/}, vol. 677(1), p\'agina 808‚Äì812,
+  2008.
+\newblock ISSN 1538-4357.
+
+\bibitem[{Zackay et\ al.(2016)Zackay, Ofek y Gal-Yam}]{Zackay_2016}
+{\sc Zackay, B.}, {\sc Ofek, E.~O.} y {\sc Gal-Yam, A.}
+\newblock Proper image subtraction‚Äîoptimal transient detection, photometry,
+  and hypothesis testing.
+\newblock {\em The Astrophysical Journal\/}, vol. 830(1), p\'agina\ 27, 2016.
+
+\end{thebibliography}

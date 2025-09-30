@@ -1,0 +1,179 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 1
+%
+%---------------------------------------------------------------------
+
+\chapter{Fotometría CCD}
+\label{cap2}
+
+\begin{FraseCelebre}
+\begin{Frase}
+%  weon \\
+%  que chotas
+\end{Frase}
+\begin{Fuente}
+\end{Fuente}
+\end{FraseCelebre}
+
+%\begin{resumen}
+%...
+%\end{resumen}
+
+%-------------------------------------------------------------------
+\section{Luminosidad}
+%-------------------------------------------------------------------
+\label{cap1:sec:luminosidad}
+
+Una de las unidades de medida más importantes en el estudio de las estrellas y de la astronomía en 
+general es el de la luminosidad, una palabra muy utilizada en este texto, que si bien es un 
+concepto cuya definición puede resultar conceptualmente intuitiva, es preciso delimitar 
+su significado.
+
+
+Todas las estrellas y objetos celestes que nos dedicamos a observar y estudiar por medio de 
+fotometría radian luz en un gran intervalo del espectro electromagnético, y la energía 
+emitida por estas estará estrechamente relacionada con la región del espectro en la que 
+emite, donde una estrella que irradia en el ultravioleta produce una cantidad total de 
+energía significativamente mayor que aquellas que lo hacen en el infrarrojo \citep{ccd-luminosidad}.
+
+\figura{fotoCCD/espectro-electro}{width=.9\textwidth}{fig:varclass}%
+{Espectro Electromagnético.} 
+%https://webbtelescope.org/contents/media/images/01H0KCJSZ71R3ZGHGW05K0YYRQ?Tag=en%20Español
+
+La luminosidad se define como una medida de la radiación o energía por 
+segundo emitida por un objeto celeste en unidades de potencia ($vatios/s$, $ergios/s$). 
+La relacion entre energia y longitud de onda fue formulada por Einstein, 
+
+$$ E = h\nu $$
+
+donde $E$ es la energía (Jules), $h$ la constante de Planck ($~6,62607015\times10^{-34} J/s$) y $\nu$ la frecuencia.
+\
+Recordemos que la frecuencia se puede expresar como 
+
+$$ \nu = v/\lambda $$
+
+de forma que se evidencia la relación de proporcionalidad inversa entre la longitud de onda y la energía. 
+
+%-------------------------------------------------------------------
+\section{Fotometría CCD}
+%-------------------------------------------------------------------
+\label{cap1:sec:foto-ccd}
+
+En astronomía, fotometría se define como la medición precisa del brillo aparente 
+recibido de los objetos en rangos determinados del espectro electromagnético, cercanos 
+a la banda visible. Para la correcta realización de dicha tarea los astrónomos han 
+utilizado una variedad de dispositivos como lo son el propio ojo humano, placas fotográficas, 
+tubos fotomultiplicadores y más recientemente Dispositivos de Carga Acoplada 
+(CCD por sus siglas en inglés). Este último revolucionó la forma en la que convertimos 
+luz en señales eléctricas, convirtiendo fotones en electrones y dando como resultado 
+imágenes de alta sensibilidad y mayor rango dinámico que métodos anteriores. 
+
+
+La fotometría CCD nos permite medir el brillo de una estrella representada en la imagen recibida. 
+Durante la observación, cada píxel del dispositivo CCD recibe una cierta cantidad de fotones, 
+los cuales, mediante efecto fotoeléctrico, se traducen en el mismo número de electrones que 
+serán almacenados el CCD hasta que sea leído. La cantidad de fotones que chocan en un píxel 
+es proporcional al número de electrones que serán almacenados ahí \citep{ccd-cumbres-photo}.
+
+
+Una vez leída la imagen, que es la representación de los fotones recibidos, es momento de 
+extraer información. En esta imagen las estrellas se presentan como manchas aproximadamente 
+circulares (dependiendo en parte de la calidad de las observaciones). Podemos dibujar 
+una línea a través de la estrella, representando un corte similar a una curva de nivel 
+que nos regresa el perfil de la estrella y la distribución del brillo recibido, donde 
+un incremento en el brillo de la imagen y la en el eje del brillo en la gráfica corresponde 
+al área del CCD que donde más fueron recibidos fotones.
+
+\figura{fotoCCD/plot-profile}{width=.9\textwidth}{fig:varclass}%
+{Perfil del brillo recibido de una estrella.} 
+%https://lco.global/spacebook/telescopes/what-is-photometry/
+
+%En la nomenclatura de la fotometría, a los círculos en la imagen se les conoce como \textbf{aperturas}. 
+%Estos círculos preferentemente son la representación de una estrella, como un lugar que rodea 
+%la estrella donde el brillo se desea medir. 
+
+
+Una de las características a tomar en cuenta al momento de realizar observaciones con cámaras 
+CCD es el modo en el que estos dispositivos manejan el ruido. Las cámaras CCD producen una 
+imagen digital con un nivel de ruido inicial irreducible proveniente de los propios procesos 
+electrónicos de lectura y amplificación de la señal. Para lidiar con este ruido y evitar que 
+las fluctuaciones den lugar a un valor de salida negativo (debido a un error en la electrónica 
+del dispositivo o a un mal calibrado), el dispositivo está ajustado de forma que, aun en ausencia 
+de una señal de entrada, se proporcione una señal de salida no nula de valor positivo. 
+A este valor se le conoce como offset.
+
+%-------------------------------------------------------------------
+\subsection{Imágenes de calibración}
+%-------------------------------------------------------------------
+Estas tienen el propósito de incrementar el signal-to-noise ratio. Al consistir los CCD en 
+un gran número de pixeles (aprox 12 millones), resulta imposible aún en el dispositivo más 
+calibrado hacer que cada pixel se comporte de la misma manera. Los frames de calibración 
+nos permiten cuantificar las fuentes de ruido en nuestra imagen provenientes de heterogeneidad 
+en el comportamiento individual de los pixeles para compensarlas a través de simples 
+operaciones matemáticas, pretendiendo que cada pixel reacciona de la misma forma frente 
+a cada fotón que detecta.
+
+%-------------------------------------------------------------------
+\subsection{Bias}
+%-------------------------------------------------------------------
+
+Para un detector bien calibrado, el punto cero de cada píxel puede ser calculado sustrayendo 
+un marco de señales Bias. Este se construye promediando varias imágenes individuales 
+obtenidas con un tiempo de exposición 0. Posteriormente dicha imagen promediada se resta a 
+cada imagen de observación, compensando así los efectos. 
+
+Cada CCD tiene un nivel base de señal independientemente de que no esté recibiendo ningún 
+fotón. Idealmente este nivel base debería ser el mismo a través de todos los píxeles de 
+la imagen, sin embargo, en la práctica esto no se cumple, e incluso dicha heterogeneidad 
+puede variar con el tiempo conforme el dispositivo se gasta con el uso, es por eso que la 
+recolección periódica de Bias Frames antes de cada observación es una buena práctica en la
+ astronomía observacional.
+
+El objetivo de los Bias Frames es caracterizar esta señal base para cada pixel y contrarrestar 
+a través de una simple resta entre cada imagen de observación y una imagen promedio del conjunto 
+de Bias. Mientras más Bias sean usados para construir la imagen promedio mejores serán nuestros 
+resultados.
+
+
+
+%-------------------------------------------------------------------
+\subsection{Flats}
+%-------------------------------------------------------------------
+Por su parte, los Flats Frames tienen el propósito de caracterizar la forma en la que cada pixel 
+reacciona ante los fotones que recibe, de forma que al aplicarlos a las imágenes de observación, 
+cada pixel indique el mismo valor ante una misma cantidad de luz recibida. Estos se recolectan 
+apuntando a una fuente uniforme de luz como lo es el ocaso, en sentido contrario al 
+sol ocultándose y con la cúpula cubriendo de él al telescopio. 
+
+
+
+%-------------------------------------------------------------------
+%\section*{\NotasBibliograficas}
+%-------------------------------------------------------------------
+%\TocNotasBibliograficas
+
+%Citamos algo para que aparezca en la bibliografía\ldots
+%\citep{ldesc2e}
+
+%\medskip
+
+%Y también ponemos el acrónimo \ac{CVS} para que no cruja.
+
+%Ten en cuenta que si no quieres acrónimos (o no quieres que te falle la compilación en ``release'' mientras no tengas ninguno) basta con que no definas la constante \verb+\acronimosEnRelease+ (en \texttt{config.tex}).
+
+
+%-------------------------------------------------------------------
+%\section*{\ProximoCapitulo}
+%-------------------------------------------------------------------
+%\TocProximoCapitulo
+
+%...
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:
