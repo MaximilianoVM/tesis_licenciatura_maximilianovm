@@ -4,7 +4,7 @@
 %
 %---------------------------------------------------------------------
 
-\chapter{Sustracción de Imagenes}
+\chapter{Sustracción de Imágenes}
 \label{cap3}
 
 \begin{FraseCelebre}
@@ -32,28 +32,23 @@ ZTF  \citep{Bellm_2019}, y ATLAS \citep{Tonry_2018}. Todos ellos utilizan
 la sustracción de imágenes (DIA) como método de identificación y extracción 
 de curvas de luz de los objetos observados. 
 
+La sustracción de una imagen respecto a otra permite identificar diferencias entre ellas, 
+lo cual resulta especialmente útil en diversas disciplinas como la meteorología, 
+la medicina, el análisis de patrones o el estudio del crecimiento urbano. 
+En astronomía, técnicas como el ajuste de la función PSF 
+y la sustracción de imágenes son esenciales para detectar fenómenos astronómicos 
+cuya intensidad varía con el tiempo, como ocurre en eventos transientes y estrellas variables.
+
 Las primeras propuestas del método de sustracción de imágenes fueron hechas 
-en \citep{Phillips_1995} y \citep{Tomaney_1996}, proponiendo el 
-uso de un kernel de convolución para hacer coincidir la PSF entre 
+por \citet{Phillips_1995} y \citet{Tomaney_1996}, proponiendo el 
+uso de un kernel de convolución para hacer coincidir la función de dispersión puntual (PSF) entre 
 dos imágenes. No obstante, su método describe la necesidad de determinar 
 la PSF para cada estrella brillante aislada, lo cual resultaba lento, 
 ineficiente y poco robusto \citep{Angulo_2025}. 
 
-Sin embargo, no fue hasta las implementaciones de \citep{Kochanski_1996}, 
-\citep{Alard_1998}, y \citep{Alard_2000} que el método se volvió más 
-robusto, eficiente y de rápida implementación. Algunos de los paquetes 
-más recientes que siguen utilizando los mismos principios de la sustracción 
-de imágenes son Hotpants \citep{Becker_hotpants_2015}, ZOGY 
-\citep{Zackay_2016}y SFFT \citep{Hu_2022}.
-
-
-La sustracción de una imagen respecto a otra permite identificar diferencias entre ellas, 
-lo cual resulta especialmente útil en diversas disciplinas como la meteorología, 
-la medicina, el análisis de patrones o el estudio del crecimiento urbano. 
-En astronomía, técnicas como el ajuste de la función de dispersión puntual (PSF) 
-y la sustracción de imágenes son esenciales para detectar fenómenos astronómicos 
-cuya intensidad varía con el tiempo, como ocurre con las estrellas variables 
-o los eventos transientes.
+Sin embargo, no fue hasta las implementaciones de \citet{Kochanski_1996}, 
+\citet{Alard_1998}, y \citet{Alard_2000} que el método se volvió más 
+robusto, eficiente y de rápida implementación. 
 
 Este método de detección de variabilidad resulta particularmente valioso en el estudio 
 de cúmulos abiertos y globulares. Su implementación facilita la identificación de 
@@ -61,10 +56,16 @@ estrellas variables incluso en regiones densamente pobladas, donde otras técnica
 fotométricas suelen tener dificultades, 
 especialmente cerca del centro del cúmulo. \citep{TRIFFID_observations2013}.
 
-Existe una variedad moderada de paquetes de 
-software (PSFMatch \citep{phil_dav_PSFMatch_95}; DANDIA \citep{Bramich_2008}; ZOGY \citep{Zackay_2016};  
-CrossConv \citep{YuanAkerlof_CrossConv_2008}.) 
-que implementan técnicas de sustracción de imágenes.
+Existe una gran variedad de paquetes de 
+software que siguen utilizando los mismos principios de la sustracción 
+de imágenes con sus respectivas variaciones, como lo son
+%PSFMatch \citep{phil_dav_PSFMatch_95}; 
+Hotpants \citep{Becker_hotpants_2015}, 
+SFFT \citep{Hu_2022},
+DANDIA \citep{Bramich_2008},
+ZOGY \citep{Zackay_2016},  
+CrossConv \citep{YuanAkerlof_CrossConv_2008}.
+
 En nuestro caso, implementaremos la sustracción de imágenes directamente mediante el uso del 
 paquete ISIS \citep{Alard_1998} sobre nuestras observaciones realizadas 
 en el Observatorio Astronómico Nacional de la Sierra de San Pedro Mártir. 
@@ -84,7 +85,7 @@ De forma que la imagen óptima de sustracción queda como:
 
 $$ D = I - (R \ast K + B_{kg}) $$
 
-Los distintos métodos difieren principalmente en su forma de modelar el kernel K. 
+Los distintos métodos difieren principalmente en su forma de modelar el kernel K. Por ejempo:
 
 \begin{itemize}
 \item En ISIS \citep{Alard_1998} el kernel $K$ es descompuesto como la suma de funciones analiticas lineales.
@@ -114,10 +115,10 @@ de flujo entre las dos imágenes.
 %-------------------------------------------------------------------
 \label{cap3:sec:psf}
 
-Definimos la Point Spread Function (PSF) como la respuesta de un sistema de cámara a 
+Definimos la función de dispersión puntual (PSF por sus siglas en inglés) como la respuesta de un sistema de cámara a 
 una fuente puntual (un impulso). 
 
-En teoría se espera que la luz de un círculo en la imagen estaría uniformemente 
+En teoría se espera que la luz de un círculo en la imagen esté uniformemente 
 distribuida, pudiendo ser modelada como una función pillbox, definida como: 
 
 $$
@@ -127,10 +128,10 @@ h(x,y) = \begin{cases}
 \end{cases}
 $$
 
-Sin embargo, la energía emitida por el objeto que observamos no llega en su totalidad a nuestro detector. 
+Sin embargo, la energía emitida por el objeto observado no llega en su totalidad a nuestro detector. 
 En la práctica, intervienen una variedad de factores y la distribución de luz en el circulo difuminado no va a 
 ser constante. Debido a la difracción, aberracion del lente y 
-sensibilidad de la imagen (pixeles), la PSF aparece como una función gaussiana.
+sensibilidad de los pixeles CCD, la PSF aparece entonces como una función gaussiana.
 
 $$
 h(x,y) = \frac{1}{2\pi\sigma^2}e^{-\frac{x^2 + y^2}{2\sigma^2}}
@@ -179,19 +180,17 @@ rayos converjan perfectamente en un punto.
 %-------------------------------------------------------------------
 \label{cap3:sec:interp}
 
- Un proceso de vital importancia para el correcto funcionamiento de los pasos 
- posteriores implementados con ISIS es el registro e interpolación astrométrica 
- de cada una de las imágenes. Este proceso consiste en ajustar las imágenes 
- para que estén alineadas espacialmente y se adapten al mismo sistema de 
- coordenadas, lo que facilita su comparación.
+Un paso fundamental previo a la sustraccion de imágenes es el registro e interpolación astrométrica 
+de cada una de las imágenes. Este proceso consiste en ajustar las imágenes 
+para que estén alineadas espacialmente y se adapten al mismo sistema de 
+coordenadas, lo que facilita su comparación.
 El registro astrométrico se encarga de alinear las imágenes, asegurando que 
 todas compartan un sistema de coordenadas común. Posteriormente, la interpolación 
 astrométrica adapta las imágenes registradas a este sistema, garantizando 
 que los píxeles de cada imagen correspondan a las mismas posiciones en el cielo.
 
 Es común que el conjunto de imágenes de observación de un campo pueda presentar 
-variaciones debido a distintos factores. La naturaleza de estas variaciones 
-puede corresponder al centrado, orientación y escala de las imágenes. \citep{Alard_1998}.  
+variaciones espaciales correspondientes al centrado, orientación y escala de las imágenes. \citep{Alard_1998}.  
 Entre las distintas fuentes de inconsistencia de las imágenes tomadas en 
 un observatorio, podemos mencionar fallos del guiador, condiciones 
 ambientales y condiciones mecánicas que ocasionan movimientos en el 
@@ -229,7 +228,8 @@ imagen fuente $(x, y)$ y en la referencia $(x', y')$ se registran mediante
 una transformación $(x', y') = T(x,y)$
 donde $T(x, y)$: 
 
-*ECUACION*
+$$x' = a_0 + a_1x + a_2y + a_3x^2 + a_4xy + a_5y^2 + ...$$
+$$y' = b_0 + b_1x + b_2y + b_3x^2 + b_4xy + b_5y^2 + ...$$
 
 Esta transformación define puntos en la malla entre los puntos de la 
 malla original. 
@@ -238,27 +238,43 @@ Las imágenes digitales están compuestas por valores discretos, correspondientes
 a píxeles. Sin embargo las transformaciones geométricas pueden generar 
 coordenadas no enteras. Es necesaria entonces una interpolación de los 
 valores en la malla original para estimar los valores de la imagen en 
-la nueva malla de referencia. Esto se logra mediante BICUBIC SPLINES INTERPOLATION, 
-el cual utiliza un total de 16 (4x4=) píxeles adyacentes para lograr una 
-interpolacion (Han2013/03), obteniendo un resultado suavizado [splines2]. 
+la nueva malla de referencia. Esto se logra mediante \textit{Bicubic Splines Interpolation}, 
+un metodo que utiliza un total de 16 ($4x4=$) píxeles adyacentes para lograr una 
+interpolacion con un resultado mas suavizado que con una implementación lineal \citep{Xia_2013}. 
 
 % DIAGRAMA BICUBIC INTERPOLATIONS
 \figura{Subtraction/bicubic_interp}{width=.5\textwidth}{fig:bicubic-interp;}%
 {Diagrama del algoritmo Bicubic Interpolation}
 
+El proceso de registro e interpolación astrométrica es ejecutado por
+ISIS mediante \texttt{./interp.csh}
+dando como resultado una serie de imágenes \texttt{interp\_*.fits} necesarias 
+para los pasos posteriores. 
 
 %-------------------------------------------------------------------
 \section{Construcción de la imagen de referencia}
 %-------------------------------------------------------------------
 \label{cap3:sec:reference}
 
-Para la construcción de la imagen de referencia debemos explorar en nuestro 
+
+"la imagen de referencia es aquella que se sustraera o se vera sustraida dependiendo del paquete 
+con cada una de las imágenes de ciencia, siendo los residulos de cada una de estas restas 
+representativos de la variacion de los objetos en la imagen respecto al momento fijo de la imagen 
+de referencia. 
+
+Esta imagen debe tener la caracteristica de ser la de mejor calidad entre todas. Para posteriormente 
+ser degradada por medio de la convolucion con el kernel para coincidir con las condiciones de la imagen de ciencia correspondiente. 
+Se puede elegir una imagen especifica de nuestro conjunto o bien se puede construir por medio de un conjunto de imágenes de 
+la mejor calidad, como es el caso de ISIS"
+
+En ISIS, para la construcción de la imagen de referencia se debe explorar el 
 conjunto de imágenes y seleccionar aproximadamente las 10 de mejor calidad 
 en cuanto a seeing y condiciones atmosféricas. Las imágenes seleccionadas 
-se listan en el archivo \texttt{register<i>/ref\_list}. Las imágenes tienen diferente 
-fondo y diferente seeing. El propósito de la imagen de referencia es 
-asemejar las condiciones de cada una de las demás imágenes mediante una 
-convolución.
+se listan en el archivo \texttt{register<i>/ref\_list}. %Las imágenes tienen diferente 
+%fondo y diferente seeing. 
+%El propósito de la imagen de referencia es 
+%asemejar las condiciones de cada una de las demás imágenes mediante una 
+%convolución.
 
 Si bien el paquete cuenta con la opción de construir la imagen de referencia 
 mediante una simple adición, este método tiene la principal desventaja de 
@@ -266,21 +282,23 @@ que, de haber errores en las imágenes listadas, estos se acumularán
 haciéndose evidentes en la imagen de referencia. 
 
 Es por eso que ISIS incluye con otro procedimiento más recomendado y 
-que aprovecha los fundamentos de nuestra implementación de la sustracción 
+que aprovecha los fundamentos de su implementación de la sustracción 
 de imágenes, capaz de lidiar con defectos puntuales en nuestra lista de 
-mejores imágenes. Con la intención de construir la imagen de referencia 
+mejores imágenes, lo cual representa la principal ventaja de elegir un 
+conjunto de mejores imágenes en lugar de una puntual. 
+Con la intención de construir la imagen de referencia 
 como una mediana de cada pixel en la lista de imágenes, primero se 
-implementará el mismo procedimiento que se desarrolló para la sustracción 
+implementa el mismo procedimiento que se desarrolló para la sustracción 
 que se describe más adelante: igualar las condiciones de cada una de las 
 imágenes en la lista mediante un kernel de convolución. Respetando así 
 los valores de cada imagen independiente y su aporte a la mediana. 
-En este caso elegiremos como R (imagen de referencia para la convolución) 
-indicando en el parámetro \texttt{REF\_STACK} del archivo \texttt{process\_config}.
+En este caso se elige R (imagen de referencia para la convolución) 
+indicando el nombre de la imagen en el parámetro \texttt{REF\_STACK} del archivo \texttt{process\_config}.
 
 Una vez que las imágenes hayan sido transformadas para coincidir con 
 la mejor de ellas (la indicada en el \texttt{REF\_STACK}), cada píxel 
 a lo largo de todas las imágenes será filtrado mediante 3 sigma 
-rejection alrededor de la mediana. Elegimos la mediana en lugar de 
+rejection alrededor de la mediana. Se utiliza la mediana en lugar de 
 la media ya que funciona mejor para filtrar el tipo de ruido común 
 en imágenes astronómicas.
 
@@ -358,6 +376,16 @@ for pixel in fits: mediana(dif1.fits, dif2.fits, ?, dif_n.fits)
 \section{Fotometría y curvas de luz}
 %-------------------------------------------------------------------
 \label{cap3:sec:fotometria}
+
+El proceso de construccion de las curvas de luz se reduce a la estimacion del flujo relativo 
+a lo largo de cada una de las imagenes de diferencia en un punto especifico. Dando como resultado 
+un archivo que incluye dicho flujo acompañado de la fecha indicada en el archivo DATES correspondiente 
+a la imegen. Los puntos sobre los cuales se construyen las curvas de luz son los indicados en el archivo XXX
+en el cual se incluyen los nombres de las curvas de luz a generar y las coordenadas physical del objeto.
+este archivo es rellenado automaticamente en el paso anterior
+ de acuerdo a los puntos indicados sobresalientes en el resultado VAR.FITS del paso anterior. 
+
+
 
 
 %-------------------------------------------------------------------

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.23)  30 SEP 2025 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.23)  12 OCT 2025 19:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -846,76 +846,86 @@ LaTeX Info: Redefining \% on input line 144.
 ]
 Cap\'itulo 3.
 [17]
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
  [18]
-<Imagenes/PSF/Convolution_Illustrated_eng.png, id=480, 299.1175pt x 273.02pt>
+<Imagenes/PSF/Convolution_Illustrated_eng.png, id=475, 299.1175pt x 273.02pt>
 File: Imagenes/PSF/Convolution_Illustrated_eng.png Graphic file (type png)
 <use Imagenes/PSF/Convolution_Illustrated_eng.png>
 Package pdftex.def Info: Imagenes/PSF/Convolution_Illustrated_eng.png  used on 
-input line 148.
+input line 149.
 (pdftex.def)             Requested size: 180.0pt x 164.29651pt.
-<Imagenes/PSF/Huygens-Fresnel.png, id=483, 1927.2pt x 1233.60875pt>
+<Imagenes/PSF/Huygens-Fresnel.png, id=478, 1927.2pt x 1233.60875pt>
 File: Imagenes/PSF/Huygens-Fresnel.png Graphic file (type png)
 <use Imagenes/PSF/Huygens-Fresnel.png>
 Package pdftex.def Info: Imagenes/PSF/Huygens-Fresnel.png  used on input line 1
-56.
+57.
 (pdftex.def)             Requested size: 323.9978pt x 207.37662pt.
-LaTeX Info: Redefining \. on input line 167.
-LaTeX Info: Redefining \% on input line 167.
+LaTeX Info: Redefining \. on input line 168.
+LaTeX Info: Redefining \% on input line 168.
  [19]
-LaTeX Info: Redefining \. on input line 200.
-LaTeX Info: Redefining \% on input line 200.
+LaTeX Info: Redefining \. on input line 208.
+LaTeX Info: Redefining \% on input line 208.
  [20 <./Imagenes/PSF/Convolution_Illustrated_eng.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-18.
+17.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Underfull \vbox (badness 2970) has occurred while \output is active []
+Underfull \vbox (badness 4543) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 231.
-LaTeX Info: Redefining \% on input line 231.
+LaTeX Info: Redefining \. on input line 230.
+LaTeX Info: Redefining \% on input line 230.
  [21 <./Imagenes/PSF/Huygens-Fresnel.png>]
-<Imagenes/Subtraction/bicubic_interp.png, id=502, 363.60844pt x 289.08pt>
+<Imagenes/Subtraction/bicubic_interp.png, id=499, 363.60844pt x 289.08pt>
 File: Imagenes/Subtraction/bicubic_interp.png Graphic file (type png)
 <use Imagenes/Subtraction/bicubic_interp.png>
 Package pdftex.def Info: Imagenes/Subtraction/bicubic_interp.png  used on input
  line 247.
 (pdftex.def)             Requested size: 180.0pt x 143.11047pt.
-LaTeX Info: Redefining \. on input line 279.
-LaTeX Info: Redefining \% on input line 279.
- [22 <./Imagenes/Subtraction/bicubic_interp.png (PNG copy)>]
-LaTeX Info: Redefining \. on input line 317.
-LaTeX Info: Redefining \% on input line 317.
+
+Overfull \hbox (36.62154pt too wide) in paragraph at lines 249--253
+\T1/cmr/m/n/10.95 me-dian-te \T1/cmtt/m/n/10.95 ./interp.csh \T1/cmr/m/n/10.95 
+dan-do co-mo re-sul-ta-do una se-rie de im·-ge-nes \T1/cmtt/m/n/10.95 interp_*.
+fits
+ []
+
+LaTeX Info: Redefining \. on input line 269.
+LaTeX Info: Redefining \% on input line 269.
+[22 <./Imagenes/Subtraction/bicubic_interp.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 325.
+LaTeX Info: Redefining \% on input line 325.
  [23]
+LaTeX Info: Redefining \. on input line 371.
+LaTeX Info: Redefining \% on input line 371.
+ [24]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.354 ...ts: mediana(dif1.fits, dif2.fits, ?, dif_
+l.372 ...ts: mediana(dif1.fits, dif2.fits, ?, dif_
                                                   n.fits)
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.355 
+l.373 
       
 ? 
 )
 LaTeX Info: Redefining \. on input line 145.
 LaTeX Info: Redefining \% on input line 145.
- [24]
+ [25]
 \openout2 = `Capitulos/04Capitulo4.aux'.
 
- (./Capitulos/04Capitulo4.tex
-Cap\'itulo 4.
-[25
+ (./Capitulos/04Capitulo4.tex [26
 
 
 
 
 ]
+Cap\'itulo 4.
+[27]
 LaTeX Info: Redefining \. on input line 108.
 LaTeX Info: Redefining \% on input line 108.
 
@@ -927,10 +937,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-11.22652pt}.
 
-[26])
+[28])
 LaTeX Info: Redefining \. on input line 146.
 LaTeX Info: Redefining \% on input line 146.
- [27] [28
+ [29] [30
 
 
 
@@ -950,7 +960,7 @@ l.66   {\sc Iveziƒá
                    , ≈.}, {\sc Jackson, E.}, {\sc Jones, L.}, {\sc Juric, M....
 
 ? 
-[29
+[31
 
 
 ]
@@ -977,7 +987,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--134
 / astrophysics /
  []
 
-[30] [31]
+[32] [33]
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `latin1'.
@@ -986,7 +996,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.264 ...Astronomical image subtraction by cross‚Ä
+l.266 ...Astronomical image subtraction by cross‚Ä
                                                   êconvolution.
 ? 
 
@@ -997,7 +1007,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.264 ...stronomical image subtraction by cross‚Äê
+l.266 ...stronomical image subtraction by cross‚Äê
                                                   convolution.
 ? 
 
@@ -1008,7 +1018,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.265 ...l Journal\/}, vol. 677(1), p\'agina 808‚Ä
+l.267 ...l Journal\/}, vol. 677(1), p\'agina 808‚Ä
                                                   ì812,
 ? 
 
@@ -1019,7 +1029,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.265 ... Journal\/}, vol. 677(1), p\'agina 808‚Äì
+l.267 ... Journal\/}, vol. 677(1), p\'agina 808‚Äì
                                                   812,
 ? 
 
@@ -1030,7 +1040,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.271 \newblock Proper image subtraction‚Ä
+l.273 \newblock Proper image subtraction‚Ä
                                           îoptimal transient detection, phot...
 
 ? 
@@ -1042,11 +1052,11 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.271 \newblock Proper image subtraction‚Äî
+l.273 \newblock Proper image subtraction‚Äî
                                            optimal transient detection, phot...
 
 ? 
-)) [32] (./Tesis.aux (./Cascaras/cover.aux)
+)) [34] (./Tesis.aux (./Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 13.
 LaTeX Info: Redefining \% on input line 13.
  (./TeXiS/TeXiS_toc.aux)
@@ -1062,13 +1072,13 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: C869B36E3923D28349C48F8F100D83E2;6135.
+(rerunfilecheck)             Checksum: B3861C03C4C86F64F58374EDACC917B2;6138.
  ) 
 Here is how much of TeX's memory you used:
- 16048 strings out of 474222
- 257135 string characters out of 5748733
+ 16059 strings out of 474222
+ 257227 string characters out of 5748733
  1941975 words of memory out of 5000000
- 37656 multiletter control sequences out of 15000+600000
+ 37665 multiletter control sequences out of 15000+600000
  575993 words of font info for 68 fonts, out of 8000000 for 9000
  1379 hyphenation exceptions out of 8191
  97i,12n,98p,1103b,815s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1092,10 +1102,10 @@ e/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/
 public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti
 1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share
 /texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Tesis.pdf (42 pages, 2150713 bytes).
+Output written on Tesis.pdf (44 pages, 2150880 bytes).
 PDF statistics:
- 718 PDF objects out of 1000 (max. 8388607)
- 596 compressed objects within 6 object streams
- 127 named destinations out of 1000 (max. 500000)
+ 726 PDF objects out of 1000 (max. 8388607)
+ 601 compressed objects within 7 object streams
+ 129 named destinations out of 1000 (max. 500000)
  317 words of extra memory for PDF output out of 10000 (max. 10000000)
 

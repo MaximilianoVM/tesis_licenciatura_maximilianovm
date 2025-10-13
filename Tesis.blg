@@ -16,42 +16,42 @@ Database file #4: variables.bib
 Database file #5: sustraccion.bib
 You've used 32 entries,
             2962 wiz_defined-function locations,
-            1293 strings with 20679 characters,
-and the built_in function-call counts, 27534 in all, are:
-= -- 1787
-> -- 1809
-< -- 55
-+ -- 700
-- -- 654
-* -- 2615
-:= -- 4055
+            1298 strings with 20773 characters,
+and the built_in function-call counts, 28098 in all, are:
+= -- 1822
+> -- 1857
+< -- 56
++ -- 717
+- -- 672
+* -- 2675
+:= -- 4125
 add.period$ -- 104
 call.type$ -- 32
-change.case$ -- 378
-chr.to.int$ -- 28
+change.case$ -- 384
+chr.to.int$ -- 29
 cite$ -- 32
-duplicate$ -- 2017
-empty$ -- 1685
-format.name$ -- 737
-if$ -- 5234
-int.to.chr$ -- 5
+duplicate$ -- 2052
+empty$ -- 1715
+format.name$ -- 753
+if$ -- 5347
+int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 435
+missing$ -- 443
 newline$ -- 171
 num.names$ -- 129
-pop$ -- 877
+pop$ -- 887
 preamble$ -- 1
-purify$ -- 344
+purify$ -- 350
 quote$ -- 0
-skip$ -- 620
+skip$ -- 636
 stack$ -- 0
-substring$ -- 751
-swap$ -- 1393
-text.length$ -- 32
+substring$ -- 783
+swap$ -- 1430
+text.length$ -- 34
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 314
 warning$ -- 0
-while$ -- 130
+while$ -- 133
 width$ -- 0
-write$ -- 409
+write$ -- 410

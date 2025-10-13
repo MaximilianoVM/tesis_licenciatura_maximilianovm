@@ -199,20 +199,13 @@
   \url{https://docs.kde.org/trunk5/es/kstars/kstars/ai-luminosity.html} (último
   acceso,  Septiembre, 2024).
 
-\bibitem[{Phillips y Davis(1995{\natexlab{a}})}]{Phillips_1995}
+\bibitem[{Phillips y Davis(1995)}]{Phillips_1995}
 {\sc Phillips, A.~C.} y {\sc Davis, L.~E.}
 \newblock Astronomical data analysis software and systems iv.
 \newblock En {\em Astronomical Data Analysis Software and Systems IV\/}
   (editado por R.~A. Shaw, H.~E. Payne y J.~J.~E. Hayes), vol.\ 77 de {\em
   Astronomical Society of the Pacific Conference Series\/}, p\'agina 297.
-  Astronomical Society of the Pacific, 1995{\natexlab{a}}.
-
-\bibitem[{Phillips y Davis(1995{\natexlab{b}})}]{phil_dav_PSFMatch_95}
-{\sc Phillips, A.~C.} y {\sc Davis, L.~E.}
-\newblock Registering, psf-matching and intensity-matching images in iraf.
-\newblock {\em Astronomical Data Analysis Software and Systems IV, ASP
-  Conference Series, Vol. 77, 1995, R.A. Shaw, H.E. Payne, and J.J.E. Hayes,
-  eds., p. 297.\/}, 1995{\natexlab{b}}.
+  Astronomical Society of the Pacific, 1995.
 
 \bibitem[{Suárez~Tejera(2024)}]{eclipses}
 {\sc Suárez~Tejera, M.}
@@ -258,6 +251,15 @@
 \newblock {\em Historical Overview\/}, cap\'{\i}tulo\ 1, p\'aginas 1--10.
 \newblock John Wiley and Sons, Ltd, 2015.
 \newblock ISBN 9783527655182.
+
+\bibitem[{Xia et\ al.(2013)Xia, Tahara, Kakue, Awatsuji, Nishio, Ura, Kubota y
+  Matoba}]{Xia_2013}
+{\sc Xia, P.}, {\sc Tahara, T.}, {\sc Kakue, T.}, {\sc Awatsuji, Y.}, {\sc
+  Nishio, K.}, {\sc Ura, S.}, {\sc Kubota, T.} y {\sc Matoba, O.}
+\newblock Performance comparison of bilinear interpolation, bicubic
+  interpolation, and b-spline interpolation in parallel phase-shifting digital
+  holography.
+\newblock {\em Optical Review\/}, vol.\ 20(2), p\'aginas 193--197, 2013.
 
 \bibitem[{Yuan y Akerlof(2008)}]{YuanAkerlof_CrossConv_2008}
 {\sc Yuan, F.} y {\sc Akerlof, C.~W.}

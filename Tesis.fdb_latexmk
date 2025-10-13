@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1759270673.38563 "/home/astro/workdir/TeXiS-v1.0/Tesis.tex" "Tesis.pdf" "Tesis" 1759270673.95739 2
+["pdflatex"] 1760234917.70445 "/home/astro/Documents/TESIS/tesis_licenciatura_maximilianovm/Tesis.tex" "Tesis.pdf" "Tesis" 1760234918.62175 2
   "/etc/texmf/web2c/texmf.cnf" 1758654253.48405 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/astro/workdir/TeXiS-v1.0/Tesis.tex" 1758849412.69368 5937 507c20a44f2990b7aa7ec35118dff5bc ""
+  "/home/astro/Documents/TESIS/tesis_licenciatura_maximilianovm/Tesis.tex" 1760162799.14943 5937 507c20a44f2990b7aa7ec35118dff5bc ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/bk11.clo" 1705352648 8303 10ecfb78537c1382ab0edd25f1521803 ""
@@ -10,11 +10,11 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1758654522 8215314 12d6fe9a479e18a84c729e1e24660afa ""
-  "TeXiS/TeXiS.sty" 1257999246 15219 4ffb00991983c5a97c844892b46a5273 ""
-  "TeXiS/TeXiS_pream.tex" 1758655210.89995 30970 673abc0086b97b2b7fb007663a88547e ""
-  "Tesis.aux" 1759270673.38147 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "Tesis.tex" 1758849412.69368 5937 507c20a44f2990b7aa7ec35118dff5bc ""
-  "config.tex" 1257999244 2902 9cbcf54c1e497fb27af8e8d2cf4e6ab2 ""
+  "TeXiS/TeXiS.sty" 1760162799.12643 15219 4ffb00991983c5a97c844892b46a5273 ""
+  "TeXiS/TeXiS_pream.tex" 1760162799.12743 30970 673abc0086b97b2b7fb007663a88547e ""
+  "Tesis.aux" 1760234917.69947 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "Tesis.tex" 1760162799.14943 5937 507c20a44f2990b7aa7ec35118dff5bc ""
+  "config.tex" 1760162799.14943 2902 9cbcf54c1e497fb27af8e8d2cf4e6ab2 ""
   "glosstex.sty" 0 -1 0 ""
   (generated)
   "Tesis.aux"

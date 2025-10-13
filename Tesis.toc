@@ -24,16 +24,16 @@
 \contentsline {subsubsection}{\numberline {2.3.2.2}Rotantes}{14}{subsubsection.2.3.2.2}%
 \contentsline {section}{\numberline {2.4}C\'alculo de distancias}{14}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Estrellas Variables en C\'umulos}{15}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Sustracci\'on de Imagenes}{17}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Sustracci\'on de Im\'agenes}{17}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introducci\'on}{17}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Point Spread Function (PSF)}{19}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Registro e Interpolaci\'on Astrom\'etrica}{20}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Construcci\'on de la imagen de referencia}{22}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Sustracci\'on de im\'agenes}{23}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Detecci\'on de variables}{24}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Fotometr\IeC {\'\i }a y curvas de luz}{24}{section.3.7}%
-\contentsline {chapter}{\numberline {4}Desarrollos e implementaciones recientes en t\'ecnicas de sustracci\'on de im\'agenes}{25}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Sustracci\'on de im\'agenes para telescopios espaciales.}{25}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Optimizaci\'on de la imagen de referencia y direcci\'on de sustracci\'on.}{26}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Pipeline de procesamiento en tiempo real.}{26}{section.4.3}%
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{29}{appendix*.15}%
+\contentsline {section}{\numberline {3.7}Fotometr\IeC {\'\i }a y curvas de luz}{25}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Desarrollos e implementaciones recientes en t\'ecnicas de sustracci\'on de im\'agenes}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Sustracci\'on de im\'agenes para telescopios espaciales.}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Optimizaci\'on de la imagen de referencia y direcci\'on de sustracci\'on.}{28}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Pipeline de procesamiento en tiempo real.}{28}{section.4.3}%
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{31}{appendix*.15}%
