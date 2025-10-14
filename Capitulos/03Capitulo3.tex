@@ -27,7 +27,7 @@
 \label{cap3:sec:introduccion}
 
 En décadas recientes, la observación de eventos transientes ha tenido un auge 
-gracias a wide-field time-domain surveys como PS1 \citep{Chambers_2016}, 
+gracias a \textit{wide-field time-domain surveys} como PS1 \citep{Chambers_2016}, 
 ZTF  \citep{Bellm_2019}, y ATLAS \citep{Tonry_2018}. Todos ellos utilizan 
 la sustracción de imágenes (DIA) como método de identificación y extracción 
 de curvas de luz de los objetos observados. 
@@ -111,71 +111,6 @@ sustraídas, donde se pueden observar residuos correspondientes a variaciones
 de flujo entre las dos imágenes. 
 
 %-------------------------------------------------------------------
-\section{Point Spread Function (PSF)}
-%-------------------------------------------------------------------
-\label{cap3:sec:psf}
-
-Definimos la función de dispersión puntual (PSF por sus siglas en inglés) como la respuesta de un sistema de cámara a 
-una fuente puntual (un impulso). 
-
-En teoría se espera que la luz de un círculo en la imagen esté uniformemente 
-distribuida, pudiendo ser modelada como una función pillbox, definida como: 
-
-$$
-h(x,y) = \begin{cases} 
-\frac{4}{\pi b^2}, & x^2 + y^2 \leq \frac{b^2}{4} \\
-0, & \text{otherwise}
-\end{cases}
-$$
-
-Sin embargo, la energía emitida por el objeto observado no llega en su totalidad a nuestro detector. 
-En la práctica, intervienen una variedad de factores y la distribución de luz en el circulo difuminado no va a 
-ser constante. Debido a la difracción, aberracion del lente y 
-sensibilidad de los pixeles CCD, la PSF aparece entonces como una función gaussiana.
-
-$$
-h(x,y) = \frac{1}{2\pi\sigma^2}e^{-\frac{x^2 + y^2}{2\sigma^2}}
-$$
-
-
-Al modelar la PSF se desea saber la forma en la que un sistema óptico contribuye y 
-modifica las observaciones, permitiendo despreciar dichas inexactitudes 
-en la medida de lo posible para representar el objeto de observación de una 
-manera mas fiel. La teoría detrás de estas diferencias corresponde al comportamiento 
-de las ondas electromagnéticas y la propagación de la luz, en especifico el 
-análisis de difracción.
-
-\figura{PSF/Convolution_Illustrated_eng.png}{width=.5\textwidth}{fig:Convolution_Illustrated_eng;}%
-{ \href{https://commons.wikimedia.org/wiki/File:Convolution_Illustrated_eng.png}{Efecto de convolucion con PSF. Default007, Public domain, via Wikimedia Commons}} 
-
-Para explicarlas se recurre al principio de Huygens-Fresnel, el cual indica que 
-cada punto en un frente de onda puede ser considerado como una propia perturbación 
-secundaria, dando paso a ondas esféricas.
-
-% figura Huygens-Fresnel
-\figura{PSF/Huygens-Fresnel}{width=.9\textwidth}{fig:Huygens-Fresnel;}%
-{Difracción de ondas Huygens y Fresnel} 
-
-De esta forma, el frente de onda siguiente corresponde al envolvente de todas las 
-perturbaciones, donde las ondas secundarias también interfieren.
-
-En el caso ideal, podemos definir como imagen perfecta aquella que se ve 
-limitada únicamente por la difracción debida al sistema óptico. En este caso, 
-conocemos de forma precisa la PSF, para una apertura circular corresponde el 
-patron de Airy. Así que simplemente se tendría que sustraer la PSF conocida 
-de la imagen, dejando como resultado el objeto debajo.
-
-A pesar de conocer la teoría sobre el comportamiento de la luz, el problema 
-y la causa de los errores viene de la intervención de las herramientas que 
-usamos para capturarla.
-El primer obstáculo entre la fuente de luz y nuestra imagen es el lente. 
-Al no existir lentes perfectos, las imperfecciones y aberraciones hacen 
-que el frente de onda refractado no sea esférico ideal, evitando que los 
-rayos converjan perfectamente en un punto.
-
-
-
-%-------------------------------------------------------------------
 \section{Registro e Interpolación Astrométrica}
 %-------------------------------------------------------------------
 \label{cap3:sec:interp}
@@ -257,15 +192,15 @@ para los pasos posteriores.
 \label{cap3:sec:reference}
 
 
-"la imagen de referencia es aquella que se sustraera o se vera sustraida dependiendo del paquete 
-con cada una de las imágenes de ciencia, siendo los residulos de cada una de estas restas 
-representativos de la variacion de los objetos en la imagen respecto al momento fijo de la imagen 
+La imagen de referencia es aquella que se sustraerá o se verá sustraída 
+con cada una de las imágenes de ciencia, siendo los residuos de cada una de estas restas 
+representativos de la variación de los objetos en la imagen respecto al momento fijo de la imagen 
 de referencia. 
 
-Esta imagen debe tener la caracteristica de ser la de mejor calidad entre todas. Para posteriormente 
-ser degradada por medio de la convolucion con el kernel para coincidir con las condiciones de la imagen de ciencia correspondiente. 
-Se puede elegir una imagen especifica de nuestro conjunto o bien se puede construir por medio de un conjunto de imágenes de 
-la mejor calidad, como es el caso de ISIS"
+Esta imagen debe tener la característica de ser la de mejor calidad entre todas. Para posteriormente 
+ser degradada por medio de la convolución con el kernel y hacerla coincidir con las condiciones de la imagen de ciencia correspondiente. 
+Se puede definir como una imagen específica de entre nuestro conjunto o bien se puede construir por medio de un conjunto de imágenes de la mejor calidad
+
 
 En ISIS, para la construcción de la imagen de referencia se debe explorar el 
 conjunto de imágenes y seleccionar aproximadamente las 10 de mejor calidad 
@@ -338,7 +273,7 @@ con los coeficientes $a_n$ siendo funciones polinomiales de $(x, y)$
 $$ a_n(x,y) = \sum_{i,j} b_{i,j} x^i y^j$$
 
 
-En el proceso de alineación del seeing entre las imágenes mediante el kernel de 
+En el proceso de emparejar el seeing entre las imágenes mediante el kernel de 
 convolución, se debe tener especial cuidado en 
 que la suma del kernel sea constante. De lo contrario, podría causar que el flujo 
 de los objetos en la imagen cambie inesperadamente. 
@@ -352,24 +287,71 @@ de la transformación. Esto se puede hacer mediante multiplicadores de Lagrange,
 sin embargo resultaría computacionalmente costoso. Es por eso que se opta por  
 rediseñar la base de los vectores que forman el kernel (ec. *). 
 
+nueva base de los vectores del kernel que son combinaciones lineales de los vectores de los 
+vectores anteriores. Este nuevo conjunto de vectores se construye de forma que cada vector base, a excepción 
+de uno, sumen cero. Se hace entonces la combinación: 
+
+$$ K'_n = K_n - K_0 $$ 
+
+donde el vector K_n está normalizado y los vectores K'_n suman cero a excepcion de K'_0 
+que será igual a K_0. Así, la expresión del kernel queda como: 
+
+$$ K(u,v) = a_0 K_0(u,v) + \sum_{1,N}a_n(x,y)K'_n(u,v) $$
+
 
 Separamos un vector base especial $K_0$ que controla el flujo total, de otros 
 vectores $K_n'$ encargados de afectar la forma de la transformación, más que 
 actuar sobre el brillo y flujo.
 
+Una vez encontrado el kernel, este se convoluciona con la imagen de referencia 
+y el resultado se sustrae a su correspondiente imagen de ciencia. Esto se aplica 
+sobre todo nuestro conjunto de imágenes,
+produciendo una serie de imágenes de diferencia. 
+
+Les llamamos imágenes de diferencia a las que se obtienen como resultado de la resta entre la 
+imagen de referencia convolucionada y la de ciencia. Donde los residuos corresponden a posible 
+variabilidad.
+
+Sin embargo, estos residuos pueden tener su origen debido a una variedad de factores 
+no necesariamente astronómicos debidos a pequeños fallos de alineamiento, estrellas saturadas 
+o un ajuste deficiente de la PSF.
+
+Este proceso es realizado por ISIS mediante el comando \texttt{./subtract.csh}, posterior al ajuste de 
+parámetros como el tamaño del kernel (\texttt{half\_mesh\_size}) y del área considerada alrededor de cada objeto (\texttt{half\_stamp\_size}) en el archivo
+\texttt{default\_config}
+
+
 %-------------------------------------------------------------------
 \section{Detección de variables}
 
-Sin embargo, estos residuos pueden tener su origen debido a una variedad de factores 
-no necesariamente astronómicos (pequeños fallos de alineamiento, estrellas saturadas 
-o ajuste deficiente de la PSF). Para tener mejor oportunidad de identificar las 
+Para mejorar las probabilidades de encontrar estrellas variables y objetos transientes, una imagen de mediana de 
+diferencias es construida, donde cada pixel es la mediana del set de pixeles correspondientes 
+al conjunto de imágenes de diferencia. 
+
+Cualquier residuo visible en la imagen de mediana de diferencias es un indicativo de cambio 
+de flujo entre las dos imágenes. Este cambio visible puede deberse tanto a un auténtico 
+cambio de flujo debido a una estrella variable, como a ruido sistemático 
+(flat-field o fallos en la PSF modelada).
+
+Para tener mejor oportunidad de identificar las 
 variaciones de nuestro interés, generamos una imagen de medias de diferencias 
-(abs.fits o var.fits) donde cada pixel es la mediana del conjunto correspondiente 
+(\texttt{var.fits}) donde cada pixel es la mediana del conjunto correspondiente 
 de píxeles en cada una de las imágenes de diferencia. De esta forma se reduce 
 la influencia de errores sistemáticos, minimizando falsos positivos causados 
 por fluctuaciones no astronómicas.
 
-for pixel in fits: mediana(dif1.fits, dif2.fits, ?, dif_n.fits)
+%\texttt{var.fits} es la media de las desviaciones absolutas normalizadas, 
+%y \texttt{abs.fits} es la media de las desviaciones absolutas de los valores de los píxeles.
+
+%for pixel in fits: mediana(dif1.fits, dif2.fits, ?, dif_n.fits)
+
+ISIS construye esta imagen de mediana de diferenicias y el archivo 
+\texttt{phot.data} mediante el comando \texttt{./detect.csh}
+
+Los objetos destacados en \texttt{var.fits} son listados 
+en el archivo \texttt{phot.data} al ejecutar el comando \texttt{./find.csh} 
+de acuerdo a un threshold (\texttt{SIG\_THRESH}) 
+establecido en el archivo \texttt{process\_config}
 
 
 %-------------------------------------------------------------------
@@ -379,12 +361,34 @@ for pixel in fits: mediana(dif1.fits, dif2.fits, ?, dif_n.fits)
 
 El proceso de construccion de las curvas de luz se reduce a la estimacion del flujo relativo 
 a lo largo de cada una de las imagenes de diferencia en un punto especifico. Dando como resultado 
-un archivo que incluye dicho flujo acompañado de la fecha indicada en el archivo DATES correspondiente 
-a la imegen. Los puntos sobre los cuales se construyen las curvas de luz son los indicados en el archivo XXX
-en el cual se incluyen los nombres de las curvas de luz a generar y las coordenadas physical del objeto.
-este archivo es rellenado automaticamente en el paso anterior
- de acuerdo a los puntos indicados sobresalientes en el resultado VAR.FITS del paso anterior. 
+un archivo que incluye dicho flujo acompañado de la fecha indicada en \texttt{dates} correspondiente 
+a la imagen. Los puntos sobre los cuales se construyen las curvas de luz son los indicados en el archivo \texttt{phot.data}: 
 
+\begin{verbatim}
+47.818095 53.288971 48 53 lc0.data 1.108024 18.838448
+98.324050 53.530079 99 53 lc1.data 0.530456 6.804914
+149.000000 105.000000 149 105 lc2.data 1.504538 20.553673
+177.773145 153.121297 177 153 lc3.data 0.579896 13.999767
+197.284906 203.871915 197 204 lc4.data 0.291704 9.640295
+...
+\end{verbatim}
+
+generado en el paso anterior, en el cual se incluyen los nombres de las curvas de luz 
+a generar y las coordenadas \textit{physical} del objeto en el 
+siguiente orden de columnas: 
+\texttt{x}, \texttt{y}, \texttt{int(x)}, \texttt{int(y)}, \texttt{name.data}, \texttt{var.fits}, \texttt{abs.fits}.
+
+Las curvas se generan mediante el comando \texttt{./phot.data} con el nombre 
+indicado en \texttt{phot.data}, que por defecto van como 
+\texttt{lc<i>.data} y se almacenan en el directorio de imagenes.  
+
+Los parametros fotométricos del proceso como el radio de apertura (\texttt{rad\_aper}) 
+y de \textit{background} (\texttt{rad1\_bg}, \texttt{rad2\_bg}) se indican 
+en el archivo \texttt{phot\_config}
+
+Una observación importante a señalar es que para este trabajo descubrimos la posibilidad de interrumpir el 
+flujo del programa y modificar manualmente el archivo \texttt{phot.data} para realizar 
+fotometría y curvas de luz en coordenadas de nuestro interés específico.
 
 
 

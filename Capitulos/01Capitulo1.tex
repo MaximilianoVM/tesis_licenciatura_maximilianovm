@@ -144,7 +144,68 @@ cada pixel indique el mismo valor ante una misma cantidad de luz recibida. Estos
 apuntando a una fuente uniforme de luz como lo es el ocaso, en sentido contrario al 
 sol ocultándose y con la cúpula cubriendo de él al telescopio. 
 
+%-------------------------------------------------------------------
+\section{Point Spread Function (PSF)}
+%-------------------------------------------------------------------
+\label{cap3:sec:psf}
 
+Definimos la función de dispersión puntual (PSF por sus siglas en inglés) como la respuesta de un sistema de cámara a 
+una fuente puntual (un impulso). 
+
+En teoría se espera que la luz de un círculo en la imagen esté uniformemente 
+distribuida, pudiendo ser modelada como una función pillbox, definida como: 
+
+$$
+h(x,y) = \begin{cases} 
+\frac{4}{\pi b^2}, & x^2 + y^2 \leq \frac{b^2}{4} \\
+0, & \text{otherwise}
+\end{cases}
+$$
+
+Sin embargo, la energía emitida por el objeto observado no llega en su totalidad a nuestro detector. 
+En la práctica, intervienen una variedad de factores y la distribución de luz en el circulo difuminado no va a 
+ser constante. Debido a la difracción, aberracion del lente y 
+sensibilidad de los pixeles CCD, la PSF aparece entonces como una función gaussiana.
+
+$$
+h(x,y) = \frac{1}{2\pi\sigma^2}e^{-\frac{x^2 + y^2}{2\sigma^2}}
+$$
+
+
+Al modelar la PSF se desea saber la forma en la que un sistema óptico contribuye y 
+modifica las observaciones, permitiendo despreciar dichas inexactitudes 
+en la medida de lo posible para representar el objeto de observación de una 
+manera mas fiel. La teoría detrás de estas diferencias corresponde al comportamiento 
+de las ondas electromagnéticas y la propagación de la luz, en especifico el 
+análisis de difracción.
+
+\figura{PSF/Convolution_Illustrated_eng.png}{width=.5\textwidth}{fig:Convolution_Illustrated_eng;}%
+{ \href{https://commons.wikimedia.org/wiki/File:Convolution_Illustrated_eng.png}{Efecto de convolucion con PSF. Default007, Public domain, via Wikimedia Commons}} 
+
+Para explicarlas se recurre al principio de Huygens-Fresnel, el cual indica que 
+cada punto en un frente de onda puede ser considerado como una propia perturbación 
+secundaria, dando paso a ondas esféricas.
+
+% figura Huygens-Fresnel
+\figura{PSF/Huygens-Fresnel}{width=.9\textwidth}{fig:Huygens-Fresnel;}%
+{Difracción de ondas Huygens y Fresnel} 
+
+De esta forma, el frente de onda siguiente corresponde al envolvente de todas las 
+perturbaciones, donde las ondas secundarias también interfieren.
+
+En el caso ideal, podemos definir como imagen perfecta aquella que se ve 
+limitada únicamente por la difracción debida al sistema óptico. En este caso, 
+conocemos de forma precisa la PSF, para una apertura circular corresponde el 
+patron de Airy. Así que simplemente se tendría que sustraer la PSF conocida 
+de la imagen, dejando como resultado el objeto debajo.
+
+A pesar de conocer la teoría sobre el comportamiento de la luz, el problema 
+y la causa de los errores viene de la intervención de las herramientas que 
+usamos para capturarla.
+El primer obstáculo entre la fuente de luz y nuestra imagen es el lente. 
+Al no existir lentes perfectos, las imperfecciones y aberraciones hacen 
+que el frente de onda refractado no sea esférico ideal, evitando que los 
+rayos converjan perfectamente en un punto.
 
 %-------------------------------------------------------------------
 %\section*{\NotasBibliograficas}
