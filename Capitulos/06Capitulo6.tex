@@ -1,0 +1,237 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 6
+%
+%---------------------------------------------------------------------
+
+\chapter{Resultados}
+
+%-------------------------------------------------------------------
+\section{Observaciones y reducción de datos}
+%-------------------------------------------------------------------
+
+El cúmulo NGC 6426 fue observado a lo largo de 4 fechas entre julio 
+de 2024 y agosto de 2025 en los filtros $I$ y $V$ mediante el 
+telescopio $84cm$ del Observatorio Astronómico Nacional San Pedro 
+Mártir (OAN-SPM), obteniendo un total de $931$ imágenes en el filtro $I$ 
+y 
+$924$ en el filtro $V$.
+
+
+
+El telescopio 84cm esta equipado con la cámara CCD Spectral Instruments 1
+y con la rueda de filtros MEXMAN.
+
+Las imágenes fueron reducidas mediante imágenes de calibración BIAS y FLATS
+
+obtenidas por medio de rutinas DAPHOt del paquete IRAF.
+
+\subsubsection{División en sub-conjuntos}
+
+Debido a pequeñas variaciones de posicionamiento a lo largo de las 
+fechas de observación, el conjunto de imágenes fue dividido en 
+sub-conjuntos de acuerdo a su similitud en cuanto a la región 
+observada y capturada por la cámara. Dicha división se realizó 
+para reducir el tiempo de ejecución del primer comando de ISIS 
+correspondiente a la interpolación astrométrica, eligiendo el 
+menor grado de transformación en dicho paso y procesando cada 
+conjunto por separado en directorios 
+
+\texttt{images202\_<mes\_de\_observación>\_<filtro>}.
+
+\begin{comment}
+202407_I
+202505_I
+202506A_I
+202506B_I
+202508_I
+
+202407_V
+202505_V
+202506A_V
+202506B_V
+202508_V
+\end{comment}
+
+En pruebas anteriores con el programa se identificó un fallo 
+en el paquete ISIS, en especifico en la tarea \texttt{./detect.csh} 
+al procesar mas de 500 imágenes, indicando un problema de uso de 
+memoria.Atribuimos dicho error a la naturaleza del lenguaje C, 
+que no gestiona la memoria de forma automática, aspecto que 
+probablemente no fue considerado durante el desarrollo de ISIS. 
+Un análisis más detallado del error puede consultarse 
+en \url{https://maximilianovm.github.io/posts/error_detect/}. 
+Decidimos no continuar con la búsqueda de una solución 
+directa al problema de volumen mencionado, gracias a la 
+elección de procesar las imágenes en sub-conjuntos. 
+Este enfoque, además, resolvió los inconvenientes de interpolación 
+que se presentaban en el primer paso (\texttt{./interp.csh}) como el 
+ilustrado en \Cref{fig:fallo_interp_1RXS}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/resultados/error_interp_2025-04-19_23-35.png}
+  \caption{Ejemplo de fallo en ./interp.csh al tratar con imágenes muy desalineadas. Campo del ejemplo: 1RXS J064434.5+334451.}
+  \label{fig:fallo_interp_1RXS}
+\end{figure}
+
+Una lista de las variables conocidas fue consultada del catalogo de 
+Clement y posteriormente pareadas con nuestros hallazgos. 
+
+%-------------------------------------------------------------------
+\section{ISIS: Implementación}
+%-------------------------------------------------------------------
+
+Al empezar con ISIS es común encontramos con problemas de compatibilidad. 
+El paquete fue hecho a finales de los 90s - principios de los 2000 sin practicas 
+que desarrollo de un paquete requiere para su perdurabilidad ni mantenimiento de 
+compatibilidad para sistemas operativos recientes.
+
+Con la intención de facilitar la reproducibilidad de nuestros resultados 
+utilizamos contenedores. Docker es una herramienta ampliamente utilizada 
+por equipos de desarrollo de software, solucionando problemas de 
+compatibilidad y facilitando el despliegue de aplicaciones. 
+En términos prácticos, crea un contenedor a partir de un archivo \texttt{Dockerfile}. 
+Este contenedor representa un espacio con sus propias dependencias 
+(especificadas por nosotros) y un entorno muy controlado. 
+En nuestra investigación queremos simular un ambiente en el que 
+ISIS pueda correr sin problemas y a su vez sea compatible con tareas 
+desarrolladas en software reciente como Python3 o la configuración en 
+nuestro equipo de IRAF.
+
+Utilizamos la imagen oficial 
+de \href{https://wiki.centos.org/Manuals(2f)ReleaseNotes(2f)CentOS6(2e)2(2f)Spanish.html}{CentOS 6}, 
+una distribución lo suficientemente antigua para que no surjan errores de compatibilidad con ISIS. 
+Se nos presenta la desventaja de que CentOS 6 ya no cuenta con mantenimiento, es por eso que, en 
+procedimientos que lo requieran (como aquellos con Python o con IRAF/DS9) podremos manipular los datos 
+desde el \textit{host}. Ahí radica la principal ventaja de implementar los contenedores como volúmenes.
+
+El desarrollo explicito del entorno se extiende por fuera de las intenciones de 
+la investigación. Puede ser consultado con detalle en 
+\url{https://maximilianovm.github.io/posts/isis_docker-2/}.
+
+%-------------------------------------------------------------------
+\section{ISIS: Parámetros}
+%-------------------------------------------------------------------
+Se hace un procesamiento independiente para cada set de imágenes, 
+ya sea dividido por filtro, noche o temporada de forma que cada 
+imagen del conjunto pueda ser efectivamente alineada con el resto.
+
+Para cada uno de estos sets, corresponde una serie de 
+modificaciones muy sutiles de los parámetros de ISIS y del 
+procesamiento anterior o posterior. Siendo los mas importantes 
+los correspondientes a la lista de fechas, la de imágenes de 
+referencia \texttt{ref\_list} y a \texttt{process\_config}. 
+
+Para \texttt{default\_config} y \texttt{phot\_config} dejamos 
+la mayor parte de los parametros como vienen por defecto. 
+Siendo los mas importantes, indicando un Half kernel size 
+de 9 y un Half stamp size de 15, ademas de un degree to 
+fit differential bakground variations de 3 
+
+
+\begin{verbatim}
+IM_DIR        ../images202407_I     
+MRJ_DIR       ..                    
+REFERENCE     2024071800611o.fit    
+REF_SUB       ref.fits              
+INFILE        ../register202407_I/dates
+VARIABLES     phot.data     
+DEGREE          1          
+CONFIG_DIR      ../register202407_I   
+SIG_THRESH      10.0
+COSMIC_THRESH   1000.0
+REF_STACK       2024071800611o.fit
+N_REJECT        2
+MESH_SMOOTH     1
+\end{verbatim}
+
+
+%-------------------------------------------------------------------
+\section{Curvas de Luz}
+%-------------------------------------------------------------------
+
+Debido a problemas de sobre-detección de falsos positivos del 
+programa ISIS mediante sus tareas habituales, una parte de la 
+investigación fue destinada al desarrollo de scripts auxiliares 
+para interrumpir el flujo natural de ISIS e introducir coordenadas 
+personalizadas al programa sobre las cuales realizar los pasos 
+posteriores de fotometría y construcción de curvas de luz \Cref{fig:phot_2506A_I}. 
+
+Esto se logra mediante la modificación o construcción manual 
+del archivo \texttt{phot.data} cuya morfología ya fue descrita 
+en \autoref{chap: Sustracción de Imágenes}, introduciendo las 
+coordenadas \textit{physical} en las primeras 4 columnas, el 
+nombre de salida en la 5ta columna y valores en las ultimas 
+dos columnas por encima del parametro \texttt{sig\_thresh} en \texttt{process\_config}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/resultados/phot_2506A_I.png}
+  \caption{Estrellas seleccionadas para fotometría, listadas en \texttt{phot.data}. Ejemplo del set \texttt{2506A\_I} sobre la imagen de referencia \texttt{202506050244o.fit}}
+  \label{fig:phot_2506A_I}
+\end{figure}
+
+En contraste a las curvas generadas por ISIS, se construyeron 
+curvas de luz con fotometría de apertura mediante tareas de IRAF. 
+Ambas sobre cada estrella del campo. 
+
+Por diversas razones, entre ellas nuestro fallo en los intentos 
+por convertir a magnitudes las curvas de luz en flujo relativo 
+generadas por ISIS siguiendo los pasos de \citet{Baldacci_2005}, 
+el análisis de Fourier unicamente fue realizado sobre las curvas 
+de luz construidas con IRAF \Cref{fig:mosai_fin_armando}. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{img/resultados/MOSAI_FIN.jpg}
+  \caption{Curvas de luz y sus respectivos ajustes de Fourier (rojo) de 
+  las 18 estrellas identificadas como variables en el campo}
+  \label{fig:mosai_fin_armando}
+\end{figure}
+
+
+A falta de una conversión a magnitudes, las distintas temporadas 
+fueron integradas por medio de una normalización del flujo relativo, 
+formando una única curva de luz a lo largo de todas las observaciones. 
+
+\subsection{Suavizado de curvas}
+
+Para lidiar con el ruido que presentan las curvas de luz en forma de outliers, utilizamos la función \texttt{rolling} de Pandas \citep{PandasRolling}
+sobre la mediana de la curva en fase con un \texttt{window=25} y \texttt{center=True}. 
+
+En el caso especial de V4324, se presenta un doble modo, de forma que 
+al usar los parámetros anteriores de \texttt{rolling} interpreta uno de los 
+modos como ruido. Para el suavizado de esta curva se  
+implementó \texttt{rolling} sobre la mediana de la curva (no en fase) con un \texttt{window=15}. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{img/resultados/lc_doublep_smoothed_V4324Oph_V.png}
+  \caption{Curva de luz V4324 suavizada tomando en cuenta el doble modo.}
+  \label{fig:lc_doublep}
+\end{figure}
+
+
+
+%-------------------------------------------------------------------
+\section{Parámetros físicos de NGC 6426 (RAW)}
+%-------------------------------------------------------------------
+
+Los resultados de metalicidad y distancia para las RRab y RRc miembros de NGC 6426, a partir de
+sus curvas en V son:
+
+RRab $$[Fe/H]_{zw}= -1.919+-0.187$$ 
+     $$[Fe/H]_{uves}= -1.960+-0.187$$  
+     $$Distancia = 20.61 +- 1.57 \ kpc$$
+     $$Masa\ promedio=  0.792+-0.039 \ Masas\ solarea$$
+     $$Radio\ promedio= 6.52+- 0.01 \ Radios\ solares$$
+     Basados en 7 estrellas miembro ($V1$, $V4$, $V5$, $V6$, $V7$, $V8$, $V16$)
+     
+RRc  [Fe/H]zw= -2.037 +- 0.173  [Fe/H]uves=-2.146+- 0.173
+     Distancia = 19.34 +- 0.72 kpc
+      Masa promedio=   0.548 +- 0.007 Masas solares
+      Radio promedio= 4.47 +- 0.01 Radios solares
+      Basados en 3 estrellas miembros (V2, V10 V12)
+     
+LOS VALORES CANÓNICOS DADOS POR HARRIS (1996) son [Fe/H]= -2.15 y Distancias= 20.6 Kpc O sea que concordamos bien.

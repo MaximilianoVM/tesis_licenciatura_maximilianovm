@@ -4,7 +4,7 @@
 %
 %---------------------------------------------------------------------
 
-\chapter{Fourier y parametros físicos}
+\chapter{Fourier y parámetros físicos}
 
 \begin{FraseCelebre}
 \begin{Frase}
@@ -23,7 +23,7 @@
 %-------------------------------------------------------------------
 \section{Color}
 %-------------------------------------------------------------------
-\label{cap5:sec:color}
+%\label{cap5:sec:color}
 
 Entre las tantas propiedades que se pueden medir de las estrellas 
 se encuentra el brillo que recibimos de ellas, y para cuantificar 
@@ -47,17 +47,34 @@ caso contrario al color azul que puede indicar temperaturas de
 hasta poco más de $40000 \degree C$. 
 
 Es importante a este punto aclarar que las estrellas se comportan como 
-un cuerpo negro, esto es clave para entender la relacion de su 
-temperatura con su color principal de emision. Las estrellas emiten 
+un cuerpo negro, esto es clave para entender la relación de su 
+temperatura con su color principal de emisión. Las estrellas emiten 
 luz en todos los colores, sin embargo, si identificamos un color a 
 simple vista es es porque es el correspondiente al de máxima emisión
 
 %la longitud de onda predominante de emisión. 
 %emite principalmente en ese color.
 
+%-------------------------------------------------------------------
+\section{Diagrama de Hertzsprung-Russell}
+%-------------------------------------------------------------------
+
 Un diagrama sumamente utilizado en la astronomía moderna es el de 
 HR que se construye graficando el color y la magnitud de las estrellas 
 en un campo. Este diagrama nos provee de información ?
+
+
+%-------------------------------------------------------------------
+\section{Metalicidad $[Fe/H]$}
+%-------------------------------------------------------------------
+
+aaaa
+
+%-------------------------------------------------------------------
+\section{Reddening - Extinction}
+%-------------------------------------------------------------------
+
+bbbbbbb
 
 
 %-------------------------------------------------------------------
@@ -67,23 +84,24 @@ en un campo. Este diagrama nos provee de información ?
 Fenómenos periódicos pueden ser descritos a través de funciones 
 periódicas, las cuales se definen como aquellas para las que
 $$ f(x) = f(x+T), \ x \epsilon R $$
-donde T es el periodo de la función, de forma que también se cumple:
+donde $T$ es el periodo de la función, de forma que también se cumple:
 $$ f(x) = f(x+nT), \ n \epsilon Z $$
 Las series de Fourier son una herramienta que simplifica el 
 análisis para este tipo de fenómenos. Una serie de Fourier se 
 define como una expansión de una función o representación de una 
-función con periodo T en una serie de senos y cosenos de la forma:
+función con periodo $T$ en una serie de senos y cosenos de la forma:
 
 $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos\left(n\omega_0 x\right) + b_n \sin\left(n \omega_0x\right) \right) $$
 
 donde $\omega_0 = \frac{2\pi}{T}$.
 
 %-------------------------------------------------------------------
-\section{Parámetros fisicos}
+\section{Parámetros físicos}
 %-------------------------------------------------------------------
 
-En el contexto de estrellas variables se aplica para la función 
-magnitud m con una variable temporal t y un periodo fisco P:
+En el contexto de estrellas variables se aplican series 
+de Fourier para la función 
+magnitud $m$ con una variable temporal $t$ y un periodo fisco $P$:
 
 $$ m(t) = A_0 + \sum_{k=1}^{N} A_k \cos(\frac{2\pi k}{P}(t-E) + \phi_k) $$
 
@@ -91,13 +109,12 @@ con los coeficientes de ajuste amplitud $A_k$ y fase $\phi_k$ del
 k-ésimo armónico, además de la época $E$, típicamente seleccionada 
 como la fecha de máximo brillo.
 Esta expresión se define a partir de la definición de serie de 
-Fourier con propiedades trigonométricas y la fase definida 
-como $\omega_0 = \frac{2\pi}{P}$.
+Fourier con propiedades trigonométricas y $\omega_0 = \frac{2\pi}{P}$.
 
 El periodo se asume con un análisis previo. Al contar con un 
 muestreo discreto para las curvas de luz $(t_i, m_i)$, los 
 coeficientes amplitud $A_k$ y fase $\phi_k$ se obtienen planteando 
-una función de ajuste basada en $m(t) ? m_i$ y ajustando por 
+una función de ajuste basada en $m(t)$ ? $m_i$ y ajustando por 
 medio de minimización lineal para obtener los mejores parámetros 
 de ajuste.
 Si utilizamos el criterio de mínimos cuadrados
@@ -120,15 +137,15 @@ correspondientes a razones de amplitudes y diferencias de
 fases, y que se correlacionan empíricamente con propiedades 
 físicas de la estrella como la metalicidad y la temperatura. 
 La demostración de esta correlación se remonta al trabajo 
-de (10.1086/151144)
-y posteriormente, a través de modelos hidrodinámicos 10.1086/172771 
+de \citet{albada_baker_1971}
+y posteriormente, a través de modelos hidrodinámicos \citet{simon_clement_1993}
 demostraron la significancia del parámetro $\phi_{31}$ para la 
-estimación de masa estelar y luminosidad en estrellas RRc.
+estimación de masa estelar y luminosidad en estrellas $RRc$.
 Una variedad de calibraciones para la estimación de 
-metalicidad $[Fe/H]$ y magnitud absoluta Mv mediante la 
+metalicidad $[Fe/H]$ y magnitud absoluta $Mv$ mediante la 
 descomposición de curvas de luz RR Lyrae pueden ser encontradas en 
 la literatura. Es importante mencionar que se debe hacer la 
-distinción entre calibraciones para estrellas RRab y RRcc debido 
+distinción entre calibraciones para estrellas $RRab$ y $RRcc$ debido 
 a la diferencia de su naturaleza y por lo tanto a sus propuestas 
 de calibración.
 
@@ -136,9 +153,9 @@ de calibración.
 \subsection{RRab}
 %-------------------------------------------------------------------
 
-Para el cálculo de [Fe/H] adoptamos las siguientes calibraciones 
-en la escala de Zinn & West (1984) para estrellas RRab a partir 
-de la escala de Jurcsik (1995):
+Para el cálculo de $[Fe/H]$ adoptamos las siguientes calibraciones 
+en la escala de \citet{zinn_west_1984} para estrellas $RRab$ a partir 
+de la escala de \citet{jurcsik_1995}:
 
 $$ [Fe/H]_{J} = -5.038 - 5.394P + 1.345\phi_{31}^{(s)} $$
 
@@ -146,29 +163,60 @@ por medio de la expresión:
 
 $$ [Fe/H]_{J} = 1.431[Fe/H]_{zw} + 0.88 $$
 
-dada por el mismo Jurcsik (1995).
+dada por el mismo \citet{jurcsik_1995}.
 Los cuales se pueden convertir a la escala espectroscópica 
-UVES de Carretta et al. (2009) mediante
+UVES de \citet{carretta_etal_2009} mediante
 $$ [Fe/H]{uves} = -0.413 + 0.130[Fe/H]{zw} - 0.356[Fe/H]_{zw}^2 $$
-La escala de UVES resulta importante para comparar los valores 
+La escala de $UVES$ resulta importante para comparar los valores 
 fotométricos con aquellos obtenidos mediante determinaciones 
 espectroscópicas, que resultan en valores de metalicidad mas 
-precisos. (arXiv:0910.0675)
-La magnitud absoluta Mv para estrellas RRab se obtiene mediante
+precisos \citep{Carretta_2009}.
+La magnitud absoluta $Mv$ para estrellas $RRab$ se obtiene mediante
 $$ M_V = -1.876 \log P - 1.158A_1 + 0.821A_3 + 0.41, $$
-de Kov´acs & Walker (2001) para estrellas RRab
+de \citet{kovacs_walker_2001} para estrellas $RRab$
 
 %-------------------------------------------------------------------
 \subsection{RRc}
 %-------------------------------------------------------------------
 
-Para el cálculo de [Fe/H] adoptamos las siguientes calibraciones:
+Para el cálculo de $[Fe/H]$ adoptamos las siguientes calibraciones:
 $$ [Fe/H]{zw} = 52.466P^2 - 30.075P + 0.131\phi{31}^{(c)2} - 0.982\phi_{31}^{(c)} - 4.198\phi_{31}^{(c)}P + 2.424 $$
-en la escala de Zinn & West (1984) para estrellas RRc. A partir 
-de la cual podemos obtener también la escala en UVES.
-La magnitud absoluta Mv para estrellas RRc se obtiene mediante
+en la escala de \citet{zinn_west_1984} para estrellas $RRc$. A partir 
+de la cual podemos obtener también la escala en $UVES$.
+La magnitud absoluta $Mv$ para estrellas $RRc$ se obtiene mediante
 $$ M_V = -0.961P - 0.044\phi_{21}^{(s)} - 4.447A_4 + 1.061. $$
-de Kov´acs (1998) para estrellas RRc.
+de Kov´acs (1998) para estrellas $RRc$.
+
+
+%-------------------------------------------------------------------
+%\section*{\NotasBibliograficas}
+%-------------------------------------------------------------------
+%\TocNotasBibliograficas
+
+%Citamos algo para que aparezca en la bibliografía\ldots
+%\citep{ldesc2e}
+
+%\medskip
+
+%Y también ponemos el acrónimo \ac{CVS} para que no cruja.
+
+%Ten en cuenta que si no quieres acrónimos (o no quieres que te falle la compilación en ``release'' mientras no tengas ninguno) basta con que no definas la constante \verb+\acronimosEnRelease+ (en \texttt{config.tex}).
+
+
+%-------------------------------------------------------------------
+%\section*{\ProximoCapitulo}
+%-------------------------------------------------------------------
+%\TocProximoCapitulo
+
+%...
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:
 
 
 %-------------------------------------------------------------------

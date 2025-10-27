@@ -1,0 +1,68 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.23)  27 OCT 2025 13:18
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/astro/Documents/TESIS/tesis_licenciatura_maximilianovm/Tesis.tex
+(/home/astro/Documents/TESIS/tesis_licenciatura_maximilianovm/Tesis.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk11.clo
+File: bk11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count187
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+
+LaTeX Warning: \include should only be used after \begin{document} on input line 75.
+
+(./config.tex) (./TeXiS/TeXiS.sty
+Package: TeXiS/TeXiS 
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks17
+\verbatim@line=\toks18
+\verbatim@in@stream=\read2
+)
+\example@out=\write3
+
+
+LaTeX Warning: \include should only be used after \begin{document} on input line 460.
+
+(./TeXiS/TeXiS_pream.tex
+
+! LaTeX Error: File `glosstex.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+./TeXiS/TeXiS_pream.tex:143: Emergency stop.
+<read *> 
+         
+l.143 \fi
+         ^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 360 strings out of 474222
+ 5039 string characters out of 5748733
+ 1922975 words of memory out of 5000000
+ 22691 multiletter control sequences out of 15000+600000
+ 558369 words of font info for 37 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,0n,51p,192b,36s stack positions out of 10000i,1000n,20000p,200000b,200000s
+./TeXiS/TeXiS_pream.tex:143:  ==> Fatal error occurred, no output PDF file produced!
