@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Tesis.aux
+A level-1 auxiliary file: Cascaras/cover.aux
+A level-1 auxiliary file: TeXiS/TeXiS_toc.aux
+A level-1 auxiliary file: Capitulos/02Capitulo2.aux
+A level-1 auxiliary file: Capitulos/01Capitulo1.aux
+A level-1 auxiliary file: Capitulos/03Capitulo3.aux
+A level-1 auxiliary file: Capitulos/04Capitulo4.aux
+A level-1 auxiliary file: Capitulos/05Capitulo5.aux
+A level-1 auxiliary file: Capitulos/06Capitulo6.aux
+A level-1 auxiliary file: Cascaras/bibliografia.aux
+The style file: TeXiS/TeXiS.bst
+Database file #1: phDThesis.bib
+You've used 44 entries,
+            2962 wiz_defined-function locations,
+            1375 strings with 23236 characters,
+and the built_in function-call counts, 38012 in all, are:
+= -- 2604
+> -- 2273
+< -- 84
++ -- 877
+- -- 819
+* -- 3377
+:= -- 5463
+add.period$ -- 153
+call.type$ -- 44
+change.case$ -- 494
+chr.to.int$ -- 40
+cite$ -- 44
+duplicate$ -- 2853
+empty$ -- 2413
+format.name$ -- 940
+if$ -- 7404
+int.to.chr$ -- 5
+int.to.str$ -- 1
+missing$ -- 611
+newline$ -- 244
+num.names$ -- 177
+pop$ -- 1208
+preamble$ -- 1
+purify$ -- 447
+quote$ -- 0
+skip$ -- 984
+stack$ -- 0
+substring$ -- 1215
+swap$ -- 1971
+text.length$ -- 54
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 434
+warning$ -- 0
+while$ -- 189
+width$ -- 0
+write$ -- 589

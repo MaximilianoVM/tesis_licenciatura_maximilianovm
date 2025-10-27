@@ -267,12 +267,12 @@
   \url{https://docs.kde.org/trunk5/es/kstars/kstars/ai-luminosity.html} (último
   acceso,  Septiembre, 2024).
 
-\bibitem[{{Pandas Development Team}(2024)}]{PandasRolling}
+\bibitem[{{Pandas Development Team}(2020)}]{PandasRolling}
 {\sc {Pandas Development Team}}.
 \newblock pandas.dataframe.rolling --- pandas 2.2.2 documentation.
 \newblock
   \url{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rolling.html},
-  2024.
+  2020.
 \newblock Accessed: 2025-6-8.
 
 \bibitem[{Phillips y Davis(1995)}]{Phillips_1995}
