@@ -20,13 +20,11 @@
 %...
 %\end{resumen}
 
-
 %-------------------------------------------------------------------
 \section{Introducción}
 %-------------------------------------------------------------------
-\label{cap3:sec:introduccion}
 
-En décadas recientes, la observación de eventos transientes ha tenido un auge 
+En décadas recientes, la observación de eventos transitorios ha tenido un auge 
 gracias a \textit{wide-field time-domain surveys} como PS1 \citep{Chambers_2016}, 
 ZTF  \citep{Bellm_2019}, y ATLAS \citep{Tonry_2018}. Todos ellos utilizan 
 la sustracción de imágenes (DIA) como método de identificación y extracción 
@@ -37,7 +35,7 @@ lo cual resulta especialmente útil en diversas disciplinas como la meteorología,
 la medicina, el análisis de patrones o el estudio del crecimiento urbano. 
 En astronomía, técnicas como el ajuste de la función PSF 
 y la sustracción de imágenes son esenciales para detectar fenómenos astronómicos 
-cuya intensidad varía con el tiempo, como ocurre en eventos transientes y estrellas variables.
+cuya intensidad varía con el tiempo, como ocurre en eventos transitorios y estrellas variables.
 
 Las primeras propuestas del método de sustracción de imágenes fueron hechas 
 por \citet{Phillips_1995} y \citet{Tomaney_1996}, proponiendo el 
@@ -101,7 +99,7 @@ práctica en su manual.
 La serie de pasos realizados por ISIS para la detección de estrellas 
 variables corresponden primero a la alineación del conjunto de observaciones 
 del campo deseado, para después generar una imagen de referencia con un 
-buen signal-to-noise, tomando un pequeño conjunto de las imágenes con 
+buen \textit{signal-to-noise}, tomando un pequeño conjunto de las imágenes con 
 mejor seeing de nuestras observaciones. Posteriormente se aplica una 
 convolución entre la referencia y cada una de las imágenes de ciencia, 
 obteniendo el kernel que caracteriza las condiciones de seeing. 
@@ -113,9 +111,8 @@ de flujo entre las dos imágenes.
 %-------------------------------------------------------------------
 \section{Registro e Interpolación Astrométrica}
 %-------------------------------------------------------------------
-\label{cap3:sec:interp}
 
-Un paso fundamental previo a la sustraccion de imágenes es el registro e interpolación astrométrica 
+Un paso fundamental previo a la sustracción de imágenes es el registro e interpolación astrométrica 
 de cada una de las imágenes. Este proceso consiste en ajustar las imágenes 
 para que estén alineadas espacialmente y se adapten al mismo sistema de 
 coordenadas, lo que facilita su comparación.
@@ -174,12 +171,19 @@ a píxeles. Sin embargo las transformaciones geométricas pueden generar
 coordenadas no enteras. Es necesaria entonces una interpolación de los 
 valores en la malla original para estimar los valores de la imagen en 
 la nueva malla de referencia. Esto se logra mediante \textit{Bicubic Splines Interpolation}, 
-un metodo que utiliza un total de 16 ($4x4=$) píxeles adyacentes para lograr una 
-interpolacion con un resultado mas suavizado que con una implementación lineal \citep{Xia_2013}. 
+un método que utiliza un total de 16 ($4x4=$) píxeles adyacentes para lograr una 
+interpolación con un resultado mas suavizado que con una implementación lineal \citep{Xia_2013}. 
 
 % DIAGRAMA BICUBIC INTERPOLATIONS
-\figura{Subtraction/bicubic_interp}{width=.5\textwidth}{fig:bicubic-interp;}%
-{Diagrama del algoritmo Bicubic Interpolation}
+%\figura{Subtraction/bicubic_interp}{width=.5\textwidth}{fig:bicubic-interp;}%
+%{Diagrama del algoritmo Bicubic Interpolation}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Subtraction/bicubic_interp}
+  \caption{Diagrama del algoritmo \textit{Bicubic Interpolation}}
+  \label{fig:bicubic_interp}
+\end{figure}
 
 El proceso de registro e interpolación astrométrica es ejecutado por
 ISIS mediante \texttt{./interp.csh}
@@ -227,7 +231,7 @@ implementa el mismo procedimiento que se desarrolló para la sustracción
 que se describe más adelante: igualar las condiciones de cada una de las 
 imágenes en la lista mediante un kernel de convolución. Respetando así 
 los valores de cada imagen independiente y su aporte a la mediana. 
-En este caso se elige R (imagen de referencia para la convolución) 
+En este caso se elige $R$ (imagen de referencia para la convolución) 
 indicando el nombre de la imagen en el parámetro \texttt{REF\_STACK} del archivo \texttt{process\_config}.
 
 Una vez que las imágenes hayan sido transformadas para coincidir con 
@@ -255,10 +259,10 @@ brillo de los objetos entre las imágenes. Esto nos asegura que el brillo de los
 objetos se mantenga proporcional en todas las imágenes y garantiza que el ajuste 
 del kernel no modifique artificialmente el flujo total.
 
-La esencia del método es encontrar un kernel de convolución K, que transforme 
-una imagen de referencia R para ajustarse a una imagen dada I.
+La esencia del método es encontrar un kernel de convolución $K$, que transforme 
+una imagen de referencia $R$ para ajustarse a una imagen dada $I$.
 
-Esto se logra mediante el metodo de minimos cuadrados:
+Esto se logra mediante el método de mínimos cuadrados:
 $$ \sum_{i}([R \ast K](x_i, y_i) - I(x_i, y_i))^2 $$
 
 Donde el kernel es expresado en sus funciones base (gaussianas para ISIS)
@@ -285,7 +289,7 @@ las imágenes sea proporcional. Esto permite una comparación más directa.
 Se impone entonces la restricción de que el flujo total de la imagen no cambie después 
 de la transformación. Esto se puede hacer mediante multiplicadores de Lagrange, 
 sin embargo resultaría computacionalmente costoso. Es por eso que se opta por  
-rediseñar la base de los vectores que forman el kernel (ec. *). 
+rediseñar la base de los vectores que forman el kernel. 
 
 nueva base de los vectores del kernel que son combinaciones lineales de los vectores de los 
 vectores anteriores. Este nuevo conjunto de vectores se construye de forma que cada vector base, a excepción 
@@ -324,14 +328,14 @@ parámetros como el tamaño del kernel (\texttt{half\_mesh\_size}) y del área cons
 %-------------------------------------------------------------------
 \section{Detección de variables}
 
-Para mejorar las probabilidades de encontrar estrellas variables y objetos transientes, una imagen de mediana de 
+Para mejorar las probabilidades de encontrar estrellas variables y objetos transitorios, una imagen de mediana de 
 diferencias es construida, donde cada pixel es la mediana del set de pixeles correspondientes 
 al conjunto de imágenes de diferencia. 
 
 Cualquier residuo visible en la imagen de mediana de diferencias es un indicativo de cambio 
 de flujo entre las dos imágenes. Este cambio visible puede deberse tanto a un auténtico 
 cambio de flujo debido a una estrella variable, como a ruido sistemático 
-(flat-field o fallos en la PSF modelada).
+(\textit{flat-field} o fallos en la PSF modelada).
 
 Para tener mejor oportunidad de identificar las 
 variaciones de nuestro interés, generamos una imagen de medias de diferencias 
@@ -345,12 +349,12 @@ por fluctuaciones no astronómicas.
 
 %for pixel in fits: mediana(dif1.fits, dif2.fits, ?, dif_n.fits)
 
-ISIS construye esta imagen de mediana de diferenicias y el archivo 
+ISIS construye esta imagen de mediana de diferencias y el archivo 
 \texttt{phot.data} mediante el comando \texttt{./detect.csh}
 
 Los objetos destacados en \texttt{var.fits} son listados 
 en el archivo \texttt{phot.data} al ejecutar el comando \texttt{./find.csh} 
-de acuerdo a un threshold (\texttt{SIG\_THRESH}) 
+de acuerdo a un \textit{threshold} (\texttt{SIG\_THRESH}) 
 establecido en el archivo \texttt{process\_config}
 
 
@@ -359,8 +363,8 @@ establecido en el archivo \texttt{process\_config}
 %-------------------------------------------------------------------
 \label{cap3:sec:fotometria}
 
-El proceso de construccion de las curvas de luz se reduce a la estimacion del flujo relativo 
-a lo largo de cada una de las imagenes de diferencia en un punto especifico. Dando como resultado 
+El proceso de construcción de las curvas de luz se reduce a la estimación del flujo relativo 
+a lo largo de cada una de las imágenes de diferencia en un punto especifico. Dando como resultado 
 un archivo que incluye dicho flujo acompañado de la fecha indicada en \texttt{dates} correspondiente 
 a la imagen. Los puntos sobre los cuales se construyen las curvas de luz son los indicados en el archivo \texttt{phot.data}: 
 
@@ -382,13 +386,15 @@ Las curvas se generan mediante el comando \texttt{./phot.data} con el nombre
 indicado en \texttt{phot.data}, que por defecto van como 
 \texttt{lc<i>.data} y se almacenan en el directorio de imagenes.  
 
-Los parametros fotométricos del proceso como el radio de apertura (\texttt{rad\_aper}) 
+Los parámetros fotométricos del proceso como el radio de apertura (\texttt{rad\_aper}) 
 y de \textit{background} (\texttt{rad1\_bg}, \texttt{rad2\_bg}) se indican 
 en el archivo \texttt{phot\_config}
 
 Una observación importante a señalar es que para este trabajo descubrimos la posibilidad de interrumpir el 
 flujo del programa y modificar manualmente el archivo \texttt{phot.data} para realizar 
 fotometría y curvas de luz en coordenadas de nuestro interés específico.
+
+
 
 
 

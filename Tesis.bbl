@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{44}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Alard y Lupton(1998)}]{Alard_1998}
@@ -27,6 +27,15 @@
   difference image analysis.
 \newblock {\em The Astrophysical Journal Supplement Series\/}, vol. 280(1),
   p\'agina\ 29, 2025.
+
+\bibitem[{Baldacci et\ al.(2005)Baldacci, Rizzi, Clementini y
+  Held}]{Baldacci_2005}
+{\sc Baldacci, L.}, {\sc Rizzi, L.}, {\sc Clementini, G.} y {\sc Held, E.~V.}
+\newblock Variable stars in the dwarf irregular galaxy ngc 6822: The
+  photometric catalogue.
+\newblock {\em Astronomy &amp; Astrophysics\/}, vol. 431(3), p\'agina
+  1189â€“1201, 2005.
+\newblock ISSN 1432-0746.
 
 \bibitem[{Becker(2015)}]{Becker_hotpants_2015}
 {\sc Becker, A.}
@@ -90,6 +99,29 @@
   vol. 386(1), p\'aginas L77--L81, 2008.
 \newblock ISSN 1745-3925.
 
+\bibitem[{Carretta et\ al.(2009)Carretta, Bragaglia, Gratton, Dâ€™Orazi y
+  Lucatello}]{Carretta_2009}
+{\sc Carretta, E.}, {\sc Bragaglia, A.}, {\sc Gratton, R.}, {\sc Dâ€™Orazi, V.}
+  y {\sc Lucatello, S.}
+\newblock Intrinsic iron spread and a new metallicity scale for globular
+  clusters.
+\newblock {\em Astronomy \&; Astrophysics\/}, vol. 508(2), p\'agina 695â€“706,
+  2009.
+\newblock ISSN 1432-0746.
+
+\bibitem[{{Carretta} et\ al.(2009){Carretta}, {Bragaglia}, {Gratton},
+  {Lucatello}, {Catanzaro}, {Leone}, {Bellazzini}, {Claudi}, {D'Orazi},
+  {Momany}, {Ortolani}, {Pancino}, {Piotto}, {Recio-Blanco} y
+  {Sabbi}}]{carretta_etal_2009}
+{\sc {Carretta}, E.}, {\sc {Bragaglia}, A.}, {\sc {Gratton}, R.~G.}, {\sc
+  {Lucatello}, S.}, {\sc {Catanzaro}, G.}, {\sc {Leone}, F.}, {\sc
+  {Bellazzini}, M.}, {\sc {Claudi}, R.}, {\sc {D'Orazi}, V.}, {\sc {Momany},
+  Y.}, {\sc {Ortolani}, S.}, {\sc {Pancino}, E.}, {\sc {Piotto}, G.}, {\sc
+  {Recio-Blanco}, A.} y {\sc {Sabbi}, E.}
+\newblock {Na-O anticorrelation and HB. VII. The chemical composition of first
+  and second-generation stars in 15 globular clusters from GIRAFFE spectra}.
+\newblock {\em \aap\/}, vol. 505(1), p\'aginas 117--138, 2009.
+
 \bibitem[{Chambers et\ al.(2016)Chambers, Magnier, Metcalfe, Flewelling, Huber,
   Waters, Denneau, Draper, Farrow, Finkbeiner, Holmberg, Koppenhoefer, Price,
   Rest, Saglia, Schlafly, Smartt, Sweeney, Wainscoat, Burgett et\
@@ -111,44 +143,50 @@
   \url{https://link.springer.com/book/10.1007/978-94-011-2476-8#bibliographic-information}
   (último acceso,  Agosto, 2024).
 
-\bibitem[{CSIRO(astrophysics{\natexlab{a}})}]{rrLyrae1}
-{\sc CSIRO, A. T. N.~F.} (astrophysics).
-\newblock Entrada: ``{Pulsating Variable Stars}''.
+\bibitem[{CSIRO(2014{\natexlab{a}})}]{rrLyrae1}
+{\sc CSIRO, A. T. N.~F.}
+\newblock {Pulsating Variable Stars}.
+\newblock 2014{\natexlab{a}}.
 \newblock Disponible en
   \url{https://web.archive.org/web/20240709091830/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_pulsating.html#pulsatingrrlyrae}
   (último acceso,  Agosto, 2024).
 
-\bibitem[{CSIRO(astrophysics{\natexlab{b}})}]{distancias}
-{\sc CSIRO, A. T. N.~F.} (astrophysics).
-\newblock Entrada: ``{The Magnitude Scale}''.
+\bibitem[{CSIRO(2014{\natexlab{b}})}]{distancias}
+{\sc CSIRO, A. T. N.~F.}
+\newblock {The Magnitude Scale}.
+\newblock 2014{\natexlab{b}}.
 \newblock Disponible en
   \url{https://web.archive.org/web/20240812014405/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/photometry_magnitude.html}
   (último acceso,  Agosto, 2024).
 
-\bibitem[{CSIRO(astrophysics{\natexlab{c}})}]{variables3}
-{\sc CSIRO, A. T. N.~F.} (astrophysics).
-\newblock Entrada: ``{Variable Stars}''.
+\bibitem[{CSIRO(2014{\natexlab{c}})}]{variables3}
+{\sc CSIRO, A. T. N.~F.}
+\newblock {Variable Stars}.
+\newblock 2014{\natexlab{c}}.
 \newblock Disponible en
   \url{https://web.archive.org/web/20240208142835/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_types.html}
   (último acceso,  Agosto, 2024).
 
-\bibitem[{Encyclopedia~Britannica(science{\natexlab{a}})}]{novas}
-{\sc Encyclopedia~Britannica, T. E.~o.} (science).
-\newblock Entrada: ``{blue straggler star | Astronomy}''.
+\bibitem[{Encyclopedia~Britannica(2018{\natexlab{a}})}]{novas}
+{\sc Encyclopedia~Britannica, T. E.~o.}
+\newblock {blue straggler star | Astronomy}.
+\newblock 2018{\natexlab{a}}.
 \newblock Disponible en
   \url{https://www.britannica.com/science/Cepheid-variable} (último acceso,
   Agosto, 2024).
 
-\bibitem[{Encyclopedia~Britannica(science{\natexlab{b}})}]{cefeidas}
-{\sc Encyclopedia~Britannica, T. E.~o.} (science).
-\newblock Entrada: ``{Cepheid Variable | Astronomy}''.
+\bibitem[{Encyclopedia~Britannica(2018{\natexlab{b}})}]{cefeidas}
+{\sc Encyclopedia~Britannica, T. E.~o.}
+\newblock {Cepheid Variable | Astronomy}.
+\newblock 2018{\natexlab{b}}.
 \newblock Disponible en
   \url{https://www.britannica.com/science/Cepheid-variable} (último acceso,
   Agosto, 2024).
 
-\bibitem[{ESA y Technology(GAIA)}]{variables2}
-{\sc ESA, S.} y {\sc Technology} (GAIA).
-\newblock Entrada: ``{Stars}''.
+\bibitem[{ESA y Technology(2020)}]{variables2}
+{\sc ESA, S.} y {\sc Technology}.
+\newblock {Stars}.
+\newblock 2020.
 \newblock Disponible en \url{https://sci.esa.int/web/gaia/-/40576-stars}
   (último acceso,  Agosto, 2024).
 
@@ -172,32 +210,70 @@
 \newblock Image subtraction in fourier space.
 \newblock {\em The Astrophysical Journal\/}, vol. 936(2), p\'agina 157, 2022.
 
+\bibitem[{{Jurcsik}(1995)}]{jurcsik_1995}
+{\sc {Jurcsik}, J.}
+\newblock {Revision of the [Fe/H] Scales Used for Globular Clusters and RR
+  Lyrae Variables}.
+\newblock {\em \actaa\/}, vol.\ 45, p\'aginas 653--660, 1995.
+
+\bibitem[{{Jurcsik} y {Kovacs}(1996)}]{jurcsik_kovacs_1996}
+{\sc {Jurcsik}, J.} y {\sc {Kovacs}, G.}
+\newblock {Determination of [Fe/H] from the light curves of RR Lyrae stars.}
+\newblock {\em \aap\/}, vol. 312, p\'aginas 111--120, 1996.
+
+\bibitem[{{Jurcsik} et\ al.(2009){Jurcsik}, {S{\'o}dor}, {Szeidl}, {Hurta},
+  {V{\'a}radi}, {Posztob{\'a}nyi}, {Vida}, {Hajdu}, {K{\H{o}}v{\'a}ri}, {Nagy},
+  {Moln{\'a}r} y {Belucz}}]{jurcsik_sodor_2009_blazhko}
+{\sc {Jurcsik}, J.}, {\sc {S{\'o}dor}, {\'A}.}, {\sc {Szeidl}, B.}, {\sc
+  {Hurta}, Z.}, {\sc {V{\'a}radi}, M.}, {\sc {Posztob{\'a}nyi}, K.}, {\sc
+  {Vida}, K.}, {\sc {Hajdu}, G.}, {\sc {K{\H{o}}v{\'a}ri}, Z.}, {\sc {Nagy},
+  I.}, {\sc {Moln{\'a}r}, L.} y {\sc {Belucz}, B.}
+\newblock {The Konkoly Blazhko Survey: is light-curve modulation a common
+  property of RRab stars?}
+\newblock {\em \mnras\/}, vol. 400(2), p\'aginas 1006--1018, 2009.
+
 \bibitem[{Kochanski et\ al.(1996)Kochanski, Tyson y Fischer}]{Kochanski_1996}
 {\sc Kochanski, G.~P.}, {\sc Tyson, J.~A.} y {\sc Fischer, P.}
 \newblock Flickering faint galaxies: Few and far between.
 \newblock {\em The Astronomical Journal\/}, vol. 111(4), p\'aginas 1444--1454,
   1996.
 
-\bibitem[{Las~Cumbres(Magnitudes and Measuring Distance)}]{variables4}
-{\sc Las~Cumbres, O.} (Magnitudes and Measuring Distance).
-\newblock Entrada: ``{Apparent magnitude}''.
+\bibitem[{{KovÃ¡cs, G.} y {Walker, A. R.}(2001)}]{kovacs_walker_2001}
+{\sc {KovÃ¡cs, G.}} y {\sc {Walker, A. R.}}
+\newblock Empirical relations for cluster rr lyrae stars revisited.
+\newblock {\em A\&A\/}, vol. 371(2), p\'aginas 579--591, 2001.
+
+\bibitem[{Las~Cumbres(2020{\natexlab{a}})}]{variables4}
+{\sc Las~Cumbres, O.}
+\newblock {Apparent magnitude}.
+\newblock 2020{\natexlab{a}}.
 \newblock Disponible en
   \url{https://lco.global/spacebook/distance/what-apparent-magnitude/} (último
   acceso,  Agosto, 2024).
 
-\bibitem[{Las~Cumbres(Introduction to Photometry)}]{ccd-cumbres-photo}
-{\sc Las~Cumbres, O.} (Introduction to Photometry).
-\newblock Entrada: ``{Photometry and CCDs}''.
+\bibitem[{Las~Cumbres(2020{\natexlab{b}})}]{ccd-cumbres-photo}
+{\sc Las~Cumbres, O.}
+\newblock {Photometry and CCDs}.
+\newblock 2020{\natexlab{b}}.
 \newblock Disponible en
   \url{https://lco.global/spacebook/telescopes/what-is-photometry/} (último
   acceso,  septiembre, 2024).
 
-\bibitem[{Mutlaq(KDE Documentation)}]{ccd-luminosidad}
-{\sc Mutlaq, J.} (KDE Documentation).
-\newblock Entrada: ``{Luminosidad}''.
+\bibitem[{Mutlaq(2024)}]{ccd-luminosidad}
+{\sc Mutlaq, J.}
+\newblock {Luminosidad}.
+\newblock 2024.
 \newblock Disponible en
   \url{https://docs.kde.org/trunk5/es/kstars/kstars/ai-luminosity.html} (último
   acceso,  Septiembre, 2024).
+
+\bibitem[{{Pandas Development Team}(2024)}]{PandasRolling}
+{\sc {Pandas Development Team}}.
+\newblock pandas.dataframe.rolling --- pandas 2.2.2 documentation.
+\newblock
+  \url{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rolling.html},
+  2024.
+\newblock Accessed: 2025-6-8.
 
 \bibitem[{Phillips y Davis(1995)}]{Phillips_1995}
 {\sc Phillips, A.~C.} y {\sc Davis, L.~E.}
@@ -207,15 +283,26 @@
   Astronomical Society of the Pacific Conference Series\/}, p\'agina 297.
   Astronomical Society of the Pacific, 1995.
 
-\bibitem[{Suárez~Tejera(2024)}]{eclipses}
-{\sc Suárez~Tejera, M.}
+\bibitem[{{Simon} y {Clement}(1993)}]{simon_clement_1993}
+{\sc {Simon}, N.~R.} y {\sc {Clement}, C.~M.}
+\newblock {A Provisional RR Lyrae Distance Scale}.
+\newblock {\em \apj\/}, vol. 410, p\'agina 526, 1993.
+
+\bibitem[{Smolec(2005)}]{smolec2005_metal_dep_blazhko}
+{\sc Smolec, R.}
+\newblock Metallicity dependence of the blazhko effect.
+\newblock 2005.
+
+\bibitem[{SuÃ¡rez~Tejera(2024)}]{eclipses}
+{\sc SuÃ¡rez~Tejera, M.}
 \newblock {Variables de Tipo Eclipsante}.
 \newblock \url{https://www.uv.es/~regalado/eclips3.htm}, 2024.
-\newblock Último acceso: agosto de 2024.
+\newblock Ãšltimo acceso: agosto de 2024.
 
-\bibitem[{Teach~Astronomy(The Milky Way)}]{supernovas}
-{\sc Teach~Astronomy, T. E.~o.} (The Milky Way).
-\newblock Entrada: ``{Nova and Supernova}''.
+\bibitem[{Teach~Astronomy(2020)}]{supernovas}
+{\sc Teach~Astronomy, T. E.~o.}
+\newblock {Nova and Supernova}.
+\newblock 2020.
 \newblock Disponible en
   \url{https://www.teachastronomy.com/textbook/The-Milky-Way/Nova-and-Supernova/}
   (último acceso,  Agosto, 2024).
@@ -246,6 +333,12 @@
   345(3), p\'aginas 960--980, 2003.
 \newblock ISSN 0035-8711.
 
+\bibitem[{{van Albada} y {Baker}(1971)}]{albada_baker_1971}
+{\sc {van Albada}, T.~S.} y {\sc {Baker}, N.}
+\newblock {On the Masses, Luminosities, and Compositions of Horizontal-Branch
+  Stars}.
+\newblock {\em \apj\/}, vol. 169, p\'agina 311, 1971.
+
 \bibitem[{Wiley y Sons(2015)}]{pulStars}
 {\sc Wiley, J.} y {\sc Sons, L.}
 \newblock {\em Historical Overview\/}, cap\'{\i}tulo\ 1, p\'aginas 1--10.
@@ -273,5 +366,12 @@
 \newblock Proper image subtractionâ€”optimal transient detection, photometry,
   and hypothesis testing.
 \newblock {\em The Astrophysical Journal\/}, vol. 830(1), p\'agina\ 27, 2016.
+
+\bibitem[{{Zinn} y {West}(1984)}]{zinn_west_1984}
+{\sc {Zinn}, R.} y {\sc {West}, M.~J.}
+\newblock {The globular cluster system of the Galaxy. III. Measurements of
+  radial velocity and metallicity for 60 clusters and a compilation of
+  metallicities for 121 clusters.}
+\newblock {\em \apjs\/}, vol.\ 55, p\'aginas 45--66, 1984.
 
 \end{thebibliography}

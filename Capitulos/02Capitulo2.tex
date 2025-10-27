@@ -20,11 +20,10 @@
 %...
 %\end{resumen}
 
-
 %-------------------------------------------------------------------
 \section{Una introducción a las estrellas variables}
 %-------------------------------------------------------------------
-\label{cap2:sec:introduccion}
+%\label{cap2:sec:introduccion}
 
 La unidad de análisis en esta investigación son las estrellas variables. 
 Para dotar de sentido a posteriores desarrollos y al texto en su conjunto, 
@@ -75,7 +74,7 @@ y la naturaleza de la variabilidad.
 %-------------------------------------------------------------------
 \section{Magnitud estelar}
 %-------------------------------------------------------------------
-\label{cap2:sec:magnitud}
+%\label{cap2:sec:magnitud}
 
 %Entre las tantas propiedades que se pueden medir de las estrellas se encuentra el brillo que recibimos de ellas, 
 %y para cuantificar dicha cantidad se utiliza la escala de magnitudes estelares.
@@ -88,8 +87,8 @@ que él podía ver \citep{variables4}. A las estrellas más brillantes que eran vis
 una magnitud de 1, mientras que a las menos visibles un valor de 6, sin incluir el sol, la luna o los planetas en su sistema. 
 
 
-La escala de magnitudes usadas hoy en dia no difiere mucho de la establecida por Hiparco, aunque ha sido expandida y recalibrada 
-ligeramente  después de la invención del telescopio, conservandose el hecho de que mientras más brillante sea el objeto, menor
+La escala de magnitudes usadas hoy en día no difiere mucho de la establecida por Hiparco, aunque ha sido expandida y recalibrada 
+ligeramente  después de la invención del telescopio, conservándose el hecho de que mientras más brillante sea el objeto, menor
 su valor en magnitud, llegando a incluir el 0, números negativos y valores más altos que 6. 
 
 
@@ -175,8 +174,15 @@ El segundo grupo, conocido como variables \textbf{extrínsecas}, incluye a las es
 Aquí, la variabilidad se debe a elementos fuera de la estrella misma. Las estrellas binarias eclipsantes son el ejemplo más 
 común de este grupo, conformando un sistema de dos estrellas cercanas que presentan interacciones, resultando en eclipses regulares.
 
-\figura{Variables/classification_of_variable_stars_2.png}{width=.9\textwidth}{fig:varclass}%
-{Clasificación de las estrellas variables.}
+%\figura{Variables/classification_of_variable_stars_2.png}{width=.9\textwidth}{fig:varclass}%
+%{Clasificación de las estrellas variables.}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Variables/classification_of_variable_stars_2.png}
+  \caption{Clasificación de las estrellas variables.}
+  \label{fig:clasif_starvar}
+\end{figure}
 
 Cabe mencionar que por características externas excluimos las relacionadas con efectos atmosféricos de la Tierra, 
 los cuales pueden ser confundidos por una aparente variabilidad propia al objeto observado o a sus vecindades cercanas. 
@@ -234,7 +240,7 @@ magnitudes galácticas y extragalácticas.
 
 A principios del siglo 16, las estrellas aún eran consideradas como objetivo fijos e incambiantes tanto en 
 posición como en brillo, hasta que en 1662 Johannes Hevelius (1611-1687) llevó a cabo un estudio detallado 
-de omicron (o) Ceti, una estrella anteriormente observada primero en 1596 por David Fabricius (1564-1617) 
+de Omicron (o) Ceti, una estrella anteriormente observada primero en 1596 por David Fabricius (1564-1617) 
 y después llamando la atención de otros astrónomos mientras se desvanecía en las oscuridad del cielo, 
 solo para después de casi un año reaparecer y así repitiendo el ciclo.  Hevelius nombró a esta estrella 
 Mira, nombre que conserva hasta la fecha. Mira entonces se convirtió en la primera estrella variable 
@@ -250,22 +256,24 @@ de que en algún momento Mira u otras estrellas del arquetipo habían sido descubi
 del tiempo de Fabricius, aunque sin el rigor suficiente en su documentación. 
 
 
+%\usepackage{subfig} % <-- Asegúrate de tenerlo en el preámbulo
+%\usepackage{hyperref} % <-- para el enlace en el caption
+
 \begin{figure}[t]
   \centering
-  %
+  % Subfiguras lado a lado
+  \subfloat[Máximo de Mira]{%
+    \includegraphics[width=0.42\textwidth]{img/Variables/mira_a.png}%
+    \label{cap2:fig:PropiedadesPDF}%
+  }
+  \qquad
+  \subfloat[Mínimo de Mira]{%
+    \includegraphics[width=0.42\textwidth]{img/Variables/mira_b.png}%
+    \label{cap2:fig:TocPDF}%
+  }
 
-  \subfloat[][Máximo de Mira]{
-    \includegraphics[width=0.42\textwidth]%
-                {Imagenes/Variables/mira_a}
-      \label{cap2:fig:PropiedadesPDF}
-    }
-    \qquad
-    \subfloat[][Mínimo de Mira]{
-      \includegraphics[width=0.42\textwidth]%
-                {Imagenes/Variables/mira_b}
-    \label{cap2:fig:TocPDF}
-    }
-  \caption{Mira en su máximo (a) y su mínimo (b). via \href{URhttps://www.allthesky.comL}{AlltheSky.com}}
+  \caption{Mira en su máximo (a) y su mínimo (b). Fuente: \href{https://www.allthesky.com}{AlltheSky.com}}
+  \label{fig:mira_max_min}
 \end{figure}
 
 
@@ -288,8 +296,16 @@ la magnitud absoluta de una cefeida puede ser estimada a través de su periodo. U
 estos parámetros, la distancia a la estrella se calcula comparando la magnitud aparente 
 y absoluta \citep{cefeidas}.
 
-\figura{Variables/per-lum-ceph}{width=.9\textwidth}{fig:per-lum;}%
-{ \href{https://web.archive.org/web/20241203090838/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_cepheids.html}{Relación Periodo-Luminosidad para Cefeidas}}
+%\figura{Variables/per-lum-ceph}{width=.9\textwidth}{fig:per-lum;}%
+%{ %\href{https://web.archive.org/web/20241203090838/https://www.atnf.csiro.au/outreach/educat%ion/senior/astrophysics/variable_cepheids.html}{Relación Periodo-Luminosidad para %Cefeidas}}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Variables/per-lum-ceph}
+  \caption{\href{https://web.archive.org/web/20241203090838/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_cepheids.html}{Relación Periodo-Luminosidad para Cefeidas)}}
+  \label{fig:p_l_cefeidas}
+\end{figure}
 
 %-------------------------------------------------------------------
 \paragraph{RR Lyrae}
@@ -302,70 +318,77 @@ su relación periodo-luminosidad, descubierta aquí por la astrónoma escocesa Will
 El compartir la relación periodo-luminosidad las hace igual de útiles para el cálculo de 
 distancias, principalmente a cúmulos globulares, que es donde se suelen encontrar.
 
-\figura{Variables/per-lum-rrlyrae}{width=.9\textwidth}{fig:per-lum;}%
-{ \href{https://web.archive.org/web/20241203090838/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_cepheids.html}{Relación Periodo-Luminosidad}}
+%\figura{Variables/per-lum-rrlyrae}{width=.9\textwidth}{fig:per-lum;}%
+%{ \href{https://web.archive.org/web/20241203090838/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_cepheids.html}{Relación Periodo-Luminosidad}}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Variables/per-lum-rrlyrae}
+  \caption{\href{https://web.archive.org/web/20241203090838/https://www.atnf.csiro.au/outreach/education/senior/astrophysics/variable_cepheids.html}{Relación Periodo-Luminosidad}}
+  \label{fig:period_lum_rel}
+\end{figure}
 
 Las estrellas RR Lyrae son estrellas viejas, de baja masa y pulsaciones radiales 
-cuyo periodo puede estar en el rango de 0.2 a 1 dia. Las RRlyrae son excelentes 
-indicadores de propiedades quimicas y dinamicas de las poblaciones mas viejas de 
-estrellas, dandonos perspectivas muy valiosas sobre la historia temprana de las 
-galaxias. Estas estrellas son catalogadas de acuerdo a su modo de pulsacion: 
+cuyo periodo puede estar en el rango de 0.2 a 1 día. Las RRlyrae son excelentes 
+indicadores de propiedades químicas y dinámicas de las poblaciones mas viejas de 
+estrellas, dándonos perspectivas muy valiosas sobre la historia temprana de las 
+galaxias. Estas estrellas son catalogadas de acuerdo a su modo de pulsación: 
 
 \subparagraph{Fundamental-mode pulsators (RRab stars)}
-Tambien conocidas como RRab y RR0. 
-En un principio divididas en dos categorias distintas a y b por Solon Bailey en 1902 
-basado en la amplitud y simetria de las curvas de luz. Posteriormente se unieron al 
+También conocidas como RRab y RR0. 
+En un principio divididas en dos categorías distintas a y b por Solon Bailey en 1902 
+basado en la amplitud y simetría de las curvas de luz. Posteriormente se unieron al 
 notar que tanto RRa y RRb pulsan en el mismo modo fundamental, dando lugar al tipo 
-RRab. Sus periodos de pulsacion en el modo fundamental van de 0.3 a 1 dias, con la 
-mayoria de estrellas presentando periodo mayor a 0.45. La distribucion de periodos 
-presenta una correlacion con la metalicidad de las estrellas RRlyrae, donde las 
-variables con mayores periodos de pulsacion son mas pobres en metales. 
+RRab. Sus periodos de pulsación en el modo fundamental van de 0.3 a 1 días, con la 
+mayoría de estrellas presentando periodo mayor a 0.45. La distribución de periodos 
+presenta una correlación con la metalicidad de las estrellas RRlyrae, donde las 
+variables con mayores periodos de pulsación son mas pobres en metales. 
 
-Sus curvas de luz tienen forma asimetrica, presentando un crecimiento empinado hasta 
-alcanzar el maximo, seguido por una disminucion lenta en su brillo para repetir 
-el ciclo. Es comun la aparicion de irregularidades en las curvas de luz en forma 
-de peque;os aumentos de brillo, siendo el comportamiento detallado de la morfologia 
-de la curva dependiente de la composicion quimica de la estrella.
+Sus curvas de luz tienen forma asimétrica, presentando un crecimiento empinado hasta 
+alcanzar el máximo, seguido por una disminución lenta en su brillo para repetir 
+el ciclo. Es común la aparición de irregularidades en las curvas de luz en forma 
+de peque;os aumentos de brillo, siendo el comportamiento detallado de la morfología 
+de la curva dependiente de la composición química de la estrella.
 
-donde la morfologia especifica de la surva depende directamente de la composicion quimica 
-de la estrella. Este hecho es utilizado en la medicion de metalicidad en trabajos como 
-los de Jurcsik & Kovacs 1996 (https://ui.adsabs.harvard.edu/abs/1996A%26A...312..111J/abstract) 
-para cirvas en el filtro V y Smolec 2005 (https://acta.astrouw.edu.pl/Vol55/n1/pap_55_1_3.pdf) 
+donde la morfología especifica de la curva depende directamente de la composición química 
+de la estrella. Este hecho es utilizado en la medición de metalicidad en trabajos como 
+los de \citet{jurcsik_kovacs_1996}
+para curvas en el filtro V y \citet{smolec2005_metal_dep_blazhko}
 para el filtro I.
 
-Ademas, la aplitud de la variacion fotometrica esta estrechamente relacionada con los periodos, 
+Ademas, la amplitud de la variación fotométrica esta estrechamente relacionada con los periodos, 
 de forma que mientras mas corto sea el periodo de la RRab, usualmente presentan largas amplitudes, 
 de hasta 1.5 magnitudes en V y 1 en I. A su vez, las amplitudes se reducen para RRab con periodos 
 cortos. 
 
-\subparagraph{A Century-old mystery: the Blazhko effect}
+\subparagraph{Efecto Blazhko}
 Es importante mencionar que aproximadamente un 50\% de estrellas RRab 
-(https://ui.adsabs.harvard.edu/abs/2009MNRAS.400.1006J/abstract) 
+\citep{jurcsik_sodor_2009_blazhko}
 presentan variaciones de fase y amplitudes en periodos muy largos de tiempo. 
 Esto es conocido como efecto Blazhko, identificado por Sergey Blazhko en 1907 y 
 cuyo origen hasta la fecha permanece como un misterio. Estas variaciones pueden 
-ser periodicas (de dias a a;os), multiperiodicas o incluso irregulares. 
+ser periódicas (de días a años), multiperiódicas o incluso irregulares. 
 
-\subparagraph{First-overtone pulsators (RRc stars)}
-Tambien conocidas como RRc = RR1, las RRc presentan periodos en el rango de 0.2 dias 
-hasta poco mas de 0,5 dias. Este tipo de estrellas carecen de la asimetria que caracteriza a 
+\subparagraph{First-overtone pulsators}
+También conocidas como RRc o RR1, presentan periodos en el rango de 0.2 días 
+hasta poco mas de 0,5 días. Este tipo de estrellas carecen de la asimetría que caracteriza a 
 las RRab, presentando un comportamiento casi sinusoidal en algunas ocasiones y amplitudes 
-menores. Es comun que este tipo de curvas presente una peque;a irregularidad cercana al 
-punto de brillo maximo. 
-En RRc con periodos mayores a 0.35 dias, es comun un ligero cambio en el periodo de pulsacion 
-a traves del tiempo, lo que lleva a curvas de luz en fase mas dispersas.
-Estas variables tambien presentan el efecto blazhko, pero en mucho menor medida que las RRab, 
+menores. Es común que este tipo de curvas presente una peque;a irregularidad cercana al 
+punto de brillo máximo. 
+En RRc con periodos mayores a 0.35 días, es común un ligero cambio en el periodo de pulsación 
+a través del tiempo, lo que lleva a curvas de luz en fase mas dispersas.
+Estas variables también presentan el efecto Blazhko, pero en mucho menor medida que las RRab, 
 representando alrededor del 10\% de las RRc.
 
 
-\subparagraph{Double-mode pulsators (RRd stars)}
-Tambien conocidas como RRd y RR01, son variables con el modo fundamental y el first-overtone. 
-El metodo estandar de clasificacion es mediante un prewhitening basado en la sustraccion del pico maximo en la spectral window. 
+\subparagraph{Double-mode pulsators}
+También conocidas como RRd o RR01, son variables con el modo fundamental y el \textit{first-overtone}. 
+El método estándar de clasificación es mediante un \textit{prewhitening} basado en la sustracción del pico máximo en la \textit{spectral window}. 
 
 
-Las variables RRd presentan dos modos de pulsacion simultaneos correspondientes al 
-fundamental y al overtone (armonico?). Su presencia relativa al numero de estrellas 
-RR lyrae depende en gran medida de la metalicidad del cumulo en el que se encuentran 
+Las variables RRd presentan dos modos de pulsación simultáneos correspondientes al 
+fundamental y al \textit{overtone}. Su presencia relativa al numero de estrellas 
+RR lyrae depende en gran medida de la metalicidad del cúmulo en el que se encuentran 
 del entorno estelar en el que se encuentran. De forma que en  
 
 %-------------------------------------------------------------------
@@ -396,7 +419,7 @@ explosión nuclear en la superficie de la estrella que lo está recibiendo \citep{
 %-------------------------------------------------------------------
 
 Las supernovas son más brillantes que las Novas y se dividen en dos tipos dependiendo del origen de 
-la explosion. En ambos casos, una supernova marca la violenta muerte de una estrella y liberando, 
+la explosión. En ambos casos, una supernova marca la violenta muerte de una estrella y liberando, 
 por un breve periodo de tiempo, tanta energía como toda la Vía Láctea.
 
 \subparagraph{Tipo 1} % ----------------------------------------------
@@ -409,7 +432,7 @@ de masa en forma de una explosión titánica.
 \subparagraph{Tipo 2} % ----------------------------------------------
 Son aquellas fruto de la muerte de una estrella masiva, cuando el núcleo central se ha convertido en 
 nada más que hierro, incapaz de sostener a la estrella frente al colapso, el material sobre el 
-núcleo entonces colapsa y choca con el denso núcleo de hierro, resultando en una gigante explosion 
+núcleo entonces colapsa y choca con el denso núcleo de hierro, resultando en una gigante explosión 
 debido al impacto y al calor \citep{supernovas}.
 
 
@@ -436,8 +459,15 @@ y es en el momento del eclipse en el que detectamos un descenso en el brillo. Se
 descensos en el brillo, cada uno de magnitud diferente dependiendo de cual estrella está eclipsando 
 a la otra, estos dos mínimos son fácilmente identificables al graficar las curvas de luz correspondientes.
 
-\figura{Variables/eclipsantes}{width=.9\textwidth}{fig:eclipsantes;}%
-{ \href{https://lco.global/spacebook/stars/variable-stars/}{Sistema binario y su cambio en luminosidad a través del tiempo}}
+%\figura{Variables/eclipsantes}{width=.9\textwidth}{fig:eclipsantes;}%
+%{ \href{https://lco.global/spacebook/stars/variable-stars/}{Sistema binario y su cambio en luminosidad a través del tiempo}}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Variables/eclipsantes}
+  \caption{\href{https://lco.global/spacebook/stars/variable-stars/}{Sistema binario y su cambio en luminosidad a través del tiempo}}
+  \label{fig:bin_sis}
+\end{figure}
 
 %-------------------------------------------------------------------
 \subsubsection{Rotantes}
@@ -486,7 +516,7 @@ de que la estrella efectivamente pertenece al cúmulo. Este proceso se realiza me
 diversos métodos de análisis.
 \\
 Se comienza por observar el área del cúmulo, seguido de un análisis para determinar 
-la probabilidad de pertenencia (membership) de cada estrella utilizando diversas técnicas, 
+la probabilidad de pertenencia (\textit{membership}) de cada estrella utilizando diversas técnicas, 
 tales como el movimiento propio relativo, la velocidad radial y al análisis astrosísmico. 
 El movimiento propio relativo se refiere al estudio del desplazamiento aparente de las 
 estrellas a través del cielo comparado con el movimiento general del cúmulo. 
@@ -507,7 +537,6 @@ en su catálogo, generalmente de edades más viejas, todas agrupadas en una estruc
 más densa y de forma aproximadamente esférica. Esto convierte a los cúmulos globulares 
 en importantes laboratorios para el estudio de la evolución estelar y la dinámica de 
 sistemas estelares antiguos. 
-
 
 
 

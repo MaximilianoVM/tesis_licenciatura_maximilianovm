@@ -21,9 +21,8 @@
 %\end{resumen}
 
 %-------------------------------------------------------------------
-\section{Luminosidad}
+\section{Luminosidad} 
 %-------------------------------------------------------------------
-\label{cap1:sec:luminosidad}
 
 Una de las unidades de medida más importantes en el estudio de las estrellas y de la astronomía en 
 general es el de la luminosidad, una palabra muy utilizada en este texto, que si bien es un 
@@ -37,12 +36,19 @@ emitida por estas estará estrechamente relacionada con la región del espectro en
 emite, donde una estrella que irradia en el ultravioleta produce una cantidad total de 
 energía significativamente mayor que aquellas que lo hacen en el infrarrojo \citep{ccd-luminosidad}.
 
-\figura{fotoCCD/espectro-electro}{width=.9\textwidth}{fig:varclass}%
-{\href{https://science.nasa.gov/asset/webb/el-espectro-electromagnetico-destacando-los-rangos-de-observacion-de-hubble-webb-y-spitzer/}{El espectro electromagnético (destacando los rangos de observación de Hubble, Webb y Spitzer)}} 
+%\figura{fotoCCD/espectro-electro}{width=.9\textwidth}{fig:varclass}%
+%{\href{https://science.nasa.gov/asset/webb/el-espectro-electromagnetico-destacando-los-%rangos-de-observacion-de-hubble-webb-y-spitzer/}{El espectro electromagnético %(destacando los rangos de observación de Hubble, Webb y Spitzer)}} 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fotoCCD/espectro-electro}
+  \caption{\href{https://science.nasa.gov/asset/webb/el-espectro-electromagnetico-destacando-los-rangos-de-observacion-de-hubble-webb-y-spitzer/}{El espectro electromagnético (destacando los rangos de observación de Hubble, Webb y Spitzer)}}
+  \label{fig:espectro_electromagnético}
+\end{figure}
 
 La luminosidad se define como una medida de la radiación o energía por 
 segundo emitida por un objeto celeste en unidades de potencia ($vatios/s$, $ergios/s$). 
-La relacion entre energia y longitud de onda fue formulada por Einstein, 
+La relación entre energía y longitud de onda fue formulada por Einstein, 
 
 $$ E = h\nu $$
 
@@ -57,16 +63,14 @@ de forma que se evidencia la relación de proporcionalidad inversa entre la longi
 %-------------------------------------------------------------------
 \section{Fotometría CCD}
 %-------------------------------------------------------------------
-\label{cap1:sec:foto-ccd}
-
 En astronomía, fotometría se define como la medición precisa del brillo aparente 
 recibido de los objetos en rangos determinados del espectro electromagnético, cercanos 
 a la banda visible. Para la correcta realización de dicha tarea los astrónomos han 
 utilizado una variedad de dispositivos como lo son el propio ojo humano, placas fotográficas, 
-tubos fotomultiplicadores y más recientemente Dispositivos de Carga Acoplada 
+tubos foto-multiplicadores y más recientemente Dispositivos de Carga Acoplada 
 (CCD por sus siglas en inglés). Este último revolucionó la forma en la que convertimos 
 luz en señales eléctricas, convirtiendo fotones en electrones y dando como resultado 
-imágenes de alta sensibilidad y mayor rango dinámico que métodos anteriores. 
+imágenes de alta sensibilidad y mayor rango dinámico.% que métodos anteriores. 
 
 
 La fotometría CCD nos permite medir el brillo de una estrella representada en la imagen recibida. 
@@ -84,8 +88,15 @@ que nos regresa el perfil de la estrella y la distribución del brillo recibido, 
 un incremento en el brillo de la imagen y en el eje del brillo en la gráfica corresponde 
 al área del CCD que donde más fueron recibidos fotones.
 
-\figura{fotoCCD/plot-profile}{width=.9\textwidth}{fig:varclass}%
-{\href{https://lco.global/spacebook/telescopes/what-is-photometry/}{Perfil del brillo recibido de una estrella.}} 
+%\figura{fotoCCD/plot-profile}{width=.9\textwidth}{fig:varclass}%
+%{\href{https://lco.global/spacebook/telescopes/what-is-photometry/}{Perfil del brillo recibido de una estrella.}} 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{fotoCCD/plot-profile}
+  \caption{\href{https://lco.global/spacebook/telescopes/what-is-photometry/}{Perfil del brillo recibido de una estrella.}}
+  \label{fig:perfil_estrella}
+\end{figure}
 
 %En la nomenclatura de la fotometría, a los círculos en la imagen se les conoce como \textbf{aperturas}. 
 %Estos círculos preferentemente son la representación de una estrella, como un lugar que rodea 
@@ -104,13 +115,13 @@ A este valor se le conoce como offset.
 %-------------------------------------------------------------------
 \subsection{Imágenes de calibración}
 %-------------------------------------------------------------------
-Estas tienen el propósito de incrementar el signal-to-noise ratio. Al consistir los CCD en 
+Estas tienen el propósito de incrementar el \textit{signal-to-noise} ratio. Al consistir los CCD en 
 un gran número de pixeles (aprox 12 millones), resulta imposible aún en el dispositivo más 
 calibrado hacer que cada pixel se comporte de la misma manera. Los frames de calibración 
 nos permiten cuantificar las fuentes de ruido en nuestra imagen provenientes de heterogeneidad 
 en el comportamiento individual de los pixeles para compensarlas a través de simples 
-operaciones matemáticas, pretendiendo que cada pixel reacciona de la misma forma frente 
-a cada fotón que detecta.
+operaciones matemáticas, pretendiendo que cada pixel reaccione de la misma forma frente 
+a cada fotón que detecte.
 
 %-------------------------------------------------------------------
 \subsection{Bias}
@@ -138,7 +149,7 @@ resultados.
 %-------------------------------------------------------------------
 \subsection{Flats}
 %-------------------------------------------------------------------
-Por su parte, los Flats Frames tienen el propósito de caracterizar la forma en la que cada pixel 
+Por su parte, los Flat Frames tienen el propósito de caracterizar la forma en la que cada pixel 
 reacciona ante los fotones que recibe, de forma que al aplicarlos a las imágenes de observación, 
 cada pixel indique el mismo valor ante una misma cantidad de luz recibida. Estos se recolectan 
 apuntando a una fuente uniforme de luz como lo es el ocaso, en sentido contrario al 
@@ -147,7 +158,6 @@ sol ocultándose y con la cúpula cubriendo de él al telescopio.
 %-------------------------------------------------------------------
 \section{Point Spread Function (PSF)}
 %-------------------------------------------------------------------
-\label{cap3:sec:psf}
 
 Definimos la función de dispersión puntual (PSF por sus siglas en inglés) como la respuesta de un sistema de cámara a 
 una fuente puntual (un impulso). 
@@ -164,7 +174,7 @@ $$
 
 Sin embargo, la energía emitida por el objeto observado no llega en su totalidad a nuestro detector. 
 En la práctica, intervienen una variedad de factores y la distribución de luz en el circulo difuminado no va a 
-ser constante. Debido a la difracción, aberracion del lente y 
+ser constante. Debido a la difracción, aberración del lente y 
 sensibilidad de los pixeles CCD, la PSF aparece entonces como una función gaussiana.
 
 $$
@@ -179,16 +189,30 @@ manera mas fiel. La teoría detrás de estas diferencias corresponde al comportami
 de las ondas electromagnéticas y la propagación de la luz, en especifico el 
 análisis de difracción.
 
-\figura{PSF/Convolution_Illustrated_eng.png}{width=.5\textwidth}{fig:Convolution_Illustrated_eng;}%
-{ \href{https://commons.wikimedia.org/wiki/File:Convolution_Illustrated_eng.png}{Efecto de convolucion con PSF. Default007, Public domain, via Wikimedia Commons}} 
+%\figura{PSF/Convolution_Illustrated_eng.png}{width=.5\textwidth}{fig:Convolution_Illustrated_eng;}%
+%{ \href{https://commons.wikimedia.org/wiki/File:Convolution_Illustrated_eng.png}{Efecto de convolucion con PSF. Default007, Public domain, via Wikimedia Commons}} 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{PSF/Convolution_Illustrated_eng.png}
+  \caption{\href{https://commons.wikimedia.org/wiki/File:Convolution_Illustrated_eng.png}{Efecto de convolución con PSF. Default007, Public domain, via Wikimedia Commons}}
+  \label{fig:efecto_convolucion}
+\end{figure}
 
 Para explicarlas se recurre al principio de Huygens-Fresnel, el cual indica que 
 cada punto en un frente de onda puede ser considerado como una propia perturbación 
 secundaria, dando paso a ondas esféricas.
 
 % figura Huygens-Fresnel
-\figura{PSF/Huygens-Fresnel}{width=.9\textwidth}{fig:Huygens-Fresnel;}%
-{Difracción de ondas Huygens y Fresnel} 
+%\figura{PSF/Huygens-Fresnel}{width=.9\textwidth}{fig:Huygens-Fresnel;}%
+%{Difracción de ondas Huygens y Fresnel} 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{PSF/Huygens-Fresnel}
+  \caption{Difracción de ondas Huygens y Fresnel}
+  \label{fig:dif_huygens_fresnel}
+\end{figure}
 
 De esta forma, el frente de onda siguiente corresponde al envolvente de todas las 
 perturbaciones, donde las ondas secundarias también interfieren.
@@ -196,7 +220,7 @@ perturbaciones, donde las ondas secundarias también interfieren.
 En el caso ideal, podemos definir como imagen perfecta aquella que se ve 
 limitada únicamente por la difracción debida al sistema óptico. En este caso, 
 conocemos de forma precisa la PSF, para una apertura circular corresponde el 
-patron de Airy. Así que simplemente se tendría que sustraer la PSF conocida 
+patrón de Airy. Así que simplemente se tendría que sustraer la PSF conocida 
 de la imagen, dejando como resultado el objeto debajo.
 
 A pesar de conocer la teoría sobre el comportamiento de la luz, el problema 
