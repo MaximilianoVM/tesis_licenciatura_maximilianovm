@@ -5,6 +5,7 @@
 %---------------------------------------------------------------------
 
 \chapter{Resultados}
+\label{cap6}
 
 %-------------------------------------------------------------------
 \section{Observaciones y reducción de datos}
@@ -124,10 +125,11 @@ los correspondientes a la lista de fechas, la de imágenes de
 referencia \texttt{ref\_list} y a \texttt{process\_config}. 
 
 Para \texttt{default\_config} y \texttt{phot\_config} dejamos 
-la mayor parte de los parametros como vienen por defecto. 
-Siendo los mas importantes, indicando un Half kernel size 
-de 9 y un Half stamp size de 15, ademas de un degree to 
-fit differential bakground variations de 3 
+la mayor parte de los parametros como vienen por defecto, indicando un 
+
+\textit{Half kernel size} 
+de $9$ y un \textit{Half stamp size} de $15$, ademas de un degree to 
+fit differential bakground variations de $3$. 
 
 
 \begin{verbatim}
@@ -146,6 +148,16 @@ N_REJECT        2
 MESH_SMOOTH     1
 \end{verbatim}
 
+Por medio de tareas en IRAF se calculó el PSF promedio de cada imagen, generando 
+una lista PSF-imagen. Dicha lista se construyó para cada set, ordenando la PSF 
+de menor a mayor y tomando los primeros 10 elementos como la lista \texttt{ref\_list}
+posterior a una visualización en DS9 para comprobar su integridad. 
+
+Al ser la mayor parte de los cambios de parámetros tan puntuales 
+de conjunto en conjunto %una vez determinadas las caracteristicas de nuestro campo
+, dichas modificaciónes fueron autmatizadas en su mayoría 
+por medio de plantillas jinja. Los detalles pueden ser consultados 
+en: \url{https://maximilianovm.github.io/posts/auto_template/}.
 
 %-------------------------------------------------------------------
 \section{Curvas de Luz}
@@ -163,7 +175,8 @@ del archivo \texttt{phot.data} cuya morfología ya fue descrita
 en \autoref{chap: Sustracción de Imágenes}, introduciendo las 
 coordenadas \textit{physical} en las primeras 4 columnas, el 
 nombre de salida en la 5ta columna y valores en las ultimas 
-dos columnas por encima del parametro \texttt{sig\_thresh} en \texttt{process\_config}.
+dos columnas por encima de lo indicado en el 
+parametro \texttt{sig\_thresh} en \texttt{process\_config}.
 
 \begin{figure}[htbp]
   \centering
@@ -176,12 +189,6 @@ dos columnas por encima del parametro \texttt{sig\_thresh} en \texttt{process\_c
 En contraste a las curvas generadas por ISIS, se construyeron 
 curvas de luz con fotometría de apertura mediante tareas de IRAF. 
 Ambas sobre cada estrella del campo. 
-
-Por diversas razones, entre ellas nuestro fallo en los intentos 
-por convertir a magnitudes las curvas de luz en flujo relativo 
-generadas por ISIS siguiendo los pasos de \citet{Baldacci_2005}, 
-el análisis de Fourier unicamente fue realizado sobre las curvas 
-de luz construidas con IRAF \Cref{fig:mosai_fin_armando}. 
 
 \begin{figure}[htbp]
   \centering
@@ -197,12 +204,13 @@ fueron integradas por medio de una normalización del flujo relativo,
 formando una única curva de luz a lo largo de todas las observaciones. 
 
 \subsection{Suavizado de curvas}
+%-------------------------------------------------------------------
 
 Para lidiar con el ruido que presentan las curvas de luz en forma de outliers, utilizamos la función \texttt{rolling} de Pandas \citep{PandasRolling}
 sobre la mediana de la curva en fase con un \texttt{window=25} y \texttt{center=True}. 
 
 En el caso especial de V4324, se presenta un doble modo, de forma que 
-al usar los parámetros anteriores de \texttt{rolling} interpreta uno de los 
+al usar los parámetros anteriores, \texttt{rolling} interpreta uno de los 
 modos como ruido. Para el suavizado de esta curva se  
 implementó \texttt{rolling} sobre la mediana de la curva (no en fase) con un \texttt{window=15}. 
 
@@ -214,25 +222,152 @@ implementó \texttt{rolling} sobre la mediana de la curva (no en fase) con un \te
 \end{figure}
 
 
+\begin{comment}
+def smooth_lc_xyperiod(lc_data, time, mag, 
+                        period, nsigma, plot=True, save_fig_outp='m')
+
+# Suavizar sobre la curva extendida
+    smooth_ext = lc_ext[mag].rolling(window=25, center=True).median()
+
+================================================================================================
+
+
+def smooth_lc_xytime(lc_data, time, mag, 
+                     period, nsigma, plot=True, save_fig_outp='m'): 
+
+# Suavizado por mediana
+    smooth_flux = lc_sorted[mag].rolling(window=15, center=True).median()
+
+
+
+   year = {2020},
+\end{comment}
+
 
 %-------------------------------------------------------------------
 \section{Parámetros físicos de NGC 6426 (RAW)}
 %-------------------------------------------------------------------
 
+\subsection{Periodos} 
+
+La determinación de periodos para cada estrella variable fue realizada 
+en principio con el algoritmo LombScarge. 
+La rapidez del LombScarge y su facil implementación permitieron su integración 
+en la serie de scripts complementarios que desarrollamos para nuestro flujo 
+de trabajo con ISIS. De esta forma, los resultados de LombScarge son 
+inmediatamente integrados al flujo de manera que el resultado final son 
+las curvas de luz junto con sus gráficas en fase. Evidentemente, al realizarse 
+la fotometría sobre cada estrella del campo identificada como señalamos en CHAPTERXXX, 
+la mayor parte de los resultados graficos no indicaban nada, ya que la determinación 
+del periodo resultaba redundante para estrellas sin variabilidad. Esto sumado a que 
+dicho proceso es realizado en principio sobre cada conjunto de observaciones, ignorando 
+la posible presencia de un periodo evidente en la totalidad de las observaciones.  
+
+Es importante mencionar que ISIS cuenta con su propia tarea para determinación de 
+periodos (CZERNY), la cual también fue implementada en el flujo con resultados 
+muy similares a LombScarge. Sin embargo, la implementación por defecto en nuestro 
+flujo fue la de LombScarge debido a la naturaleza de los scripts escritos 
+en Python y la existencia de LombScarge como tarea de ASTROPY. Ambas tareas 
+detectaron las mismas estrellas variables en cada una de nuestras pruebas iniciales, 
+por lo que confíamos en que la eficiencia del metodo no se vio comprometida por 
+dicha elección. 
+
+
+Un tercer metodo para determinación de periodos fue el empleado como 
+definitivo para nuestras curvas de luz con ISIS, este se realizó utilizando 
+el software Period04. 
+
+
+
+
+\subsection{Análisis de Fourier} 
+
+Por diversas razones, entre ellas nuestro fallo en los intentos 
+por convertir a magnitudes las curvas de luz en flujo relativo 
+generadas por ISIS siguiendo los pasos de \citet{Baldacci_2005}, 
+el análisis de Fourier unicamente fue realizado sobre las curvas 
+de luz construidas con IRAF \Cref{fig:mosai_fin_armando}. 
+
 Los resultados de metalicidad y distancia para las RRab y RRc miembros de NGC 6426, a partir de
 sus curvas en V son:
 
-RRab $$[Fe/H]_{zw}= -1.919+-0.187$$ 
-     $$[Fe/H]_{uves}= -1.960+-0.187$$  
-     $$Distancia = 20.61 +- 1.57 \ kpc$$
-     $$Masa\ promedio=  0.792+-0.039 \ Masas\ solarea$$
-     $$Radio\ promedio= 6.52+- 0.01 \ Radios\ solares$$
-     Basados en 7 estrellas miembro ($V1$, $V4$, $V5$, $V6$, $V7$, $V8$, $V16$)
+\subsubsection{RRab} 
+
+$$ [Fe/H]_{zw}= -1.919+-0.187 $$ 
+$$ [Fe/H]_{uves}= -1.960+-0.187 $$  
+$$ Distancia = 20.61 +- 1.57 \ kpc $$
+$$ Masa\ promedio=  0.792+-0.039 \ Masas\ solares $$
+$$ Radio\ promedio= 6.52+- 0.01 \ Radios\ solares $$
      
-RRc  [Fe/H]zw= -2.037 +- 0.173  [Fe/H]uves=-2.146+- 0.173
-     Distancia = 19.34 +- 0.72 kpc
-      Masa promedio=   0.548 +- 0.007 Masas solares
-      Radio promedio= 4.47 +- 0.01 Radios solares
-      Basados en 3 estrellas miembros (V2, V10 V12)
+Basados en 7 estrellas miembro ($V1$, $V4$, $V5$, $V6$, $V7$, $V8$, $V16$)
      
-LOS VALORES CANÓNICOS DADOS POR HARRIS (1996) son [Fe/H]= -2.15 y Distancias= 20.6 Kpc O sea que concordamos bien.
+\subsubsection{RRc}  
+$$ [Fe/H]_{zw}= -2.037 +- 0.173  $$
+$$ [Fe/H]_{uves}= -2.146+- 0.173 $$
+$$ Distancia = 19.34 +- 0.72 \ kpc $$
+$$ Masa\ promedio=   0.548 +- 0.007 \ Masas\ solares $$
+$$ Radio\ promedio= 4.47 +- 0.01 \ Radios\ solares $$
+
+Basados en 3 estrellas miembros ($V2$, $V10$ $V12$)
+     
+Los valores canonicos dados por \citet{harris_gc_catalog_1996} %https://physics.mcmaster.ca/~harris/mwgc.dat
+son $[Fe/H]= -2.15$ y Distancia = $20.6 \ Kpc$, indicando que concordamos bien.
+
+
+\begin{comment}
+\begin{verbatim}
+          CATALOG OF PARAMETERS FOR MILKY WAY GLOBULAR CLUSTERS:
+                           THE DATABASE
+
+            Compiled by William E. Harris, McMaster University
+                   This revision:  December 2010
+___________________________________________________________________________
+
+
+            Part I:  Identifications and Positional Data
+
+Key to columns:
+(1) Cluster identification number
+(2) Other commonly used cluster name
+(3,4) Right ascension and declination (epoch J2000)
+(5,6) Galactic longitude and latitude (degrees)
+(7) Distance from Sun (kiloparsecs)
+(8) Distance from Galactic center (kpc), assuming R_0=8.0 kpc
+(9-11) Galactic distance components X,Y,Z in kiloparsecs, in a
+    Sun-centered coordinate system; X points toward Galactic center, 
+    Y in direction of Galactic rotation, Z toward North Galactic Pole
+
+
+   ID           RA   (2000)   DEC    ...     R_Sun  R_gc ...
+
+
+ NGC 6426    17 44 54.65  +03 10 12.5  ...  20.6  14.4 ...
+
+
+
+_________________________________________________________________________________________________
+
+
+                    Part II:  Metallicity and Photometry
+
+Key to columns:
+(1) Cluster identification
+(2) Metallicity [Fe/H]
+(3) Weight of mean metallicity; essentially the number of independent [Fe/H]
+	measurements averaged together.  See bibliography for full description
+(4) Foreground reddening
+(5) V magnitude level of the horizontal branch (or RR Lyraes)
+(6) Apparent visual distance modulus
+(7) Integrated V magnitude of the cluster
+(8) Absolute visual magnitude (cluster luminosity),  M_V,t = V_t - (m-M)V
+(9-12) Integrated color indices (uncorrected for reddening)
+(13) Spectral type of the integrated cluster light
+(14) Projected ellipticity of isophotes, e = 1-(b/a)
+
+   ID       [Fe/H] wt  E(B-V) V_HB (m-M)V V_t   M_V,t   U-B   B-V   V-R   V-I  spt   ellip
+
+
+ NGC 6426    -2.15  3   0.36 18.16 17.68 11.01  -6.67   0.35  1.02        1.28  G1    0.15
+
+\end{verbatim}
+\end{comment}

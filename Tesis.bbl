@@ -1,5 +1,11 @@
-\begin{thebibliography}{44}
+\begin{thebibliography}{46}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Alard(2000)}]{alard-old-registration}
+{\sc Alard, C.}
+\newblock Image registration.
+\newblock \url{https://www.iap.fr/useriap/alard/package.html}, 2000.
+\newblock Accessed: 03 March 2025.
 
 \bibitem[{Alard y Lupton(1998)}]{Alard_1998}
 {\sc Alard, C.} y {\sc Lupton, R.~H.}
@@ -204,6 +210,11 @@
   pipeline (strip).
 \newblock {\em Research in Astronomy and Astrophysics\/}, vol.\ 25(4), p\'agina
   044007, 2025.
+
+\bibitem[{{Harris}(1996)}]{harris_gc_catalog_1996}
+{\sc {Harris}, W.~E.}
+\newblock {A Catalog of Parameters for Globular Clusters in the Milky Way}.
+\newblock {\em \aj\/}, vol. 112, p\'agina 1487, 1996.
 
 \bibitem[{Hu et\ al.(2022)Hu, Wang, Chen y Yang}]{Hu_2022}
 {\sc Hu, L.}, {\sc Wang, L.}, {\sc Chen, X.} y {\sc Yang, J.}

@@ -7,6 +7,7 @@
 \chapter{Sustracción de Imágenes}
 \label{cap3}
 
+\begin{comment}
 \begin{FraseCelebre}
 \begin{Frase}
 %  weon \\
@@ -19,6 +20,8 @@
 %\begin{resumen}
 %...
 %\end{resumen}
+
+\end{comment}
 
 %-------------------------------------------------------------------
 \section{Introducción}
@@ -122,17 +125,23 @@ astrométrica adapta las imágenes registradas a este sistema, garantizando
 que los píxeles de cada imagen correspondan a las mismas posiciones en el cielo.
 
 Es común que el conjunto de imágenes de observación de un campo pueda presentar 
-variaciones espaciales correspondientes al centrado, orientación y escala de las imágenes. \citep{Alard_1998}.  
+variaciones espaciales correspondientes al centrado, orientación y escala de las imágenes \citep{Alard_1998}.  
 Entre las distintas fuentes de inconsistencia de las imágenes tomadas en 
 un observatorio, podemos mencionar fallos del guiador, condiciones 
 ambientales y condiciones mecánicas que ocasionan movimientos en el 
 telescopio, observaciones realizadas a lo largo de más de una noche, entre otras.
 
+\subsection{Registro de imágenes}
+%-------------------------------------------------------------------
 Al procedimiento de mapear puntos de una imagen a sus correspondientes 
 puntos en otra imagen se le llama Registro de imágenes. Esta es una 
 transformación espacial que tiene como propósito 
-hacer que el conjunto de observaciones coincidan en sus características 
-más generales, esto es, alinearlas al mismo sistema de referencia de 
+%hacer que el conjunto de observaciones coincidan en %sus características más generales
+%el campo observado y la malla de coordenadas 
+%, esto es, 
+%alinearlas 
+alinear las observaciones 
+al mismo sistema de referencia, de 
 forma que las posiciones de cada estrella coincidan entre cada imagen. 
 De no hacer dicho ajuste, la ausencia y presencia de una determinada 
 estrella en una posición específica entre distintas imágenes puede ser 
@@ -141,19 +150,22 @@ interpretada como variaciones astronómicas.
 Para ejecutar el procedimiento de registro e interpolación, se elige 
 una imagen de referencia, la cual debe contener todos nuestros 
 objetos de interés en las posiciones que consideremos favorables 
-para nuestro propósito. Una observación a tomar en cuenta para beneficio 
+para nuestro propósito. 
+La imagen elegida se indica como \texttt{REFERENCE} en el archivo \texttt{process\_config}.
+Una observación a tomar en cuenta para beneficio 
 de los pasos subsecuentes es procurar que nuestros objetos de especial 
 interés no se encuentren muy próximos a los bordes de la imagen. 
 
 Una vez elegida la imagen de referencia, se debe especificar el 
-grado del polinomio bidimensional \texttt{process\_config/DEGREE} correspondiente 
+grado del polinomio bidimensional %\texttt{process\_config/DEGREE} 
+correspondiente 
 al proceso astrométrico de remapeo. Esto implica el mapeo de cada 
 píxel de la imagen al sistema de referencia, corrigiendo desplazamientos, 
 rotaciones y otras posibles distorsiones ópticas. El polinomio se calcula 
 mediante el ajuste de un modelo a las diferencias entre coordenadas 
 de estrellas o puntos de referencia comunes en ambas imágenes. Un catálogo 
 de dichos objetos es extraído por el programa usando un algoritmo muy 
-rápido (alard-old-registration). 
+rápido \citep{alard-old-registration}. 
 Para registrar todas las imágenes a un marco de referencia, se usa un 
 ajuste polinómico 2D. Las coordenadas de los puntos de referencia en la 
 imagen fuente $(x, y)$ y en la referencia $(x', y')$ se registran mediante 
@@ -165,6 +177,12 @@ $$y' = b_0 + b_1x + b_2y + b_3x^2 + b_4xy + b_5y^2 + ...$$
 
 Esta transformación define puntos en la malla entre los puntos de la 
 malla original. 
+
+El grado del polinomio de transformación astrométrica se define mediante 
+el parámetro \texttt{DEGREE} en el archivo \texttt{process\_config}.
+
+\section{Interpolación}
+%-------------------------------------------------------------------
 
 Las imágenes digitales están compuestas por valores discretos, correspondientes 
 a píxeles. Sin embargo las transformaciones geométricas pueden generar 
@@ -236,8 +254,8 @@ indicando el nombre de la imagen en el parámetro \texttt{REF\_STACK} del archivo
 
 Una vez que las imágenes hayan sido transformadas para coincidir con 
 la mejor de ellas (la indicada en el \texttt{REF\_STACK}), cada píxel 
-a lo largo de todas las imágenes será filtrado mediante 3 sigma 
-rejection alrededor de la mediana. Se utiliza la mediana en lugar de 
+a lo largo de todas las imágenes será filtrado mediante \textit{3 sigma 
+rejection} alrededor de la mediana. Se utiliza la mediana en lugar de 
 la media ya que funciona mejor para filtrar el tipo de ruido común 
 en imágenes astronómicas.
 
